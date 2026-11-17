@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Kuis Interaktif SD - SDS HARAPAN BANGSA KARAWANG</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+
+  <!-- Font Ramah Anak: Fredoka (Display Comic) & Nunito (Body Teks Jelas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #1E293B;
+      --bg-cream: #FFFDF7;
+      --card-bg: #FFFFFF;
+      --primary-blue: #0284C7;
+      --primary-blue-dark: #0369A1;
+      --badge-bg: #E0F2FE;
+      --accent-yellow: #FEF08A;
+      --accent-orange: #F97316;
+      --accent-green: #10B981;
+      --accent-pink: #EC4899;
+      --accent-purple: #8B5CF6;
+      --border-thick: 2.5px solid var(--ink);
+      --shadow-comic: 3.5px 3.5px 0 var(--ink);
+      --shadow-hover: 5px 5px 0 var(--ink);
+      --shadow-active: 1px 1px 0 var(--ink);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --font-display: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+      --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+      background-size: 20px 20px;
+      font-family: var(--font-body);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* SKIP LINK ACCESSIBILITY */
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      background: var(--accent-yellow);
+      color: var(--ink);
+      padding: 10px 16px;
+      border: var(--border-thick);
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      z-index: 9999;
+      transition: top 0.2s ease;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    /* CONTAINER UTAMA */
+    .app-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER & IDENTITAS SEKOLAH */
+    .main-header {
+      background-color: var(--card-bg);
+      border: var(--border-thick);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-comic);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .school-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .school-logo-frame {
+      width: 64px;
+      height: 64px;
+      background: #FFFFFF;
+      border: var(--border-thick);
+      border-radius: 14px;
+      box-shadow: 2px 2px 0 var(--ink);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .school-logo-frame:hover {
+      transform: scale(1.08) rotate(-3deg);
+    }
+    .school-logo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .school-text-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .school-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--primary-blue-dark);
+      background: var(--badge-bg);
+      border: 1.5px solid var(--ink);
+      border-radius: 6px;
+      padding: 2px 10px;
+      width: fit-content;
+      text-transform: uppercase;
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .site-main-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .header-sound-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-yellow);
+      border: var(--border-thick);
+      border-radius: var(--radius-full);
+      box-shadow: 2px 2px 0 var(--ink);
+      padding: 8px 16px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      color: var(--ink);
+      transition: all 0.15s ease;
+    }
+    .header-sound-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 3px 3px 0 var(--ink);
+      background: #FDE047;
+    }
+    .header-sound-btn:active {
+      transform: translateY(1px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    /* HERO BANNER */
+    .hero-banner {
+      background: #F0FDF4;
+      border: var(--border-thick);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-comic);
+      padding: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
+      font-weight: 800;
+      color: #065F46;
+      margin-bottom: 6px;
+    }
+
+    .hero-content p {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 14px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid var(--ink);
+      background: #FFFFFF;
+      box-shadow: 1.5px 1.5px 0 var(--ink);
+    }
+
+    /* FILTER & PENCARIAN */
+    .controls-panel {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-comic);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      min-width: 240px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      width: 20px;
+      height: 20px;
+      color: #64748B;
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 46px;
+      padding: 0 42px 0 44px;
+      border: var(--border-thick);
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: #F8FAFC;
+      box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      outline: none;
+      background: #FFFFFF;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px #BAE6FD;
+    }
+
+    .search-clear-btn {
+      position: absolute;
+      right: 12px;
+      width: 26px;
+      height: 26px;
+      border: none;
+      background: #E2E8F0;
+      color: #475569;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease;
+    }
+    .search-clear-btn:hover {
+      background: #CBD5E1;
+      color: var(--ink);
+    }
+
+    .category-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-tab {
+      background: #F1F5F9;
+      border: var(--border-thick);
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--ink);
+      cursor: pointer;
+      box-shadow: 1.5px 1.5px 0 var(--ink);
+      transition: all 0.15s ease;
+    }
+    .filter-tab:hover {
+      transform: translateY(-1.5px);
+      background: #E2E8F0;
+      box-shadow: 2.5px 2.5px 0 var(--ink);
+    }
+    .filter-tab.active {
+      background: var(--primary-blue);
+      color: #FFFFFF;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .results-count {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #64748B;
+      margin-left: auto;
+    }
+
+    /* GRID KARTU MATA PELAJARAN */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    /* KARTU ITEM */
+    .subject-card {
+      background: var(--card-bg);
+      border: var(--border-thick);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-comic);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+    }
+    .subject-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .subject-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: var(--radius-md);
+      border: var(--border-thick);
+      box-shadow: 2px 2px 0 var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .subject-card:hover .subject-icon-box {
+      transform: scale(1.1) rotate(-4deg);
+    }
+    .subject-icon-box svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .grade-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      border: 1.5px solid var(--ink);
+      border-radius: 6px;
+      padding: 2px 8px;
+      background: #F8FAFC;
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .card-middle {
+      flex: 1;
+      margin-bottom: 18px;
+    }
+
+    .subject-category-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748B;
+      margin-bottom: 4px;
+    }
+
+    .subject-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .subject-desc {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .mascot-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #0369A1;
+      background: #E0F2FE;
+      border: 1px solid #BAE6FD;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-quiz-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border: var(--border-thick);
+      border-radius: var(--radius-full);
+      box-shadow: 2px 2px 0 var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 900;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background-color: var(--accent-yellow);
+    }
+    .btn-quiz-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 3px 3px 0 var(--ink);
+      background-color: #FDE047;
+    }
+    .btn-quiz-action:active {
+      transform: translateY(1px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    /* TEMA WARNA AKSEN MASING-MASING MAPEL */
+    .theme-mandarin { --bg-icon: #FEF08A; }
+    .theme-indonesia { --bg-icon: #BAE6FD; }
+    .theme-inggris { --bg-icon: #E0E7FF; }
+    .theme-ipa { --bg-icon: #BBF7D0; }
+    .theme-ips { --bg-icon: #FED7AA; }
+    .theme-matematika { --bg-icon: #FCE7F3; }
+    .theme-kristen { --bg-icon: #E0F2FE; }
+    .theme-pancasila { --bg-icon: #FEE2E2; }
+    .theme-pjok { --bg-icon: #FFEDD5; }
+    .theme-musik { --bg-icon: #DDD6FE; }
+    .theme-rupa { --bg-icon: #FCE7F3; }
+    .theme-tari { --bg-icon: #FEF3C7; }
+    .theme-teater { --bg-icon: #FEE2E2; }
+    .theme-tik { --bg-icon: #C7D2FE; }
+
+    .subject-icon-box {
+      background-color: var(--bg-icon, #FEF08A);
+    }
+
+    /* EMPTY STATE */
+    .empty-search-state {
+      grid-column: 1 / -1;
+      background: #FFFFFF;
+      border: var(--border-thick);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-comic);
+      padding: 40px 20px;
+      text-align: center;
+      display: none;
+    }
+    .empty-search-state.show {
+      display: block;
+    }
+    .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+    .empty-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .empty-desc {
+      font-size: 0.9rem;
+      color: #64748B;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .btn-reset-search {
+      background: var(--accent-yellow);
+      border: var(--border-thick);
+      border-radius: var(--radius-full);
+      box-shadow: 2px 2px 0 var(--ink);
+      padding: 8px 18px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      margin-top: auto;
+      background: #FFFFFF;
+      border: var(--border-thick);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-comic);
+      padding: 20px 24px;
+      text-align: center;
+    }
+
+    .footer-school-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-school-badge {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #0369A1;
+      background: #E0F2FE;
+      border: 1.5px solid var(--ink);
+      border-radius: 6px;
+      padding: 2px 10px;
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .footer-desc {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .main-header {
+        padding: 16px;
+      }
+      .school-brand {
+        gap: 12px;
+      }
+      .school-logo-frame {
+        width: 52px;
+        height: 52px;
+      }
+      .hero-banner {
+        padding: 18px;
+      }
+      .subjects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .results-count {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SKIP LINK ACCESSIBILITY -->
+  <a href="#subjects-container" class="skip-link">Loncat ke Daftar Mata Pelajaran</a>
+
+  <div class="app-container">
+
+    <!-- HEADER & IDENTITAS SEKOLAH -->
+    <header class="main-header" role="banner">
+      <div class="school-brand">
+        <div class="school-logo-frame">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS HARAPAN BANGSA KARAWANG" width="64" height="64">
+        </div>
+        <div class="school-text-wrap">
+          <div class="school-badge">SDS HARAPAN BANGSA KARAWANG</div>
+          <h1 class="site-main-title">Portal Kuis Interaktif</h1>
+        </div>
+      </div>
+
+      <button id="btn-sound-toggle" class="header-sound-btn" type="button" aria-pressed="true" aria-label="Nyalakan atau matikan efek suara">
+        <span id="sound-icon">🔊</span>
+        <span id="sound-label">Suara: Nyala</span>
+      </button>
+    </header>
+
+    <!-- HERO BANNER INFORMASI -->
+    <section class="hero-banner" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <h2 id="hero-heading">Selamat Datang, Siswa Cerdas! ⭐</h2>
+        <p>Pilih mata pelajaran yang ingin kamu pelajari hari ini. Setiap kuis dirancang ramah anak dengan 10 soal interaktif, suara pembaca soal bahasa Indonesia, dan pembahasan lengkap!</p>
+        <div class="hero-pills">
+          <span class="hero-pill">📚 14 Mata Pelajaran</span>
+          <span class="hero-pill">🎒 Kelas 1 Sampai 6</span>
+          <span class="hero-pill">🎙️ Suara Baca Soal Indonesia</span>
+          <span class="hero-pill">⭐ Nilai & Bintang Juara</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTROL PENCARIAN & KATEGORI -->
+    <section class="controls-panel" aria-label="Pencarian dan Filter Mata Pelajaran">
+      <div class="search-row">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="subject-search" class="search-input" placeholder="Cari nama mata pelajaran (misal: Matematika, IPA, Seni)..." aria-label="Cari mata pelajaran">
+          <button id="search-clear" class="search-clear-btn" type="button" aria-label="Hapus kata kunci pencarian">&times;</button>
+        </div>
+      </div>
+
+      <div class="category-tabs" role="tablist" aria-label="Filter Kategori Mata Pelajaran">
+        <button class="filter-tab active" data-category="all" role="tab" aria-selected="true" type="button">Semua (14)</button>
+        <button class="filter-tab" data-category="bahasa" role="tab" aria-selected="false" type="button">Bahasa (3)</button>
+        <button class="filter-tab" data-category="sains-tek" role="tab" aria-selected="false" type="button">Sains & TIK (3)</button>
+        <button class="filter-tab" data-category="sosial-budi" role="tab" aria-selected="false" type="button">Sosial & Karakter (3)</button>
+        <button class="filter-tab" data-category="seni-pjok" role="tab" aria-selected="false" type="button">Seni & Olahraga (5)</button>
+        <span id="results-count" class="results-count">Menampilkan 14 Pelajaran</span>
+      </div>
+    </section>
+
+    <!-- GRID 14 MATA PELAJARAN -->
+    <main id="subjects-container" class="subjects-grid" role="region" aria-label="Daftar Mata Pelajaran">
+
+      <!-- 1. BAHASA INDONESIA -->
+      <article class="subject-card theme-indonesia" data-category="bahasa" data-title="Bahasa Indonesia kata cerita kancil membaca menulis ejaan">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Buku & Pena -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-linecap="round"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="#BAE6FD"/>
+              <line x1="8" y1="7" x2="16" y2="7" stroke="#0284C7" stroke-linecap="round"/>
+              <line x1="8" y1="11" x2="14" y2="11" stroke="#0284C7" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Bahasa & Literasi</div>
+          <h3 class="subject-title">Bahasa Indonesia</h3>
+          <p class="subject-desc">Petualangan kata, kalimat, ejaan ceria, pantun, dan cerita anak edukatif bersama Kancil Cerdas.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🦊 Kancil Cerdas</span>
+          <a href="BahasaIndonesia/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 2. BAHASA INGGRIS -->
+      <article class="subject-card theme-inggris" data-category="bahasa" data-title="Bahasa Inggris English words vocabulary grammar animal oliver owl">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon English Owl / Dialog -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="#E0E7FF"/>
+              <circle cx="9" cy="11" r="1.5" fill="#4F46E5"/>
+              <circle cx="15" cy="11" r="1.5" fill="#4F46E5"/>
+              <path d="M10 14c1 1 3 1 4 0" stroke="#4F46E5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Bahasa Asing</div>
+          <h3 class="subject-title">Bahasa Inggris</h3>
+          <p class="subject-desc">Kosakata dasar hewan, warna, salam, angka, dan percakapan sederhana bersama Burung Hantu Oliver.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🦉 Oliver Owl</span>
+          <a href="BahasaInggris/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 3. BAHASA MANDARIN -->
+      <article class="subject-card theme-mandarin" data-category="bahasa" data-title="Bahasa Mandarin Chinese pinyin hanzi baobao panda karakter lampion">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Lampion / Karakter Hanzi -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <rect x="6" y="5" width="12" height="14" rx="6" fill="#FEE2E2"/>
+              <line x1="12" y1="2" x2="12" y2="5" stroke-width="2.5"/>
+              <line x1="12" y1="19" x2="12" y2="22" stroke-width="2.5"/>
+              <line x1="9" y1="5" x2="9" y2="19" stroke="#DC2626"/>
+              <line x1="15" y1="5" x2="15" y2="19" stroke="#DC2626"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Bahasa Asing</div>
+          <h3 class="subject-title">Bahasa Mandarin</h3>
+          <p class="subject-desc">Belajar karakter Hanzi, Pinyin, angka, keluarga, dan sapaan sopan bersama Panda Baobao yang ramah.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🐼 Panda Baobao</span>
+          <a href="BahasaMandarin/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 4. MATEMATIKA -->
+      <article class="subject-card theme-matematika" data-category="sains-tek" data-title="Matematika hitung angka tambah kurang kali bagi pecahan geometri singa kalku">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Kalkulator / Angka Matematika -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <rect x="4" y="2" width="16" height="20" rx="3" fill="#FCE7F3"/>
+              <rect x="7" y="5" width="10" height="4" rx="1" fill="#F472B6"/>
+              <circle cx="8" cy="13" r="1.5" fill="#1E293B"/>
+              <circle cx="12" cy="13" r="1.5" fill="#1E293B"/>
+              <circle cx="16" cy="13" r="1.5" fill="#1E293B"/>
+              <circle cx="8" cy="17" r="1.5" fill="#1E293B"/>
+              <circle cx="12" cy="17" r="1.5" fill="#1E293B"/>
+              <circle cx="16" cy="17" r="1.5" fill="#1E293B"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Sains & Berhitung</div>
+          <h3 class="subject-title">Matematika</h3>
+          <p class="subject-desc">Petualangan logika angka, penjumlahan, pengurangan, perkalian, pecahan, dan bangun datar seru.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🦁 Singa Kalku</span>
+          <a href="Matematika/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 5. IPA -->
+      <article class="subject-card theme-ipa" data-category="sains-tek" data-title="IPA Ilmu Pengetahuan Alam sains hewan tumbuhan energi tata surya profesor kiko">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Mikroskop / Tabung Reaksi -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <path d="M9 3h6v3H9z" fill="#E2E8F0"/>
+              <path d="M10 6v7l-4 7a2 2 0 0 0 1.7 3h8.6a2 2 0 0 0 1.7-3l-4-7V6" fill="#BBF7D0"/>
+              <circle cx="12" cy="16" r="1.8" fill="#10B981"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Sains Eksplorasi</div>
+          <h3 class="subject-title">Ilmu Pengetahuan Alam (IPA)</h3>
+          <p class="subject-desc">Eksplorasi seru tentang bagian tubuh, ekosistem hewan, tumbuhan, wujud zat, dan tata surya.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🐰 Profesor Kiko</span>
+          <a href="IPA/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 6. TIK -->
+      <article class="subject-card theme-tik" data-category="sains-tek" data-title="TIK Teknologi Informasi Komunikasi komputer robot chip perangkat internet chippy">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Monitor & Robot Chippy -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <rect x="3" y="4" width="18" height="12" rx="2" fill="#BAE6FD"/>
+              <line x1="8" y1="20" x2="16" y2="20" stroke-width="2.5"/>
+              <line x1="12" y1="16" x2="12" y2="20" stroke-width="2.5"/>
+              <circle cx="8" cy="10" r="1.8" fill="#0284C7"/>
+              <circle cx="16" cy="10" r="1.8" fill="#0284C7"/>
+              <line x1="10" y1="12" x2="14" y2="12" stroke="#0284C7" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Teknologi & Digital</div>
+          <h3 class="subject-title">Teknologi Informasi (TIK)</h3>
+          <p class="subject-desc">Mengenal perangkat komputer, mouse, keyboard, etika digital, dan dunia robotika pintar bersama Chippy.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🤖 Robot Chippy</span>
+          <a href="TIK/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 7. IPS -->
+      <article class="subject-card theme-ips" data-category="sosial-budi" data-title="IPS Ilmu Pengetahuan Sosial sejarah peta geografi pahlawan nusantara komodo koko">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Globe / Peta Nusantara -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <circle cx="12" cy="12" r="9" fill="#FED7AA"/>
+              <line x1="3" y1="12" x2="21" y2="12" stroke="#D97706"/>
+              <path d="M12 3a15 15 0 0 1 0 18" stroke="#D97706"/>
+              <path d="M12 3a15 15 0 0 0 0 18" stroke="#D97706"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Sosial & Lingkungan</div>
+          <h3 class="subject-title">Ilmu Pengetahuan Sosial (IPS)</h3>
+          <p class="subject-desc">Petualangan keliling nusantara, sejarah pahlawan, peta wilayah, kenampakan alam, dan kegiatan ekonomi.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🦎 Komodo Koko</span>
+          <a href="IPS/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 8. PENDIDIKAN PANCASILA -->
+      <article class="subject-card theme-pancasila" data-category="sosial-budi" data-title="Pendidikan Pancasila pkn sila garuda toleransi gotong royong hukum hak kewajiban">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Bintang Garuda / Perisai Pancasila -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <path d="M12 2l7 4v6c0 5-3.5 9.5-7 10-3.5-.5-7-5-7-10V6l7-4z" fill="#FEE2E2"/>
+              <polygon points="12 7 13.5 10 17 10.5 14.5 13 15 16.5 12 15 9 16.5 9.5 13 7 10.5 10.5 10" fill="#FBBF24" stroke="#D97706" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Kewarganegaraan & Nilai</div>
+          <h3 class="subject-title">Pendidikan Pancasila</h3>
+          <p class="subject-desc">Mempelajari 5 sila Pancasila, simbol negara, gotong royong, aturan di rumah dan sekolah dengan bangga.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🇮🇩 Bintang Garuda</span>
+          <a href="PendidikanPancasila/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 9. PENDIDIKAN AGAMA KRISTEN -->
+      <article class="subject-card theme-kristen" data-category="sosial-budi" data-title="Pendidikan Agama Kristen alkitab kasih kebaikan doa nilai moral domba">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Salib & Kasih Hati -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#E0F2FE"/>
+              <line x1="12" y1="6" x2="12" y2="16" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="8" y1="9" x2="16" y2="9" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Budi Pekerti & Karakter</div>
+          <h3 class="subject-title">Pendidikan Agama Kristen</h3>
+          <p class="subject-desc">Belajar nilai kasih Tuhan, doa syukur, tolong-menolong sesama, dan kisah keteladanan Alkitab.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🐑 Domba Kecil Kasih</span>
+          <a href="PendidikanAgamaKristen/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 10. PJOK -->
+      <article class="subject-card theme-pjok" data-category="seni-pjok" data-title="PJOK Olahraga jasmani senam lari bola renang kesehatan tubuh harimau rio">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Bola & Medali PJOK -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <circle cx="12" cy="12" r="9" fill="#FFEDD5"/>
+              <path d="M12 3a9 9 0 0 1 0 18" stroke="#EA580C"/>
+              <path d="M3 12h18" stroke="#EA580C"/>
+              <circle cx="12" cy="12" r="3" fill="#F97316"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Olahraga & Kesehatan</div>
+          <h3 class="subject-title">PJOK (Pendidikan Jasmani)</h3>
+          <p class="subject-desc">Gerak lokomotor, permainan bola kecil & besar, senam irama ceria, dan menjaga kebersihan tubuh sehat.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🐯 Harimau Rio</span>
+          <a href="PJOK/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 11. SENI RUPA -->
+      <article class="subject-card theme-rupa" data-category="seni-pjok" data-title="Seni Rupa gambar warna kuas lukis palet krayon ciko kanvas garis bentuk">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Palet Seni Rupa -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <path d="M12 2C6.5 2 2 6.5 2 12c0 2.5 1 4.8 2.7 6.4.4.4 1 .6 1.6.6H8c1.1 0 2-.9 2-2 0-.6.5-1 1-1h2c4.4 0 8-3.6 8-8 0-4.4-3.6-6-9-6z" fill="#FCE7F3"/>
+              <circle cx="7.5" cy="8.5" r="1.5" fill="#EF4444"/>
+              <circle cx="12" cy="6.5" r="1.5" fill="#3B82F6"/>
+              <circle cx="16.5" cy="8.5" r="1.5" fill="#10B981"/>
+              <circle cx="15.5" cy="13.5" r="1.5" fill="#F59E0B"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Seni & Kreativitas</div>
+          <h3 class="subject-title">Seni Rupa</h3>
+          <p class="subject-desc">Mengenal warna primer sekunder, bentuk garis, pola hiasan, teknik menggambar, dan karya seni cetak.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🎨 Kuas Ciko</span>
+          <a href="SeniRupa/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 12. SENI MUSIK -->
+      <article class="subject-card theme-musik" data-category="seni-pjok" data-title="Seni Musik nada irama not lagu tempo tangga nada alat musik melodi miko">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Not Balok Seni Musik -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <circle cx="6" cy="18" r="3" fill="#DDD6FE"/>
+              <circle cx="18" cy="16" r="3" fill="#DDD6FE"/>
+              <line x1="9" y1="18" x2="9" y2="6"/>
+              <line x1="21" y1="16" x2="21" y2="4"/>
+              <polygon points="9,6 21,4 21,8 9,10" fill="#8B5CF6"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Seni & Harmoni</div>
+          <h3 class="subject-title">Seni Musik</h3>
+          <p class="subject-desc">Bernyanyi lagu wajib nasional & daerah, membaca ketukan irama, serta mengenal aneka alat musik seru.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🐱 Kucing Melodi Miko</span>
+          <a href="SeniMusik/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 13. SENI TARI -->
+      <article class="subject-card theme-tari" data-category="seni-pjok" data-title="Seni Tari gerak irama selendang tari nusantara piring saman kecak jaipong">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Mahkota & Selendang Tari -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <path d="M2 18l3-11 4.5 5 2.5-7 2.5 7 4.5-5 3 11H2z" fill="#FEF3C7"/>
+              <circle cx="5" cy="7" r="1.2" fill="#EF4444"/>
+              <circle cx="12" cy="5" r="1.5" fill="#3B82F6"/>
+              <circle cx="19" cy="7" r="1.2" fill="#10B981"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Seni & Budaya</div>
+          <h3 class="subject-title">Seni Tari</h3>
+          <p class="subject-desc">Eksplorasi gerak ruang & waktu, properti selendang, dan keindahan ragam tarian tradisional Nusantara.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">💃 Penari Nusantara</span>
+          <a href="SeniTari/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- 14. SENI TEATER -->
+      <article class="subject-card theme-teater" data-category="seni-pjok" data-title="Seni Teater drama peran topeng panggung naskah dialog ekspresi mimik leo">
+        <div class="card-top">
+          <div class="subject-icon-box" aria-hidden="true">
+            <!-- Icon Topeng Panggung Komedi Teater -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2.2">
+              <path d="M3 11c0-4.4 3.6-8 8-8s8 3.6 8 8c0 4.4-3.6 8-8 8-1.5 0-2.8-.4-4-1.1L3 19l1.1-4c-.7-1.2-1.1-2.5-1.1-4z" fill="#FEE2E2"/>
+              <circle cx="8" cy="10" r="1.5" fill="#1E293B"/>
+              <circle cx="14" cy="10" r="1.5" fill="#1E293B"/>
+              <path d="M8.5 13.5c1.5 2 5.5 2 7 0" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="grade-badge">Kelas 1 - 6</span>
+        </div>
+        <div class="card-middle">
+          <div class="subject-category-tag">Seni Peran & Ekspresi</div>
+          <h3 class="subject-title">Seni Teater</h3>
+          <p class="subject-desc">Bermain peran cerita dongeng, olah vokal, mimik ekspresi wajah gembira, dan tata panggung sandiwara.</p>
+        </div>
+        <div class="card-footer">
+          <span class="mascot-tag">🎭 Bintang Teater</span>
+          <a href="SeniTeater/index.html" class="btn-quiz-action">Mulai Kuis <span>➜</span></a>
+        </div>
+      </article>
+
+      <!-- STATE JIKA PENCARIAN TIDAK DITEMUKAN -->
+      <div id="empty-state" class="empty-search-state" role="status">
+        <div class="empty-icon" aria-hidden="true">🔍</div>
+        <h3 class="empty-title">Mata Pelajaran Tidak Ditemukan</h3>
+        <p class="empty-desc">Coba gunakan kata kunci lain seperti "IPA", "Seni", atau "Bahasa".</p>
+        <button id="btn-reset-search" class="btn-reset-search" type="button">Tampilkan Semua Pelajaran</button>
+      </div>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-school-brand">
+        <span class="footer-school-badge">SDS HARAPAN BANGSA KARAWANG</span>
+        <span>&bull;</span>
+        <strong>Portal Pembelajaran Kuis Interaktif Sekolah Dasar</strong>
+      </div>
+      <p class="footer-desc">
+        Media evaluasi belajar interaktif mandiri kelas 1 sampai 6 SD &bull; Lengkap dengan panduan suara Bahasa Indonesia dan pembahasan jawaban edukatif.
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPT INTERAKSI FILTER & SUARA -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Audio Synthesizer Pop Sederhana
+      let isAudioEnabled = true;
+      let audioCtx = null;
+
+      function getAudioContext() {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) audioCtx = new AudioContext();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        return audioCtx;
+      }
+
+      function playPopSound(freq = 440, type = 'sine') {
+        if (!isAudioEnabled) return;
+        try {
+          const ctx = getAudioContext();
+          if (!ctx) return;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(freq * 1.5, ctx.currentTime + 0.08);
+
+          gain.gain.setValueAtTime(0.2, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.09);
+        } catch (e) {
+          // ignore audio restriction
+        }
+      }
+
+      // Tombol Toggle Audio
+      const soundBtn = document.getElementById('btn-sound-toggle');
+      const soundIcon = document.getElementById('sound-icon');
+      const soundLabel = document.getElementById('sound-label');
+
+      if (soundBtn) {
+        soundBtn.addEventListener('click', () => {
+          isAudioEnabled = !isAudioEnabled;
+          soundBtn.setAttribute('aria-pressed', isAudioEnabled ? 'true' : 'false');
+          soundIcon.textContent = isAudioEnabled ? '🔊' : '🔇';
+          soundLabel.textContent = isAudioEnabled ? 'Suara: Nyala' : 'Suara: Mati';
+          if (isAudioEnabled) playPopSound(520, 'triangle');
+        });
+      }
+
+      // Elemen Pencarian & Filter
+      const searchInput = document.getElementById('subject-search');
+      const searchClear = document.getElementById('search-clear');
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const cards = document.querySelectorAll('.subject-card');
+      const resultsCount = document.getElementById('results-count');
+      const emptyState = document.getElementById('empty-state');
+      const btnResetSearch = document.getElementById('btn-reset-search');
+
+      let currentCategory = 'all';
+      let currentQuery = '';
+
+      function filterSubjects() {
+        let visibleCount = 0;
+        const queryLower = currentQuery.toLowerCase().trim();
+
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          const searchData = (card.getAttribute('data-title') || '').toLowerCase();
+          const cardTitle = (card.querySelector('.subject-title')?.textContent || '').toLowerCase();
+          const cardDesc = (card.querySelector('.subject-desc')?.textContent || '').toLowerCase();
+
+          const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+          const matchesQuery = (!queryLower || searchData.includes(queryLower) || cardTitle.includes(queryLower) || cardDesc.includes(queryLower));
+
+          if (matchesCategory && matchesQuery) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Update UI Count & Empty State
+        if (resultsCount) {
+          resultsCount.textContent = `Menampilkan ${visibleCount} Pelajaran`;
+        }
+
+        if (emptyState) {
+          if (visibleCount === 0) {
+            emptyState.classList.add('show');
+          } else {
+            emptyState.classList.remove('show');
+          }
+        }
+      }
+
+      // Event Pencarian
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value;
+          if (searchClear) {
+            searchClear.style.display = currentQuery.length > 0 ? 'inline-flex' : 'none';
+          }
+          filterSubjects();
+        });
+      }
+
+      if (searchClear) {
+        searchClear.addEventListener('click', () => {
+          if (searchInput) {
+            searchInput.value = '';
+            searchInput.focus();
+          }
+          currentQuery = '';
+          searchClear.style.display = 'none';
+          playPopSound(380);
+          filterSubjects();
+        });
+      }
+
+      // Event Filter Tabs
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          currentCategory = tab.getAttribute('data-category') || 'all';
+          playPopSound(480);
+          filterSubjects();
+        });
+      });
+
+      // Reset Search Button
+      if (btnResetSearch) {
+        btnResetSearch.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          if (searchClear) searchClear.style.display = 'none';
+          currentQuery = '';
+          currentCategory = 'all';
+          filterTabs.forEach(t => {
+            if (t.getAttribute('data-category') === 'all') {
+              t.classList.add('active');
+              t.setAttribute('aria-selected', 'true');
+            } else {
+              t.classList.remove('active');
+              t.setAttribute('aria-selected', 'false');
+            }
+          });
+          playPopSound(500);
+          filterSubjects();
+        });
+      }
+
+      // Sound pada Klik Tombol Kuis
+      document.querySelectorAll('.btn-quiz-action').forEach(btn => {
+        btn.addEventListener('click', () => {
+          playPopSound(600, 'triangle');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

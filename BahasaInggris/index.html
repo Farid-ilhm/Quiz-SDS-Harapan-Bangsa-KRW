@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Bahasa Inggris SD - Petualangan Ceria Bersama Foxie</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+  
+  <!-- Font Google: Fredoka (Rounded Comic yang Nyaman & Ramah Anak) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Noto+Sans:wght@500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Web Icons: Font Awesome 6 Free CDN (Tanpa emoji keyboard bawaan) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Lembar Gaya Komik Interaktif -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- HEADER APLIKASI -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <div class="brand-icon-box" aria-hidden="true">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+        </div>
+        <div class="brand-text-block">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h2 class="brand-title">Kuis Bahasa Inggris SD</h2>
+          <p class="brand-tagline">Petualangan Belajar Ceria Bersama Foxie</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-toggle-sound" class="btn-icon-comic" type="button" aria-pressed="true" aria-label="Nyalakan atau matikan efek suara">
+          <i id="sound-icon" class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          <span id="sound-label-text">Suara: Nyala</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- KONTEN UTAMA APLIKASI -->
+    <main id="main-content">
+
+      <!-- =================================================================
+           LAYAR 1: PILIHAN KELAS 1 SAMPAI 6 (BERANDA / DASHBOARD)
+           ================================================================= -->
+      <section id="grades-screen">
+        <!-- Hero Sambutan Maskot Komik dengan Gimmick Animasi Interaktif -->
+        <div class="welcome-hero">
+          <!-- Hiasan Latar Awan Komik -->
+          <div class="hero-deco-cloud hero-deco-cloud-1" aria-hidden="true">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+          <div class="hero-deco-cloud hero-deco-cloud-2" aria-hidden="true">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+
+          <!-- Karakter Maskot Rubah Lucu (Foxie) yang Dapat Diklik -->
+          <div id="hero-mascot-box" class="hero-mascot-box" role="button" tabindex="0" aria-label="Klik Foxie untuk mendengarkan sapaan ceria">
+            <svg class="hero-mascot-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Kepala Rubah -->
+              <path d="M50 22 C32 22 22 36 22 54 C22 72 36 84 50 84 C64 84 78 72 78 54 C78 36 68 22 50 22 Z" fill="#F97316" stroke="#1E293B" stroke-width="4"/>
+              
+              <!-- Telinga Kiri Bergoyang -->
+              <g class="fox-ear-left">
+                <polygon points="26,38 12,12 38,22" fill="#EA580C" stroke="#1E293B" stroke-width="3.5" stroke-linejoin="round"/>
+                <polygon points="25,32 17,17 33,23" fill="#FED7AA"/>
+              </g>
+
+              <!-- Telinga Kanan Bergoyang -->
+              <g class="fox-ear-right">
+                <polygon points="74,38 88,12 62,22" fill="#EA580C" stroke="#1E293B" stroke-width="3.5" stroke-linejoin="round"/>
+                <polygon points="75,32 83,17 67,23" fill="#FED7AA"/>
+              </g>
+
+              <!-- Bulu Pipi Putih Rubah -->
+              <path d="M24 56 C24 72 36 82 50 82 C64 82 76 72 76 56 C76 50 64 56 50 56 C36 56 24 50 24 56 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="3.5"/>
+
+              <!-- Mata Berkedip -->
+              <g class="fox-eye">
+                <circle cx="38" cy="50" r="5" fill="#1E293B"/>
+                <circle cx="39.5" cy="48.5" r="1.8" fill="#FFFFFF"/>
+                <circle cx="62" cy="50" r="5" fill="#1E293B"/>
+                <circle cx="63.5" cy="48.5" r="1.8" fill="#FFFFFF"/>
+              </g>
+
+              <!-- Pipi Merona Ceria -->
+              <ellipse cx="28" cy="62" rx="5" ry="3.5" fill="#FCA5A5" opacity="0.8"/>
+              <ellipse cx="72" cy="62" rx="5" ry="3.5" fill="#FCA5A5" opacity="0.8"/>
+
+              <!-- Hidung Hati Kecil & Mulut Senyum -->
+              <polygon points="50,64 45,59 55,59" fill="#1E293B"/>
+              <path d="M46 66 Q50 71 54 66" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+              <!-- Topi Petualang Pramuka Lucu -->
+              <path d="M34 26 Q50 14 66 26" fill="#FACC15" stroke="#1E293B" stroke-width="3"/>
+              <polygon points="50,8 40,24 60,24" fill="#EAB308" stroke="#1E293B" stroke-width="3"/>
+              <circle cx="50" cy="8" r="4" fill="#EF4444" stroke="#1E293B" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <div class="hero-speech-bubble">
+            <h1 id="speech-title">Hello Explorer! Selamat Datang di Kuis Bahasa Inggris SD!</h1>
+            <p id="speech-text">Pilih jenjang kelasmu di bawah ini. Setiap soal telah disesuaikan dengan kurikulum dan kemampuan belajarmu di sekolah!</p>
+            <div class="mascot-click-hint">
+              <i class="fa-solid fa-hand-pointer" aria-hidden="true"></i>
+              <span>Klik Foxie untuk mendengar suaranya!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-label-banner">
+          <i class="fa-solid fa-compass" aria-hidden="true"></i>
+          <span>Pilih Jenjang Kelasmu (Kelas 1 - 6 SD):</span>
+        </div>
+
+        <!-- Grid 6 Kelas (Render Otomatis via JS) -->
+        <div id="grades-container" class="grades-grid">
+          <!-- Kartu Kelas 1 s/d 6 dimuat dinamis oleh app.js -->
+        </div>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 2: KUIS INTERAKTIF
+           ================================================================= -->
+      <section id="quiz-screen" class="quiz-screen d-none">
+        <!-- Bar Navigasi Atas Kuis -->
+        <div class="quiz-top-bar">
+          <button id="btn-back-home" type="button" class="btn-back-home" aria-label="Kembali ke pilihan kelas">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            <span>Ganti Kelas</span>
+          </button>
+          
+          <div class="progress-track-wrapper">
+            <div class="progress-labels">
+              <span id="progress-text">Soal 1 dari 10</span>
+              <span id="progress-percent">10%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progress-fill" class="progress-fill" style="width: 10%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu Soal Utama -->
+        <article class="question-panel">
+          <div class="question-header-row">
+            <span id="question-topic" class="question-topic-pill">
+              <i class="fa-solid fa-shapes" aria-hidden="true"></i>
+              <span>Topik: Colors</span>
+            </span>
+            <span id="question-grade-tag" class="question-grade-tag">Kelas 1 SD</span>
+          </div>
+
+          <div class="question-text-box">
+            <h2 id="question-text" class="question-main-text">Memuat pertanyaan...</h2>
+          </div>
+
+          <!-- Sorotan Suara Bahasa Inggris (Text-to-Speech) -->
+          <div class="audio-focus-card">
+            <div class="audio-focus-left">
+              <div class="audio-focus-icon" aria-hidden="true">
+                <i class="fa-solid fa-headphones"></i>
+              </div>
+              <div class="audio-focus-info">
+                <h4>Dengarkan Pelafalan Bahasa Inggris:</h4>
+                <p id="audio-english-phrase">"What color is a ripe banana?"</p>
+              </div>
+            </div>
+
+            <button id="btn-speak-question" type="button" class="btn-speech-trigger" aria-label="Dengarkan suara pengucapan soal ini">
+              <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+              <span>Dengarkan Suara</span>
+            </button>
+          </div>
+
+          <!-- Pilihan Jawaban A, B, C, D (Grid Komik Interaktif) -->
+          <div id="options-container" class="options-grid">
+            <!-- Pilihan jawaban dimuat dinamis oleh app.js -->
+          </div>
+
+          <!-- Banner Balasan Setelah Menjawab -->
+          <div id="feedback-banner" class="answer-feedback-banner d-none">
+            <div class="feedback-text-content">
+              <div id="feedback-icon-box" class="feedback-icon-box" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div>
+                <h3 id="feedback-heading" class="feedback-heading">Jawabanmu Hebat!</h3>
+                <p id="feedback-sub" class="feedback-sub">Pintar sekali, teruskan semangat belajarmu!</p>
+              </div>
+            </div>
+
+            <button id="btn-next-question" type="button" class="btn-next-question">
+              <span>Lanjut Soal Berikutnya</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 3: HASIL KUIS, PERAYAAN & LEMBAR KOREKSI LENGKAP
+           ================================================================= -->
+      <section id="results-screen" class="results-screen d-none">
+        <!-- Canvas Animasi Confetti Pesta Kuis -->
+        <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+        <!-- Papan Skor Komik -->
+        <div class="score-board-card">
+          <!-- Animasi Piala Emas Bersinar & Berputar (Gimmick Perayaan) -->
+          <div class="celebration-trophy-wrapper">
+            <div class="trophy-sunburst" aria-hidden="true"></div>
+            <div class="celebration-trophy-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Pegangan Piala Kiri & Kanan -->
+                <path d="M26 36 C14 36 14 56 26 56 L31 56" stroke="#1E293B" stroke-width="4" stroke-linecap="round" fill="#FDE047"/>
+                <path d="M74 36 C86 36 86 56 74 56 L69 56" stroke="#1E293B" stroke-width="4" stroke-linecap="round" fill="#FDE047"/>
+                <!-- Badan Utama Piala Emas -->
+                <path d="M28 24 L72 24 L68 58 C66 70 56 74 50 74 C44 74 34 70 32 58 Z" fill="#FACC15" stroke="#1E293B" stroke-width="4"/>
+                <ellipse cx="50" cy="24" rx="22" ry="6" fill="#FEF08A" stroke="#1E293B" stroke-width="3"/>
+                <!-- Bintang Juara di Tengah Piala -->
+                <polygon points="50,36 53,44 61,45 55,51 57,59 50,55 43,59 45,51 39,45 47,44" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+                <!-- Batang & Dudukan Piala -->
+                <rect x="45" y="74" width="10" height="12" fill="#EAB308" stroke="#1E293B" stroke-width="3.5"/>
+                <path d="M34 86 L66 86 L62 94 L38 94 Z" fill="#FB923C" stroke="#1E293B" stroke-width="4"/>
+                <!-- Kilau Cahaya Putih -->
+                <line x1="36" y1="32" x2="38" y2="48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div id="score-stars" class="score-star-row" aria-label="Bintang perolehan hasil kuis">
+            <!-- Bintang dimuat dinamis via js/icons.js -->
+          </div>
+          
+          <h2 id="score-title" class="score-title">Hebat Sekali! Kamu Juara!</h2>
+          <p id="score-message" class="score-message">Semua pertanyaan berhasil kamu jawab dengan sangat baik!</p>
+          
+          <div id="score-metric" class="score-metric-badge">
+            Nilai Kamu: 10 dari 10 (100%)
+          </div>
+
+          <div class="results-action-row">
+            <button id="btn-retry-quiz" type="button" class="btn-comic-primary">
+              <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+              <span>Coba Lagi Kuis Ini</span>
+            </button>
+            <button id="btn-change-grade" type="button" class="btn-comic-secondary">
+              <i class="fa-solid fa-school" aria-hidden="true"></i>
+              <span>Pilih Kelas Lain</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Lembar Koreksi & Pembahasan Jawaban Lengkap -->
+        <section class="review-section" aria-labelledby="review-heading-title">
+          <div class="review-section-header">
+            <h2 id="review-heading-title" class="review-heading">
+              <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
+              <span>Lembar Review & Koreksi Lengkap</span>
+            </h2>
+            <span class="review-filter-text">Menampilkan seluruh 10 soal, jawaban kamu, dan koreksi jika salah</span>
+          </div>
+
+          <!-- Daftar Soal dan Pembahasan (Render Dinamis via JS) -->
+          <div id="review-list" class="review-list">
+            <!-- Setiap soal yang dijawab, pilihan anak, status benar/salah, 
+                 dan kotak koreksi ramah anak jika salah akan dimuat di sini -->
+          </div>
+        </section>
+      </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer">
+      <p>SDS HARAPAN BANGSA KARAWANG &bull; Kuis Bahasa Inggris Sekolah Dasar &bull; Media Pembelajaran Interaktif Kelas 1 sampai 6 SD</p>
+    </footer>
+
+    <!-- MODAL KONFIRMASI KELUAR KUIS -->
+    <div id="confirm-modal" class="comic-modal-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="comic-modal-box">
+        <div class="modal-mascot-icon" aria-hidden="true">
+          <i class="fa-solid fa-circle-question"></i>
+        </div>
+        <h3 id="modal-title">Ingin Berganti Kelas?</h3>
+        <p>Kuis yang sedang berjalan belum selesai. Jika kamu keluar sekarang, progres jawaban saat ini tidak tersimpan.</p>
+        <div class="modal-actions">
+          <button id="btn-cancel-exit" type="button" class="btn-comic-secondary">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            <span>Tetap Lanjut</span>
+          </button>
+          <button id="btn-confirm-exit" type="button" class="btn-comic-primary">
+            <i class="fa-solid fa-door-open" aria-hidden="true"></i>
+            <span>Ya, Ganti Kelas</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT LOGIKA APLIKASI -->
+  <script src="js/icons.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+

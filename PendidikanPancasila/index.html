@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Pendidikan Pancasila SD - Petualangan Garuda Cilik Gaga</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+
+  <!-- Google Font: Fredoka (Rounded Comic) & Nunito (Akrab & Sangat Mudah Dibaca Anak SD) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lembar Gaya Komik Interaktif -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Gimmick Latar Belakang: Lencana Simbol Pancasila Melayang Lembut -->
+  <div class="floating-symbols-container" aria-hidden="true">
+    <!-- Simbol 1: Bintang Emas -->
+    <div class="floating-pancasila-item item-1">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FDE047" stroke="#1E293B" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <!-- Simbol 2: Perisai Merah Putih -->
+    <div class="floating-pancasila-item item-2">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#F87171" stroke="#1E293B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <!-- Simbol 3: Pohon Beringin -->
+    <div class="floating-pancasila-item item-3">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#86EFAC" stroke="#1E293B" stroke-width="2"><path d="M12 22v-6"/><path d="M9 16c-3 0-5-2-5-5 0-2.5 1.5-4.5 4-4.8A6 6 0 0 1 19 8c2.5.5 3.5 2.5 3.5 4.5 0 2.8-2.2 4.5-5 4.5h-8.5z"/></svg>
+    </div>
+    <!-- Simbol 4: Kepala Banteng -->
+    <div class="floating-pancasila-item item-4">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FED7AA" stroke="#1E293B" stroke-width="2"><path d="M5 4c0 3 2 5 4 5h6c2 0 4-2 4-5"/><path d="M7 9v4c0 3 2.5 6 5 6s5-3 5-6V9"/></svg>
+    </div>
+    <!-- Simbol 5: Padi dan Kapas -->
+    <div class="floating-pancasila-item item-5">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FEF08A" stroke="#1E293B" stroke-width="2"><path d="M2 22 16 8"/><path d="M3.5 12.5 5 11l1.5 1.5a3.5 3.5 0 0 1 0 5L5 19l-1.5-1.5a3.5 3.5 0 0 1 0-5Z"/></svg>
+    </div>
+    <!-- Simbol 6: Rantai Emas -->
+    <div class="floating-pancasila-item item-6">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#DDD6FE" stroke="#1E293B" stroke-width="2"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>
+    </div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- HEADER SITUS -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <!-- Maskot Mini Garuda Cilik SVG -->
+          <svg class="brand-mascot-mini" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Badan & Sayap Garuda -->
+            <circle cx="50" cy="54" r="32" fill="#FBBF24" stroke="#1E293B" stroke-width="4"/>
+            <!-- Perisai Merah Putih di Dada -->
+            <path d="M42 50h16v10c0 5-8 9-8 9s-8-4-8-9V50z" fill="#EF4444" stroke="#1E293B" stroke-width="2.5"/>
+            <path d="M50 50h8v10c0 5-8 9-8 9V50z" fill="#FFFFFF"/>
+            <!-- Paruh Kuning Gagah -->
+            <polygon points="50,42 43,49 57,49" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+            <!-- Mata Berbinar -->
+            <circle cx="41" cy="38" r="4.5" fill="#1E293B"/>
+            <circle cx="42" cy="37" r="1.8" fill="#FFFFFF"/>
+            <circle cx="59" cy="38" r="4.5" fill="#1E293B"/>
+            <circle cx="60" cy="37" r="1.8" fill="#FFFFFF"/>
+            <!-- Mahkota / Jambul Emas -->
+            <polygon points="50,14 43,26 57,26" fill="#FDE047" stroke="#1E293B" stroke-width="3"/>
+            <polygon points="40,19 36,28 46,28" fill="#FDE047" stroke="#1E293B" stroke-width="3"/>
+            <polygon points="60,19 54,28 64,28" fill="#FDE047" stroke="#1E293B" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="brand-text-block">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h1 class="brand-title">Kuis Pendidikan Pancasila</h1>
+          <p class="brand-tagline">Petualangan Belajar Bersama Gaga si Garuda Cilik</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-toggle-sound" class="btn-icon-comic" type="button" aria-pressed="false" aria-label="Nyalakan atau matikan efek suara">
+          <span id="sound-icon-box" class="btn-inline-icon">
+            <!-- Icon suara dimuat dinamis dari AppIcons -->
+          </span>
+          <span id="sound-label-text">Suara: Nyala</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- KONTEN UTAMA APLIKASI -->
+    <main id="main-content">
+
+      <!-- =================================================================
+           LAYAR 1: DASHBOARD PILIHAN KELAS 1 SAMPAI 6
+           ================================================================= -->
+      <section id="grades-screen">
+        <!-- Hero Sambutan Maskot Komik Gaga si Garuda Cilik -->
+        <div class="welcome-hero">
+          <div id="mascot-interactive-box" class="mascot-interactive-box" title="Klik aku untuk mendengar suaraku!">
+            <!-- Maskot Garuda SVG Besar Interaktif -->
+            <svg class="hero-mascot-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Bayangan di Kaki -->
+              <ellipse cx="60" cy="112" rx="34" ry="7" fill="#CBD5E1"/>
+              
+              <!-- Sayap Kiri Melambai (Animasi Sayap) -->
+              <g class="garuda-wing-wave">
+                <path d="M28 68 C14 55 12 40 26 36 C34 34 38 46 42 60 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="3.5"/>
+                <path d="M22 64 C12 52 16 44 26 42" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+
+              <!-- Sayap Kanan Menopang -->
+              <path d="M92 68 C106 55 108 40 94 36 C86 34 82 46 78 60 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="3.5"/>
+
+              <!-- Kaki Cengkeram Pita Pancasila -->
+              <path d="M46 102 L42 110 M46 102 L46 111 M46 102 L50 110" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M74 102 L70 110 M74 102 L74 111 M74 102 L78 110" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round"/>
+
+              <!-- Badan Garuda Bernapas Ceria -->
+              <g class="garuda-body-breathe">
+                <!-- Tubuh Bulat Gagah & Hangat -->
+                <circle cx="60" cy="68" r="38" fill="#FBBF24" stroke="#1E293B" stroke-width="4"/>
+                
+                <!-- Perisai Pancasila Merah Putih di Dada -->
+                <path d="M48 64 H72 V78 C72 86 60 92 60 92 C60 92 48 86 48 78 V64 Z" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+                <path d="M60 64 H72 V78 C72 86 60 92 60 92 V64 Z" fill="#FFFFFF"/>
+                <circle cx="60" cy="74" r="3" fill="#FDE047" stroke="#1E293B" stroke-width="1.5"/>
+
+                <!-- Pipi Merona Ceria -->
+                <ellipse cx="40" cy="54" rx="5" ry="3.5" fill="#FCA5A5" opacity="0.9"/>
+                <ellipse cx="80" cy="54" rx="5" ry="3.5" fill="#FCA5A5" opacity="0.9"/>
+
+                <!-- Paruh Emas Tersenyum -->
+                <path d="M52 48 Q60 60 68 48 Q60 52 52 48 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="3" stroke-linejoin="round"/>
+
+                <!-- Mata Berkedip Ceria -->
+                <g class="garuda-eye-blink">
+                  <!-- Mata Kiri -->
+                  <circle cx="48" cy="42" r="5.5" fill="#1E293B"/>
+                  <circle cx="50" cy="40.5" r="2.2" fill="#FFFFFF"/>
+                  <!-- Mata Kanan -->
+                  <circle cx="72" cy="42" r="5.5" fill="#1E293B"/>
+                  <circle cx="74" cy="40.5" r="2.2" fill="#FFFFFF"/>
+                </g>
+
+                <!-- Jambul / Mahkota Garuda Emas Bersinar -->
+                <polygon points="60,10 52,26 68,26" fill="#FDE047" stroke="#1E293B" stroke-width="3.5" stroke-linejoin="round"/>
+                <polygon points="48,16 43,28 55,28" fill="#FDE047" stroke="#1E293B" stroke-width="3" stroke-linejoin="round"/>
+                <polygon points="72,16 65,28 77,28" fill="#FDE047" stroke="#1E293B" stroke-width="3" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <div class="mascot-click-hint">Sentuh Aku!</div>
+          </div>
+
+          <div class="hero-text-box">
+            <div id="mascot-speech-bubble" class="hero-speech-bubble">
+              <span id="mascot-speech-text">Halo Sahabat Cilik! Ayo belajar Pendidikan Pancasila bersama Gaga!</span>
+            </div>
+            <h2 class="hero-title">Kuis Seru Pendidikan Pancasila SD</h2>
+            <p class="hero-desc">Pilih tingkatan kelasmu di bawah ini untuk memulai kuis yang seru, interaktif, dan penuh pengetahuan budi pekerti!</p>
+          </div>
+        </div>
+
+        <!-- Judul Bagian Pilihan Kelas -->
+        <div class="section-headline-box">
+          <span class="headline-badge">Pilihan Kelas</span>
+          <h3 class="section-title">Pilih Kelas Kamu (Kelas 1 sampai 6)</h3>
+        </div>
+
+        <!-- Grid Kartu Kelas 1 sampai 6 -->
+        <div id="grades-container" class="grades-grid">
+          <!-- Kartu kelas 1-6 dirender otomatis oleh app.js -->
+        </div>
+      </section>
+
+
+      <!-- =================================================================
+           LAYAR 2: KUIS INTERAKTIF BERJALAN
+           ================================================================= -->
+      <section id="quiz-screen" class="d-none">
+        
+        <!-- Header Atas Layar Kuis -->
+        <div class="quiz-header-bar">
+          <button id="btn-back-home" type="button" class="btn-back-comic" aria-label="Kembali ke Beranda Pilihan Kelas">
+            <span id="btn-back-icon" class="btn-inline-icon"></span>
+            <span>Ganti Kelas</span>
+          </button>
+          <div id="quiz-grade-badge" class="quiz-grade-badge">Kelas 1 SD</div>
+        </div>
+
+        <!-- Bar Kemajuan Soal (Progress Bar Komik) -->
+        <div class="quiz-progress-card">
+          <div class="progress-info-row">
+            <span id="progress-text" class="progress-text">Soal 1 dari 10</span>
+            <span id="progress-percent" class="progress-percent">10%</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Kartu Soal Utama -->
+        <article class="question-card">
+          <div class="question-top-bar">
+            <span id="question-topic" class="question-topic-pill">Topik Materi</span>
+            
+            <!-- Fitur Suara: Tombol Membaca Soal (Text-to-Speech) -->
+            <button id="btn-speak-question" type="button" class="btn-speak-question" aria-label="Dengarkan soal dibacakan">
+              <span id="speaker-icon-box" class="btn-inline-icon"></span>
+              <span id="speech-btn-label">Dengarkan Soal</span>
+            </button>
+          </div>
+
+          <!-- Teks Soal -->
+          <h2 id="question-text" class="question-text">Teks pertanyaan akan tampil di sini...</h2>
+
+          <!-- Pilihan Ganda Interaktif -->
+          <div id="options-container" class="options-grid" role="radiogroup" aria-label="Pilihan Jawaban">
+            <!-- Pilihan dirender dinamis -->
+          </div>
+
+          <!-- Banner Umpan Balik Ceria (Muncul setelah memilih) -->
+          <div id="feedback-banner" class="feedback-banner d-none" aria-live="polite">
+            <div id="feedback-icon" class="feedback-icon-box" aria-hidden="true"></div>
+            <div class="feedback-text-content">
+              <h3 id="feedback-heading" class="feedback-heading">Hebat Sekali!</h3>
+              <p id="feedback-sub" class="feedback-sub">Penjelasan singkat tentang jawaban yang benar.</p>
+            </div>
+          </div>
+
+          <!-- Tombol Lanjut ke Soal Berikutnya / Selesai -->
+          <div class="quiz-actions-row">
+            <button id="btn-next-question" type="button" class="btn-next-comic" disabled aria-disabled="true">
+              <span class="btn-next-text">Soal Selanjutnya</span>
+              <span id="next-btn-icon" class="btn-inline-icon"></span>
+            </button>
+          </div>
+        </article>
+      </section>
+
+
+      <!-- =================================================================
+           LAYAR 3: HASIL KUIS, PERAYAAN & LEMBAR REVIEW KOREKSI
+           ================================================================= -->
+      <section id="results-screen" class="d-none">
+        
+        <!-- Kanvas Animasi Konfeti Pesta Kemenangan -->
+        <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+        <!-- Kartu Utama Selebrasi Nilai -->
+        <div class="results-hero-card">
+          
+          <!-- Gimmick Animasi: Piala Emas dengan Sinar Berputar -->
+          <div class="trophy-stage">
+            <div class="sunburst-beam" aria-hidden="true"></div>
+            <div id="celebration-trophy-box" class="golden-trophy-svg">
+              <svg viewBox="0 0 24 24" width="90" height="90" fill="none" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v3h10v-3c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/>
+                <path d="M6 4h12v6c0 3.31-2.69 6-6 6s-6-2.69-6-6V4Z" fill="#FDE047"/>
+                <circle cx="12" cy="9" r="2.5" fill="#F59E0B"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Bintang-Bintang Pencapaian -->
+          <div id="score-stars-container" class="score-stars-container">
+            <!-- 3 Bintang dimuat dinamis -->
+          </div>
+
+          <h2 id="score-title" class="score-title">Selamat! Kamu Hebat Sekali!</h2>
+          <p id="score-message" class="score-message">Pesan motivasi ramah anak akan muncul di sini.</p>
+
+          <!-- Kotak Metrik Skor & Statistik -->
+          <div class="score-metrics-box">
+            <div class="metric-score-group">
+              <span id="score-final-number" class="score-number">100</span>
+              <span class="score-max">/ 100</span>
+            </div>
+            <div class="metrics-divider" aria-hidden="true"></div>
+            <span id="stat-correct" class="stat-pill pill-correct">10 Benar</span>
+            <span id="stat-wrong" class="stat-pill pill-wrong">0 Belajar Lagi</span>
+          </div>
+
+          <!-- Tombol Aksi Hasil -->
+          <div class="results-actions-row">
+            <button id="btn-retry-quiz" type="button" class="btn-results-action btn-retry">
+              <span id="retry-btn-icon" class="btn-inline-icon"></span>
+              <span>Ulangi Kuis Kelas Ini</span>
+            </button>
+            <button id="btn-change-grade" type="button" class="btn-results-action btn-change">
+              <span id="change-grade-icon" class="btn-inline-icon"></span>
+              <span>Pilih Kelas Lain</span>
+            </button>
+            <button id="btn-reconfetti" type="button" class="btn-results-action btn-reconfetti" aria-label="Letupkan pesta konfeti lagi">
+              <span>Letupkan Konfeti!</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             LEMBAR REVIEW & KOREKSI LENGKAP JAWABAN (REQUIREMENT 4)
+             =============================================================== -->
+        <section class="review-section">
+          <div class="review-section-header">
+            <div class="review-title-box">
+              <div id="review-book-icon" class="review-book-icon"></div>
+              <h3 class="review-title">Lembar Review & Koreksi Jawaban</h3>
+            </div>
+            
+            <!-- Tab Filter Soal -->
+            <div class="review-filter-tabs" role="tablist" aria-label="Filter Hasil Review">
+              <button id="filter-all-btn" type="button" class="filter-pill-btn active-filter" role="tab">Semua Soal (10)</button>
+              <button id="filter-wrong-btn" type="button" class="filter-pill-btn" role="tab">Perlu Belajar Lagi</button>
+              <button id="filter-correct-btn" type="button" class="filter-pill-btn" role="tab">Jawaban Benar</button>
+            </div>
+          </div>
+
+          <!-- Daftar Soal dan Pembahasan Koreksinya -->
+          <div id="review-list" class="review-list">
+            <!-- Dirender dinamis oleh app.js -->
+          </div>
+        </section>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer">
+      <p>SDS HARAPAN BANGSA KARAWANG &bull; Kuis Pendidikan Pancasila SD • Belajar Karakter Mulia & Budi Pekerti Bangsa Ceria</p>
+    </footer>
+
+  </div>
+
+  <!-- Script Aplikasi -->
+  <script src="js/icons.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+

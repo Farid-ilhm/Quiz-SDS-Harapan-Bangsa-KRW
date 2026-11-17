@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Bahasa Mandarin SD - Belajar Ceria Bersama Bao Bao</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+  
+  <!-- Font Google: Fredoka (Rounded Comic) & Noto Sans SC untuk Karakter Mandarin -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Web Icons: Font Awesome 6 Free CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Lembar Gaya Komik -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Utilitas kelas sembunyi */
+    .d-none {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- HEADER SITUS -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <!-- Maskot Panda Mini SVG Komik -->
+          <svg class="brand-mascot-mini" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="50" cy="54" rx="36" ry="34" fill="#FFFFFF" stroke="#1E293B" stroke-width="4"/>
+            <!-- Telinga Panda -->
+            <circle cx="24" cy="28" r="14" fill="#1E293B"/>
+            <circle cx="76" cy="28" r="14" fill="#1E293B"/>
+            <circle cx="24" cy="28" r="7" fill="#F87171"/>
+            <circle cx="76" cy="28" r="7" fill="#F87171"/>
+            <!-- Lingkaran Mata Panda -->
+            <ellipse cx="36" cy="50" rx="9" ry="12" fill="#1E293B"/>
+            <ellipse cx="64" cy="50" rx="9" ry="12" fill="#1E293B"/>
+            <!-- Bola Mata Berbinar -->
+            <circle cx="38" cy="48" r="4" fill="#FFFFFF"/>
+            <circle cx="35" cy="54" r="2" fill="#FFFFFF"/>
+            <circle cx="62" cy="48" r="4" fill="#FFFFFF"/>
+            <circle cx="65" cy="54" r="2" fill="#FFFFFF"/>
+            <!-- Hidung & Mulut Senyum -->
+            <ellipse cx="50" cy="62" rx="5" ry="3.5" fill="#1E293B"/>
+            <path d="M46 66 Q50 71 54 66" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <!-- Pipi Merona -->
+            <ellipse cx="26" cy="60" rx="6" ry="4" fill="#FCA5A5" opacity="0.8"/>
+            <ellipse cx="74" cy="60" rx="6" ry="4" fill="#FCA5A5" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="brand-text-block">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h2 class="brand-title">Kuis Mandarin SD</h2>
+          <p class="brand-tagline">Belajar Seru Bersama Panda Bao Bao</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-toggle-sound" class="btn-icon-comic" type="button" aria-pressed="false" aria-label="Nyalakan atau matikan efek suara">
+          <span class="btn-inline-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </span>
+          <span id="sound-label-text">Suara: Nyala</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main id="main-content">
+
+      <!-- =================================================================
+           LAYAR 1: PILIHAN KELAS 1 SAMPAI 6 (BERANDA)
+           ================================================================= -->
+      <section id="grades-screen">
+        <!-- Hero Sambutan Maskot Komik -->
+        <div class="welcome-hero">
+          <div class="hero-mascot-box">
+            <!-- Karakter Panda Besar Lucu dengan Animasi -->
+            <svg class="hero-mascot-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="50" cy="52" rx="38" ry="36" fill="#FFFFFF" stroke="#1E293B" stroke-width="4"/>
+              <!-- Telinga Bergoyang -->
+              <g class="panda-ear-left">
+                <circle cx="22" cy="24" r="16" fill="#1E293B"/>
+                <circle cx="22" cy="24" r="8" fill="#FCA5A5"/>
+              </g>
+              <g class="panda-ear-right">
+                <circle cx="78" cy="24" r="16" fill="#1E293B"/>
+                <circle cx="78" cy="24" r="8" fill="#FCA5A5"/>
+              </g>
+              <!-- Kantung Mata Panda -->
+              <ellipse cx="35" cy="48" rx="10" ry="13" fill="#1E293B"/>
+              <ellipse cx="65" cy="48" rx="10" ry="13" fill="#1E293B"/>
+              <!-- Mata Berkedip Alami -->
+              <g class="panda-eye panda-eye-left">
+                <circle cx="37" cy="46" r="4.5" fill="#FFFFFF"/>
+                <circle cx="33" cy="52" r="2.2" fill="#FFFFFF"/>
+              </g>
+              <g class="panda-eye panda-eye-right">
+                <circle cx="63" cy="46" r="4.5" fill="#FFFFFF"/>
+                <circle cx="67" cy="52" r="2.2" fill="#FFFFFF"/>
+              </g>
+              <!-- Hidung & Senyum -->
+              <ellipse cx="50" cy="62" rx="6" ry="4" fill="#1E293B"/>
+              <path d="M44 67 Q50 74 56 67" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="24" cy="59" rx="7" ry="5" fill="#F87171" opacity="0.8"/>
+              <ellipse cx="76" cy="59" rx="7" ry="5" fill="#F87171" opacity="0.8"/>
+              <!-- Topi Kelulusan Lucu Mini dengan Tali Bergoyang -->
+              <g class="panda-cap">
+                <polygon points="50,10 75,20 50,30 25,20" fill="#FACC15" stroke="#1E293B" stroke-width="3"/>
+                <polygon class="panda-tassel" points="46,30 54,30 54,35 46,35" fill="#EAB308"/>
+              </g>
+            </svg>
+          </div>
+          <div class="hero-speech-bubble">
+            <h1>Nǐ hǎo! Selamat Datang di Kuis Mandarin SD!</h1>
+            <p>Pilihlah jenjang kelasmu di bawah ini. Setiap soal disesuaikan khusus dengan materi dan kemampuan belajarmu di kelas!</p>
+          </div>
+        </div>
+
+        <div class="section-label-banner">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" fill="#FEF08A" fill-opacity="0.4"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/><path d="M8 10h8"/></svg>
+          <span>Pilih Kelasmu Sekarang:</span>
+        </div>
+
+        <!-- Grid 6 Kelas (Render Otomatis via JS) -->
+        <div id="grades-container" class="grades-grid">
+          <!-- Kartu Kelas 1 s/d 6 dimuat oleh app.js menggunakan ikon web -->
+        </div>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 2: KUIS INTERAKTIF
+           ================================================================= -->
+      <section id="quiz-screen" class="quiz-screen d-none">
+        <!-- Bar Navigasi Atas Kuis -->
+        <div class="quiz-top-bar">
+          <button id="btn-back-home" type="button" class="btn-back-home" aria-label="Kembali ke pilihan kelas">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Ganti Kelas</span>
+          </button>
+          
+          <div class="progress-track-wrapper">
+            <div class="progress-labels">
+              <span id="progress-text">Soal 1 dari 10</span>
+              <span id="progress-percent">10%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progress-fill" class="progress-fill" style="width: 10%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu Soal Utama -->
+        <article class="question-panel">
+          <span id="question-topic" class="question-topic-pill">Topik: Angka Dasar</span>
+
+          <div class="question-text-box">
+            <h2 id="question-text" class="question-main-text">Memuat pertanyaan...</h2>
+          </div>
+
+          <!-- Kotak Sorotan Karakter Mandarin & Pinyin -->
+          <div class="mandarin-focus-card">
+            <div class="mandarin-focus-left">
+              <span id="mandarin-char" class="mandarin-big-char hanzi">一</span>
+              <span id="mandarin-pinyin" class="mandarin-pinyin-text">[ yī ]</span>
+            </div>
+
+            <button id="btn-speak-question" type="button" class="btn-speech-trigger" aria-label="Dengarkan suara soal">
+              <span class="icon-speaker" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              </span>
+              <span>Dengarkan Suara</span>
+            </button>
+          </div>
+
+          <!-- Opsi Jawaban A, B, C, D (Grid 2 Kolom Komik) -->
+          <div id="options-container" class="options-grid">
+            <!-- Pilihan jawaban dimuat dinamis oleh app.js -->
+          </div>
+
+          <!-- Banner Balasan / Respon Setelah Menjawab -->
+          <div id="feedback-banner" class="answer-feedback-banner d-none">
+            <div class="feedback-text-content">
+              <span id="feedback-emoji" class="feedback-emoji" aria-hidden="true">
+                <!-- Icon dimuat dinamis via js/icons.js -->
+              </span>
+              <div>
+                <h3 id="feedback-heading" class="feedback-heading">Jawabanmu Hebat!</h3>
+                <p id="feedback-sub" class="feedback-sub">Pintar sekali, teruskan semangat belajarmu!</p>
+              </div>
+            </div>
+
+            <button id="btn-next-question" type="button" class="btn-next-question">
+              <span>Lanjut Soal Berikutnya</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 3: HASIL KUIS & REVIEW KOREKSI LENGKAP
+           ================================================================= -->
+      <section id="results-screen" class="results-screen d-none">
+        <!-- Canvas Animasi Confetti Pesta Kuis -->
+        <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+        <!-- Papan Skor Komik -->
+        <div class="score-board-card">
+          <!-- Animasi Piala Emas Bersinar & Berputar -->
+          <div class="celebration-trophy-wrapper">
+            <div class="trophy-sunburst" aria-hidden="true"></div>
+            <div class="celebration-trophy-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" width="88" height="88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sayap Pegangan Piala Kiri & Kanan -->
+                <path d="M26 36 C14 36 14 56 26 56 L31 56" stroke="#1E293B" stroke-width="4" stroke-linecap="round" fill="#FDE047"/>
+                <path d="M74 36 C86 36 86 56 74 56 L69 56" stroke="#1E293B" stroke-width="4" stroke-linecap="round" fill="#FDE047"/>
+                <!-- Badan Utama Piala Emas -->
+                <path d="M28 24 L72 24 L68 58 C66 70 56 74 50 74 C44 74 34 70 32 58 Z" fill="#FACC15" stroke="#1E293B" stroke-width="4"/>
+                <ellipse cx="50" cy="24" rx="22" ry="6" fill="#FEF08A" stroke="#1E293B" stroke-width="3"/>
+                <!-- Bintang Juara di Tengah Piala -->
+                <polygon points="50,36 53,44 61,45 55,51 57,59 50,55 43,59 45,51 39,45 47,44" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+                <!-- Batang & Dudukan Piala -->
+                <rect x="45" y="74" width="10" height="12" fill="#EAB308" stroke="#1E293B" stroke-width="3.5"/>
+                <path d="M34 86 L66 86 L62 94 L38 94 Z" fill="#FB923C" stroke="#1E293B" stroke-width="4"/>
+                <!-- Kilau Cahaya Putih -->
+                <line x1="36" y1="32" x2="38" y2="48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div id="score-stars" class="score-star-row" aria-label="Bintang hasil kuis">
+            <!-- Bintang dimuat dinamis via js/icons.js dengan animasi staggered pop-in -->
+          </div>
+          <h2 id="score-title" class="score-title">Hebat Sekali! Kamu Juara!</h2>
+          <p id="score-message" class="score-message">Semua pertanyaan berhasil kamu jawab dengan sangat baik!</p>
+          
+          <div id="score-metric" class="score-metric-badge">
+            Nilai Kamu: 10 dari 10 (100%)
+          </div>
+
+          <div class="results-action-row">
+            <button id="btn-retry-quiz" type="button" class="btn-comic-primary">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.83 6.72 2.24"/><polyline points="21 3 21 8 16 8"/></svg>
+              <span>Coba Lagi Kuis Ini</span>
+            </button>
+            <button id="btn-change-grade" type="button" class="btn-comic-secondary">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 8-4 8 4"/><path d="m18 10 3.4 1.7a1 1 0 0 1 .6.9V20a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-7.4a1 1 0 0 1 .6-.9L6 10"/><path d="M6 5v16"/><path d="M18 5v16"/><path d="M10 21v-4a2 2 0 0 1 4 0v4"/><circle cx="12" cy="9" r="1.5" fill="currentColor"/></svg>
+              <span>Pilih Kelas Lain</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Lembar Koreksi & Pembahasan Jawaban Lengkap -->
+        <section class="review-section" aria-labelledby="review-heading-title">
+          <div class="review-section-header">
+            <h2 id="review-heading-title" class="review-heading">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="18" x="4" y="4" rx="2" fill="#E0F2FE" fill-opacity="0.3"/><path d="M8 4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="m9 14 2 2 4-4"/></svg>
+              <span>Lembar Review & Koreksi Lengkap</span>
+            </h2>
+            <span class="review-filter-text">Menampilkan semua jawaban beserta pembahasannya</span>
+          </div>
+
+          <!-- Daftar Soal dan Pembahasan (Render Dinamis via JS) -->
+          <div id="review-list" class="review-list">
+            <!-- Setiap soal yang dijawab, pilihan anak, status benar/salah, 
+                 dan kotak koreksi ramah anak jika salah akan muncul di sini -->
+          </div>
+        </section>
+      </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer">
+      <p>SDS HARAPAN BANGSA KARAWANG &bull; Kuis Bahasa Mandarin Sekolah Dasar &bull; Media Pembelajaran Interaktif Kelas 1 sampai 6 SD</p>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPT LOGIKA APLIKASI -->
+  <script src="js/icons.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

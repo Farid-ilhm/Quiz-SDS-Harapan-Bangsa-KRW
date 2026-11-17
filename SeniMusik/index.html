@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Seni Musik SD - Petualangan Melodi Ceria</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+
+  <!-- Google Fonts: Fredoka (Rounded Comic) & Nunito (Mudah Dibaca Anak SD) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lembar Gaya Komik Seni Musik -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Gimmick Latar Belakang: Not Musik Melayang Ceria (Syarat 9) -->
+  <div class="floating-music-container" aria-hidden="true">
+    <div class="floating-item note-1">
+      <!-- Not Balok Tunggal Ceria -->
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#1E293B" stroke-width="2.2"><circle cx="7" cy="18" r="4" fill="#FEF08A"/><line x1="11" y1="18" x2="11" y2="4" stroke-width="2.5"/><polygon points="11,4 18,7 18,10 11,8" fill="#F59E0B"/></svg>
+    </div>
+    <div class="floating-item note-2">
+      <!-- Simbol Kunci G (Treble Clef) Komik -->
+      <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#1E293B" stroke-width="2"><path d="M12 2C10 4 9 7 9 10c0 3 2 5 4 5s3-1.5 3-3c0-2-1.5-3.5-3.5-3.5C10 8.5 8 11 8 14c0 4 3 6.5 6 6.5 3 0 5-2 5-4.5 0-3-2.5-5-5-5-2 0-3.5 1.5-3.5 3.5" stroke="#0284C7" fill="none"/><line x1="12" y1="1" x2="12" y2="23" stroke="#0284C7" stroke-width="2.2"/><circle cx="12" cy="22" r="1.5" fill="#0284C7"/></svg>
+    </div>
+    <div class="floating-item note-3">
+      <!-- Not Ganda Riang -->
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M9 18V5l12-2v13" stroke-width="2.2"/><circle cx="6" cy="18" r="3" fill="#BBF7D0"/><circle cx="18" cy="16" r="3" fill="#38BDF8"/><path d="M9 9l12-2" stroke-width="2"/></svg>
+    </div>
+    <div class="floating-item note-4">
+      <!-- Bintang Musik Bersinar -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2"><polygon points="12 2 15 8 22 9 17 14 18 21 12 17 6 21 7 14 2 9 9 8 12 2" fill="#FED7AA"/></svg>
+    </div>
+    <div class="floating-item note-5">
+      <!-- Xilofon Mini Ceria -->
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1E293B" stroke-width="2.2"><rect x="4" y="6" width="3" height="12" rx="1" fill="#F87171"/><rect x="9" y="7" width="3" height="10" rx="1" fill="#FBBF24"/><rect x="14" y="8" width="3" height="8" rx="1" fill="#34D399"/><rect x="19" y="9" width="3" height="6" rx="1" fill="#60A5FA"/></svg>
+    </div>
+    <div class="floating-item note-6">
+      <!-- Not Seperdelapan Merah Muda -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2.2"><circle cx="8" cy="17" r="3.5" fill="#F472B6"/><line x1="11.5" y1="17" x2="11.5" y2="4" stroke-width="2.5"/><path d="M11.5 5 Q17 6 15 11" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+    </div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- HEADER SITUS -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <!-- Maskot Mini Si Melodi SVG -->
+          <svg class="brand-mascot-mini" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Lingkaran Latar Ceria -->
+            <circle cx="50" cy="50" r="44" fill="#FEF08A" stroke="#1E293B" stroke-width="4"/>
+            <!-- Headphone Musik Biru Komik -->
+            <path d="M22 50 C22 28 78 28 78 50" stroke="#0284C7" stroke-width="7" stroke-linecap="round"/>
+            <rect x="16" y="44" width="12" height="20" rx="6" fill="#0284C7" stroke="#1E293B" stroke-width="3"/>
+            <rect x="72" y="44" width="12" height="20" rx="6" fill="#0284C7" stroke="#1E293B" stroke-width="3"/>
+            <!-- Wajah Kucing Melodi -->
+            <!-- Telinga Kucing -->
+            <polygon points="28,34 38,18 46,30" fill="#FB923C" stroke="#1E293B" stroke-width="3"/>
+            <polygon points="32,31 38,21 43,29" fill="#FED7AA"/>
+            <polygon points="72,34 62,18 54,30" fill="#FB923C" stroke="#1E293B" stroke-width="3"/>
+            <polygon points="68,31 62,21 57,29" fill="#FED7AA"/>
+            <!-- Kepala Kucing -->
+            <circle cx="50" cy="54" r="26" fill="#FDBA74" stroke="#1E293B" stroke-width="3.5"/>
+            <!-- Pipi Merona -->
+            <circle cx="34" cy="58" r="4" fill="#F87171" fill-opacity="0.6"/>
+            <circle cx="66" cy="58" r="4" fill="#F87171" fill-opacity="0.6"/>
+            <!-- Mata Berbinar -->
+            <ellipse cx="40" cy="49" rx="3.5" ry="4.5" fill="#1E293B"/>
+            <circle cx="41" cy="48" r="1.5" fill="#FFFFFF"/>
+            <ellipse cx="60" cy="49" rx="3.5" ry="4.5" fill="#1E293B"/>
+            <circle cx="61" cy="48" r="1.5" fill="#FFFFFF"/>
+            <!-- Hidung & Senyum -->
+            <polygon points="50,54 48,57 52,57" fill="#EF4444"/>
+            <path d="M46 59 Q50 63 54 59" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Kumis Kucing -->
+            <line x1="26" y1="53" x2="33" y2="55" stroke="#1E293B" stroke-width="1.8"/>
+            <line x1="26" y1="59" x2="33" y2="58" stroke="#1E293B" stroke-width="1.8"/>
+            <line x1="74" y1="53" x2="67" y2="55" stroke="#1E293B" stroke-width="1.8"/>
+            <line x1="74" y1="59" x2="67" y2="58" stroke="#1E293B" stroke-width="1.8"/>
+            <!-- Dasi Kupu-Kupu Not Balok -->
+            <polygon points="44,78 50,75 44,72" fill="#10B981" stroke="#1E293B" stroke-width="2"/>
+            <polygon points="56,78 50,75 56,72" fill="#10B981" stroke="#1E293B" stroke-width="2"/>
+            <circle cx="50" cy="75" r="2.5" fill="#F59E0B" stroke="#1E293B" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="brand-text-block">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h1 class="brand-title">Kuis Seni Musik SD</h1>
+          <p class="brand-tagline">Petualangan Melodi & Tangga Nada Ceria Bersama Si Melodi</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-toggle-sound" class="btn-icon-comic" type="button" aria-pressed="false" aria-label="Nyalakan atau matikan efek suara">
+          <span id="sound-icon-box" class="btn-inline-icon"></span>
+          <span id="sound-label-text">Suara: Nyala</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- KONTEN UTAMA APLIKASI -->
+    <main id="main-content">
+
+      <!-- =================================================================
+           LAYAR 1: DASHBOARD PILIHAN KELAS 1 SAMPAI 6
+           ================================================================= -->
+      <section id="grades-screen">
+        <!-- Hero Sambutan Maskot Komik Si Melodi (Gimmick Animasi Syarat 9) -->
+        <div class="welcome-hero">
+          <div class="mascot-interactive-area" id="mascot-interactive-box" role="button" tabindex="0" title="Klik aku untuk mendengar suara dan fakta musik seru!">
+            <!-- Maskot Komik Besar Si Melodi -->
+            <svg class="mascot-hero-avatar" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Aura Panggung Musik Kuning -->
+              <circle cx="70" cy="70" r="62" fill="#FEF08A" stroke="#1E293B" stroke-width="4.5"/>
+              <circle cx="70" cy="70" r="54" fill="#FFFBEB"/>
+              
+              <!-- Headphone Musik Mewah Komik -->
+              <path d="M30 68 C30 35 110 35 110 68" stroke="#0284C7" stroke-width="9" stroke-linecap="round"/>
+              <rect x="22" y="60" width="16" height="28" rx="8" fill="#38BDF8" stroke="#1E293B" stroke-width="3.5"/>
+              <rect x="102" y="60" width="16" height="28" rx="8" fill="#38BDF8" stroke="#1E293B" stroke-width="3.5"/>
+              <line x1="26" y1="74" x2="34" y2="74" stroke="#FFFFFF" stroke-width="2"/>
+              <line x1="106" y1="74" x2="114" y2="74" stroke="#FFFFFF" stroke-width="2"/>
+
+              <!-- Telinga Kucing Komik -->
+              <polygon points="40,46 52,24 64,40" fill="#FB923C" stroke="#1E293B" stroke-width="3.5"/>
+              <polygon points="45,43 52,28 60,39" fill="#FED7AA"/>
+              <polygon points="100,46 88,24 76,40" fill="#FB923C" stroke="#1E293B" stroke-width="3.5"/>
+              <polygon points="95,43 88,28 80,39" fill="#FED7AA"/>
+
+              <!-- Kepala Kucing -->
+              <circle cx="70" cy="74" r="36" fill="#FDBA74" stroke="#1E293B" stroke-width="4"/>
+
+              <!-- Topi Baret Musisi Kecil Miring Ceria -->
+              <ellipse cx="64" cy="40" rx="20" ry="8" fill="#EF4444" stroke="#1E293B" stroke-width="3"/>
+              <circle cx="64" cy="32" r="3.5" fill="#FBBF24" stroke="#1E293B" stroke-width="2"/>
+
+              <!-- Pipi Merona Ceria -->
+              <circle cx="48" cy="80" r="6" fill="#F87171" fill-opacity="0.75"/>
+              <circle cx="92" cy="80" r="6" fill="#F87171" fill-opacity="0.75"/>
+
+              <!-- Mata Berbinar Lucu -->
+              <ellipse cx="56" cy="68" rx="5" ry="6.5" fill="#1E293B"/>
+              <circle cx="58" cy="66" r="2.2" fill="#FFFFFF"/>
+              <circle cx="54" cy="71" r="1.2" fill="#FFFFFF"/>
+              
+              <ellipse cx="84" cy="68" rx="5" ry="6.5" fill="#1E293B"/>
+              <circle cx="86" cy="66" r="2.2" fill="#FFFFFF"/>
+              <circle cx="82" cy="71" r="1.2" fill="#FFFFFF"/>
+
+              <!-- Hidung & Mulut Senyum Kucing Ceria -->
+              <polygon points="70,75 66,79 74,79" fill="#DC2626"/>
+              <path d="M64 82 Q70 88 76 82" stroke="#1E293B" stroke-width="3" stroke-linecap="round"/>
+
+              <!-- Kumis Kucing Komik -->
+              <line x1="36" y1="74" x2="46" y2="76" stroke="#1E293B" stroke-width="2.5"/>
+              <line x1="36" y1="81" x2="46" y2="80" stroke="#1E293B" stroke-width="2.5"/>
+              <line x1="104" y1="74" x2="94" y2="76" stroke="#1E293B" stroke-width="2.5"/>
+              <line x1="104" y1="81" x2="94" y2="80" stroke="#1E293B" stroke-width="2.5"/>
+
+              <!-- Tubuh Musisi & Rompi -->
+              <rect x="52" y="106" width="36" height="26" rx="8" fill="#059669" stroke="#1E293B" stroke-width="3.5"/>
+              <line x1="70" y1="106" x2="70" y2="132" stroke="#1E293B" stroke-width="2.5"/>
+              <circle cx="70" cy="114" r="2" fill="#FEF08A"/>
+              <circle cx="70" cy="123" r="2" fill="#FEF08A"/>
+
+              <!-- Dasi Kupu-Kupu Merah -->
+              <polygon points="62,108 70,104 62,100" fill="#EF4444" stroke="#1E293B" stroke-width="2.5"/>
+              <polygon points="78,108 70,104 78,100" fill="#EF4444" stroke="#1E293B" stroke-width="2.5"/>
+              <circle cx="70" cy="104" r="3.5" fill="#FBBF24" stroke="#1E293B" stroke-width="2"/>
+
+              <!-- Tongkat Dirigen di Tangan Kanan -->
+              <line x1="90" y1="110" x2="118" y2="92" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="118" cy="92" r="3" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+            </svg>
+            <span class="mascot-badge-tag">Klik Si Melodi! 🎵</span>
+          </div>
+
+          <div class="mascot-speech-bubble" id="mascot-speech-box">
+            <h2 class="speech-heading">Halo Teman Melodi! 🎶</h2>
+            <p id="mascot-speech-text" class="speech-text">
+              Aku Si Melodi! Siap menjelajahi dunia nada, birama, dan alat musik nusantara yang seru? Pilih jenjang kelasmu di bawah ya!
+            </p>
+            <div class="speech-hint">💡 Tips: Klik Si Melodi untuk mendengarkan fakta musik ajaib lainnya!</div>
+          </div>
+        </div>
+
+        <!-- Gimmick Interaktif Tambahan: Pojok Mini Piano Ceria (Syarat 9) -->
+        <div class="mini-piano-widget" aria-label="Pojok Mini Piano Ceria">
+          <div class="piano-header">
+            <span class="piano-badge">🎹 Pojok Mini Piano</span>
+            <span class="piano-subtitle">Coba bunyikan tangga nada Do-Re-Mi sebelum mulai kuis!</span>
+          </div>
+          <div class="piano-keys-row">
+            <button type="button" class="piano-key white-key" data-note="do">
+              <span class="note-syllable">Do</span>
+              <span class="note-num">1</span>
+            </button>
+            <button type="button" class="piano-key white-key" data-note="re">
+              <span class="note-syllable">Re</span>
+              <span class="note-num">2</span>
+            </button>
+            <button type="button" class="piano-key white-key" data-note="mi">
+              <span class="note-syllable">Mi</span>
+              <span class="note-num">3</span>
+            </button>
+            <button type="button" class="piano-key white-key" data-note="fa">
+              <span class="note-syllable">Fa</span>
+              <span class="note-num">4</span>
+            </button>
+            <button type="button" class="piano-key white-key" data-note="sol">
+              <span class="note-syllable">Sol</span>
+              <span class="note-num">5</span>
+            </button>
+            <button type="button" class="piano-key white-key" data-note="la">
+              <span class="note-syllable">La</span>
+              <span class="note-num">6</span>
+            </button>
+            <button type="button" class="piano-key white-key" data-note="si">
+              <span class="note-syllable">Si</span>
+              <span class="note-num">7</span>
+            </button>
+            <button type="button" class="piano-key white-key" data-note="do-tinggi">
+              <span class="note-syllable">Do'</span>
+              <span class="note-num">1̇</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Judul Bagian Pilihan Kelas -->
+        <div class="section-title-wrap">
+          <h2 class="section-title">Pilih Kelasmu untuk Memulai Kuis</h2>
+          <p class="section-subtitle">Setiap kelas memiliki 10 soal seru yang disesuaikan dengan kurikulum Seni Musik SD</p>
+        </div>
+
+        <!-- Wadah Grid Kartu Kelas 1 sampai 6 (Syarat 1 & 7) -->
+        <div id="grades-container" class="grades-grid">
+          <!-- Diisi secara dinamis oleh JavaScript -->
+        </div>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 2: LAYAR KUIS INTERAKTIF (10 SOAL PER KELAS)
+           ================================================================= -->
+      <section id="quiz-screen" class="hidden">
+        <!-- Bilah Atas Kuis: Tombol Kembali, Info Kelas, & Indikator Progres -->
+        <div class="quiz-top-bar">
+          <button id="btn-back-home" class="btn-comic-nav" type="button" aria-label="Kembali ke menu pilihan kelas">
+            <span id="btn-back-icon" class="btn-inline-icon"></span>
+            <span>Ganti Kelas</span>
+          </button>
+
+          <div class="quiz-info-chips">
+            <span id="quiz-grade-badge" class="badge-comic-pill">Kelas 1 SD</span>
+            <span class="badge-comic-pill count-pill">
+              <span id="progress-text">Soal 1 dari 10</span>
+            </span>
+          </div>
+
+          <div class="quiz-meter-wrap" aria-label="Persentase pengerjaan kuis">
+            <span id="progress-percent" class="meter-text">10%</span>
+            <div class="comic-progress-bar">
+              <div id="progress-fill" class="comic-progress-fill" style="width: 10%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu Soal Utama Komik -->
+        <div class="question-comic-card">
+          <div class="card-meta-bar">
+            <span class="topic-tag" id="question-topic">Topik Materi: Bunyi Alam</span>
+            
+            <!-- Fitur Suara: Tombol Membacakan Soal (Syarat 3) -->
+            <button id="btn-speak-question" class="btn-comic-sound" type="button" aria-label="Dengarkan soal dibacakan oleh suara Si Melodi">
+              <span id="speaker-icon-box" class="btn-inline-icon"></span>
+              <span id="speech-btn-label">Dengarkan Soal</span>
+            </button>
+          </div>
+
+          <!-- Teks Soal (Besar & Jelas, Ramah Anak SD) -->
+          <div class="question-body">
+            <h2 id="question-text" class="question-title">
+              Memuat teks pertanyaan...
+            </h2>
+          </div>
+
+          <!-- Wadah 4 Pilihan Ganda A, B, C, D (Syarat 5 & 6) -->
+          <div id="options-container" class="options-comic-grid">
+            <!-- Diisi secara dinamis oleh JavaScript -->
+          </div>
+
+          <!-- Feedback Banner Instan (Ramah & Mendidik) -->
+          <div id="feedback-banner" class="feedback-banner-comic hidden" aria-live="polite">
+            <div class="feedback-content">
+              <span id="feedback-icon" class="feedback-icon-box"></span>
+              <div>
+                <h3 id="feedback-heading" class="feedback-title">Jawabanmu Tepat Sekali!</h3>
+                <p id="feedback-sub" class="feedback-desc">Yuk lanjut ke soal berikutnya.</p>
+              </div>
+            </div>
+            <button id="btn-next-question" class="btn-comic-action" type="button">
+              <span class="btn-next-text">Soal Berikutnya</span>
+              <span id="next-btn-icon" class="btn-inline-icon"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 3: SELEBRASI HASIL & KOREKSI JAWABAN (Syarat 4 & 9)
+           ================================================================= -->
+      <section id="results-screen" class="hidden">
+        <!-- Kanvas Animasi Hujan Konfeti Penuh Layar (Syarat 9) -->
+        <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+
+        <!-- Kartu Selebrasi Skor & Piala Bersinar -->
+        <div class="results-celebration-card">
+          <!-- Gimmick Piala & Bintang Bersinar Animasi (Syarat 9) -->
+          <div class="trophy-sparkle-wrapper">
+            <div class="sunburst-rays" aria-hidden="true"></div>
+            <div class="trophy-center-icon" id="trophy-icon-box">
+              <!-- Diisi Ikon Piala Emas SVG Komik -->
+            </div>
+            <div class="floating-sparkle sparkle-top-left" aria-hidden="true">✨</div>
+            <div class="floating-sparkle sparkle-top-right" aria-hidden="true">⭐</div>
+            <div class="floating-sparkle sparkle-bottom" aria-hidden="true">🎶</div>
+          </div>
+
+          <!-- Bintang Penilaian Berputar (1 - 3 Bintang) -->
+          <div id="score-stars-container" class="score-stars-row" aria-label="Bintang penilaian kuis">
+            <!-- Diisi ikon bintang dinamis -->
+          </div>
+
+          <h2 id="score-title" class="results-headline">Luar Biasa, Musisi Hebat!</h2>
+          <p id="score-message" class="results-subtext">
+            Kamu telah menyelesaikan seluruh kuis dengan semangat membara!
+          </p>
+
+          <!-- Kotak Angka Skor Nilai -->
+          <div class="score-display-box">
+            <span class="score-label">NILAI AKHIR KAMU</span>
+            <div class="score-number-row">
+              <span id="score-final-number" class="score-big-text">100</span>
+              <span class="score-max-text">/ 100</span>
+            </div>
+          </div>
+
+          <!-- Rangkuman Statistik Benar / Salah -->
+          <div class="score-stats-grid">
+            <div class="stat-card stat-correct">
+              <span class="stat-label">Jawaban Benar</span>
+              <span id="stat-correct" class="stat-number">10</span>
+            </div>
+            <div class="stat-card stat-wrong">
+              <span class="stat-label">Perlu Diingat</span>
+              <span id="stat-wrong" class="stat-number">0</span>
+            </div>
+          </div>
+
+          <!-- Tombol Aksi Hasil -->
+          <div class="results-action-buttons">
+            <button id="btn-retry-quiz" class="btn-comic-action btn-retry" type="button">
+              <span id="retry-btn-icon" class="btn-inline-icon"></span>
+              <span>Ulangi Kuis Kelas Ini</span>
+            </button>
+
+            <button id="btn-change-grade" class="btn-comic-secondary" type="button">
+              <span id="home-btn-icon" class="btn-inline-icon"></span>
+              <span>Pilih Kelas Lain</span>
+            </button>
+
+            <button id="btn-reconfetti" class="btn-comic-gimmick" type="button" title="Ledakkan hujan konfeti lagi!">
+              <span>🎉 Hujan Konfeti Lagi!</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             LEMBAR KOREKSI & PEMBAHASAN LENGKAP SELURUH JAWABAN (Syarat 4)
+             =============================================================== -->
+        <div class="review-section-card">
+          <div class="review-header">
+            <div class="review-header-text">
+              <h3 class="review-title">Lembar Koreksi & Pembahasan Jawaban</h3>
+              <p class="review-subtitle">
+                Berikut adalah seluruh 10 soal yang telah kamu jawab. Periksa penjelasan untuk jawaban yang belum tepat ya!
+              </p>
+            </div>
+
+            <!-- Filter Tinjauan Jawaban -->
+            <div class="review-filter-group" role="group" aria-label="Filter tinjauan jawaban">
+              <button id="filter-all-btn" class="filter-tab active" type="button">Semua (10)</button>
+              <button id="filter-wrong-btn" class="filter-tab" type="button">Perlu Diingat (<span id="filter-wrong-count">0</span>)</button>
+              <button id="filter-correct-btn" class="filter-tab" type="button">Sudah Benar (<span id="filter-correct-count">10</span>)</button>
+            </div>
+          </div>
+
+          <!-- Daftar Rincian Seluruh Soal & Koreksi -->
+          <div id="review-list" class="review-items-container">
+            <!-- Diisi secara dinamis oleh JavaScript -->
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER SITUS RAMAH ANAK -->
+    <footer class="site-footer">
+      <p class="footer-text">
+        SDS HARAPAN BANGSA KARAWANG &bull; Kuis Seni Musik SD &bull; Dibuat khusus untuk media pembelajaran interaktif siswa Sekolah Dasar &bull; Kurikulum Seni Musik Indonesia
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- BERKAS JAVASCRIPT APLIKASI -->
+  <script src="js/icons.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

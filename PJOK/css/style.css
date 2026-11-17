@@ -1,0 +1,1543 @@
+/**
+ * Lembar Gaya Komik Edukasi Olahraga - Arena Kuis PJOK SD
+ * Tema: Kartun Komik Sporty Ceria dengan Garis Tinta Tebal, Bayangan Pop Offset,
+ * Gimmick Animasi Olahraga, Piala Bersinar, Konfeti, dan Review Koreksi Lengkap.
+ */
+
+:root {
+  /* Palet Warna Komik Sporty PJOK */
+  --pjok-ink: #1E293B;            /* Garis tinta komik pekat */
+  --pjok-bg: #F0FDF4;             /* Latar rumput lapangan segar dan cerah */
+  --pjok-surface: #FFFFFF;        /* Kartu komik putih bersih */
+  --pjok-primary: #10B981;        /* Hijau lapangan olahraga energik */
+  --pjok-primary-hover: #059669;
+  --pjok-secondary: #0284C7;      /* Biru atletik / langit segar */
+  --pjok-secondary-hover: #0369A1;
+  --pjok-accent-gold: #FBBF24;     /* Kuning emas piala juara */
+  --pjok-accent-orange: #F97316;   /* Oranye bola basket semangat */
+  --pjok-accent-red: #EF4444;      /* Merah koreksi tegas */
+  --pjok-border-color: #1E293B;
+  --pjok-shadow-color: #1E293B;
+
+  /* Warna Lencana Kelas */
+  --badge-emerald: #D1FAE5;
+  --badge-amber: #FEF3C7;
+  --badge-sky: #E0F2FE;
+  --badge-purple: #EDE9FE;
+  --badge-rose: #FFE4E6;
+  --badge-indigo: #E0E7FF;
+
+  /* Tipografi */
+  --font-comic: 'Fredoka', cursive, system-ui, sans-serif;
+  --font-text: 'Nunito', system-ui, -apple-system, sans-serif;
+
+  /* Dimensi & Gaya Komik */
+  --radius-comic: 18px;
+  --radius-sm: 12px;
+  --radius-pill: 9999px;
+  --border-thick: 2.5px solid var(--pjok-ink);
+  --shadow-comic: 3.5px 3.5px 0 var(--pjok-shadow-color);
+  --shadow-comic-lg: 5px 5px 0 var(--pjok-shadow-color);
+  --shadow-comic-sm: 2px 2px 0 var(--pjok-shadow-color);
+  --shadow-comic-pressed: 1px 1px 0 var(--pjok-shadow-color);
+}
+
+/* Reset Dasar */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--pjok-ink);
+  background-color: var(--pjok-bg);
+  background-image: 
+    radial-gradient(#BBF7D0 1.8px, transparent 1.8px),
+    radial-gradient(#BBF7D0 1.8px, var(--pjok-bg) 1.8px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Wadah Aplikasi */
+.app-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.d-none {
+  display: none !important;
+}
+
+/* =========================================================================
+   GIMMICK 1: IKON ALAT OLAHRAGA MELAYANG DI LATAR BELAKANG (SYARAT 9)
+   ========================================================================= */
+.floating-sports-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.sport-item {
+  position: absolute;
+  opacity: 0.75;
+  filter: drop-shadow(2px 2px 0 rgba(30, 41, 59, 0.2));
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.item-soccer {
+  top: 8%;
+  left: 3%;
+  animation: floatBounce 6s infinite alternate;
+}
+
+.item-shuttlecock {
+  top: 18%;
+  right: 4%;
+  animation: floatDrift 7s infinite alternate;
+}
+
+.item-whistle {
+  top: 55%;
+  left: 2%;
+  animation: floatSway 5s infinite alternate;
+}
+
+.item-basketball {
+  top: 72%;
+  right: 3%;
+  animation: floatBounce 5.5s infinite alternate-reverse;
+}
+
+.item-dumbbell {
+  bottom: 6%;
+  left: 6%;
+  animation: floatDrift 6.5s infinite alternate;
+}
+
+.item-medal {
+  top: 40%;
+  right: 2%;
+  animation: floatSway 6.8s infinite alternate-reverse;
+}
+
+@keyframes floatBounce {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(8deg); }
+  100% { transform: translateY(6px) rotate(-6deg); }
+}
+
+@keyframes floatDrift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(12px, -14px) rotate(-10deg); }
+  100% { transform: translate(-8px, 8px) rotate(6deg); }
+}
+
+@keyframes floatSway {
+  0% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-12px) rotate(12deg); }
+  100% { transform: translateY(4px) rotate(-4deg); }
+}
+
+/* =========================================================================
+   HEADER SITUS
+   ========================================================================= */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--pjok-surface);
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  box-shadow: var(--shadow-comic);
+  padding: 12px 20px;
+  margin-bottom: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-emblems {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.school-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 2.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  object-fit: contain;
+  background-color: #FFFFFF;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.school-logo-img:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.school-badge-name {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #0369A1;
+  background: #E0F2FE;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 1px 8px;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  width: fit-content;
+  line-height: 1.3;
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.brand-icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: #FEF08A;
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-comic-sm);
+}
+
+.brand-text h1 {
+  font-family: var(--font-comic);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--pjok-ink);
+  letter-spacing: -0.3px;
+}
+
+.brand-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--pjok-primary-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Tombol Suara Header */
+.sound-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FEF3C7;
+  border: var(--border-thick);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-family: var(--font-comic);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--pjok-ink);
+  cursor: pointer;
+  box-shadow: var(--shadow-comic-sm);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+}
+
+.sound-toggle-btn:hover {
+  background: #FDE68A;
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-comic);
+}
+
+.sound-toggle-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-comic-pressed);
+}
+
+.sound-toggle-btn:focus-visible {
+  outline: 3px solid var(--pjok-secondary);
+  outline-offset: 2px;
+}
+
+/* =========================================================================
+   DASHBOARD HERO & MASKOT INTERAKTIF "KAPTEN BUGAR" (SYARAT 2 & 9)
+   ========================================================================= */
+.dashboard-hero {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  align-items: center;
+  background: linear-gradient(135deg, #ECFDF5 0%, #E0F2FE 100%);
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  box-shadow: var(--shadow-comic-lg);
+  padding: 24px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mascot-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mascot-avatar-wrap {
+  width: 170px;
+  height: 170px;
+  background: #FFFFFF;
+  border: var(--border-thick);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-comic);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.mascot-avatar-wrap:hover {
+  transform: scale(1.06) rotate(-3deg);
+}
+
+.mascot-avatar-wrap:active {
+  transform: scale(0.96) rotate(3deg);
+}
+
+.mascot-svg {
+  width: 135px;
+  height: 135px;
+}
+
+.mascot-touch-hint {
+  margin-top: 10px;
+  font-family: var(--font-comic);
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: #FEF08A;
+  border: 2px solid var(--pjok-ink);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-comic-sm);
+  color: var(--pjok-ink);
+}
+
+/* Balon Bicara Komik */
+.hero-speech-bubble {
+  background: #FFFFFF;
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-comic);
+  position: relative;
+}
+
+.hero-speech-bubble::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 36px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 14px solid var(--pjok-ink);
+}
+
+.hero-speech-bubble::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 38px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 11px solid #FFFFFF;
+}
+
+.speech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FEF08A;
+  border: 2px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  padding: 3px 12px;
+  font-family: var(--font-comic);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--pjok-ink);
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-family: var(--font-comic);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--pjok-ink);
+  margin-bottom: 8px;
+}
+
+.hero-speech-text {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 14px;
+  min-height: 48px;
+}
+
+.hero-quick-tips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tip-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #F1F5F9;
+  border: 1.8px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--pjok-ink);
+}
+
+/* =========================================================================
+   GRID PILIHAN KELAS 1 SAMPAI 6 (SYARAT 1)
+   ========================================================================= */
+.section-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: #FEF08A;
+  border: 2px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  padding: 4px 14px;
+  font-family: var(--font-comic);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  box-shadow: var(--shadow-comic-sm);
+}
+
+.section-title {
+  font-family: var(--font-comic);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--pjok-ink);
+}
+
+.section-sub {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.grades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grade-card {
+  background: var(--pjok-surface);
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  box-shadow: var(--shadow-comic);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.grade-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.grade-card:focus-within {
+  outline: 3px solid var(--pjok-secondary);
+}
+
+.grade-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.grade-number-badge {
+  font-family: var(--font-comic);
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border: 2px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-comic-sm);
+}
+
+.badge-emerald { background: var(--badge-emerald); }
+.badge-amber { background: var(--badge-amber); }
+.badge-sky { background: var(--badge-sky); }
+.badge-purple { background: var(--badge-purple); }
+.badge-rose { background: var(--badge-rose); }
+.badge-indigo { background: var(--badge-indigo); }
+
+.grade-icon-box {
+  width: 44px;
+  height: 44px;
+  background: #F8FAFC;
+  border: 2px solid var(--pjok-ink);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-comic-sm);
+}
+
+.grade-title {
+  font-family: var(--font-comic);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--pjok-ink);
+  margin-bottom: 4px;
+}
+
+.grade-subtitle {
+  font-family: var(--font-comic);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--pjok-secondary);
+  margin-bottom: 10px;
+}
+
+.grade-desc {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.45;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.btn-start-grade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  min-height: 48px;
+  background: var(--pjok-primary);
+  color: #FFFFFF;
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-comic);
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-comic-sm);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+}
+
+.btn-start-grade:hover {
+  background: var(--pjok-primary-hover);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-comic);
+}
+
+.btn-start-grade:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-comic-pressed);
+}
+
+.btn-start-grade:focus-visible {
+  outline: 3px solid var(--pjok-secondary);
+  outline-offset: 2px;
+}
+
+/* =========================================================================
+   LAYAR KUIS (ARENA KUIS)
+   ========================================================================= */
+.quiz-screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.btn-ghost-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pjok-surface);
+  border: var(--border-thick);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-family: var(--font-comic);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--pjok-ink);
+  cursor: pointer;
+  box-shadow: var(--shadow-comic-sm);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-ghost-back:hover {
+  background: #F1F5F9;
+  transform: translate(-1px, -1px);
+}
+
+.btn-ghost-back:active {
+  transform: translate(1px, 1px);
+  box-shadow: var(--shadow-comic-pressed);
+}
+
+.quiz-active-grade {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FEF08A;
+  border: var(--border-thick);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  font-family: var(--font-comic);
+  font-size: 0.95rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-comic-sm);
+}
+
+/* Gimmick Lintasan Lari Atletik (Progress Bar) */
+.running-track-progress {
+  background: #FFFFFF;
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-comic);
+  margin-bottom: 20px;
+}
+
+.track-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-family: var(--font-comic);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.track-meta .track-label {
+  color: var(--pjok-secondary);
+}
+
+.track-rail {
+  width: 100%;
+  height: 18px;
+  background: #E2E8F0;
+  border: 2px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  position: relative;
+  overflow: visible;
+}
+
+.track-fill {
+  height: 100%;
+  width: 10%;
+  background: linear-gradient(90deg, #10B981, #059669);
+  border-radius: var(--radius-pill);
+  transition: width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+/* Pelari yang melangkah maju di atas track */
+.track-runner-sprite {
+  position: absolute;
+  right: -14px;
+  top: -20px;
+  width: 32px;
+  height: 32px;
+  background: #FEF08A;
+  border: 2px solid var(--pjok-ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-comic-sm);
+  transition: right 0.35s ease;
+  animation: runnerStep 0.6s infinite alternate;
+}
+
+@keyframes runnerStep {
+  0% { transform: translateY(0) rotate(-6deg); }
+  100% { transform: translateY(-4px) rotate(6deg); }
+}
+
+/* Kartu Soal Kuis Utama */
+.question-card {
+  background: var(--pjok-surface);
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  box-shadow: var(--shadow-comic-lg);
+  padding: 26px 28px;
+  margin-bottom: 24px;
+}
+
+.question-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.topic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EDE9FE;
+  border: 2px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  padding: 4px 14px;
+  font-family: var(--font-comic);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--pjok-ink);
+  box-shadow: var(--shadow-comic-sm);
+}
+
+/* Tombol Suara Bacakan Soal (TTS) */
+.btn-speech-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FEF08A;
+  border: var(--border-thick);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-family: var(--font-comic);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--pjok-ink);
+  cursor: pointer;
+  box-shadow: var(--shadow-comic-sm);
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+
+.btn-speech-read:hover {
+  background: #FDE047;
+  transform: translate(-1px, -1px);
+}
+
+.btn-speech-read:active {
+  transform: translate(1px, 1px);
+  box-shadow: var(--shadow-comic-pressed);
+}
+
+.btn-speech-read.is-speaking {
+  background: #BBF7D0;
+  border-color: #059669;
+  animation: speakPulse 1s infinite alternate;
+}
+
+@keyframes speakPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+
+.question-text-box {
+  margin-bottom: 24px;
+}
+
+.question-text-box h2 {
+  font-family: var(--font-comic);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--pjok-ink);
+}
+
+/* Pilihan Jawaban */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 14px 18px;
+  min-height: 56px;
+  background: #FFFFFF;
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: left;
+  color: var(--pjok-ink);
+  cursor: pointer;
+  box-shadow: var(--shadow-comic);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.12s ease;
+  position: relative;
+}
+
+.option-btn:hover:not(:disabled) {
+  background: #F8FAFC;
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.option-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-comic-pressed);
+}
+
+.option-btn:focus-visible {
+  outline: 3px solid var(--pjok-secondary);
+  outline-offset: 2px;
+}
+
+.option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: #F1F5F9;
+  border: 2px solid var(--pjok-ink);
+  border-radius: 50%;
+  font-family: var(--font-comic);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--pjok-ink);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-comic-sm);
+}
+
+.option-text {
+  flex-grow: 1;
+  line-height: 1.35;
+}
+
+/* Status Jawaban */
+.option-btn.selected-correct {
+  background: #D1FAE5 !important;
+  border-color: #059669 !important;
+}
+
+.option-btn.selected-correct .option-letter {
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+}
+
+.option-btn.selected-wrong {
+  background: #FEE2E2 !important;
+  border-color: #DC2626 !important;
+}
+
+.option-btn.selected-wrong .option-letter {
+  background: #EF4444 !important;
+  color: #FFFFFF !important;
+}
+
+.option-btn.reveal-correct {
+  background: #DCFCE7 !important;
+  border-color: #16A34A !important;
+  border-style: dashed !important;
+}
+
+/* Banner Feedback Setelah Menjawab */
+.quiz-feedback-banner {
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow-comic);
+  margin-top: 10px;
+  animation: slideUpComic 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUpComic {
+  0% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.quiz-feedback-banner.feedback-correct {
+  background: #ECFDF5;
+  border-color: #059669;
+}
+
+.quiz-feedback-banner.feedback-wrong {
+  background: #FFF1F2;
+  border-color: #E11D48;
+}
+
+.feedback-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.feedback-icon-box {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--pjok-ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-comic-sm);
+}
+
+.feedback-correct .feedback-icon-box {
+  background: #10B981;
+  color: #FFFFFF;
+}
+
+.feedback-wrong .feedback-icon-box {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.feedback-text h3 {
+  font-family: var(--font-comic);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.feedback-correct .feedback-text h3 {
+  color: #065F46;
+}
+
+.feedback-wrong .feedback-text h3 {
+  color: #9F1239;
+}
+
+.feedback-text p {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.btn-next-question {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  min-height: 48px;
+  background: var(--pjok-secondary);
+  color: #FFFFFF;
+  border: var(--border-thick);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-comic);
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-comic-sm);
+  transition: transform 0.1s ease, background 0.12s ease;
+  white-space: nowrap;
+}
+
+.btn-next-question:hover {
+  background: var(--pjok-secondary-hover);
+  transform: translate(-1px, -1px);
+}
+
+.btn-next-question:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-comic-pressed);
+}
+
+/* =========================================================================
+   GIMMICK 2: LAYAR HASIL AKHIR DENGAN PIALA BERSINAR & BINTANG (SYARAT 9)
+   ========================================================================= */
+.results-screen-wrap {
+  position: relative;
+}
+
+/* Kanvas Konfeti Kemenangan */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.celebration-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FEF9C3 100%);
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  box-shadow: var(--shadow-comic-lg);
+  padding: 36px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+/* Animasi Sinar Pancaran Piala Juara */
+.trophy-stage {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trophy-sunburst {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.4) 0%, rgba(251, 191, 36, 0) 70%);
+  animation: rayRotate 12s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rayRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.giant-trophy-svg {
+  width: 130px;
+  height: 130px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 6px 12px rgba(217, 119, 6, 0.4));
+  animation: trophyHover 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes trophyHover {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-10px) scale(1.05); }
+}
+
+/* Bintang-Bintang Bersinar di Sekitar Piala */
+.sparkle-stars-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.star-pop {
+  animation: starTwinkle 1.4s ease-in-out infinite alternate;
+}
+
+.star-pop:nth-child(2) { animation-delay: 0.2s; }
+.star-pop:nth-child(3) { animation-delay: 0.4s; }
+.star-pop:nth-child(4) { animation-delay: 0.6s; }
+.star-pop:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes starTwinkle {
+  0% { transform: scale(0.9) rotate(-10deg); filter: drop-shadow(0 0 2px #FBBF24); }
+  100% { transform: scale(1.25) rotate(10deg); filter: drop-shadow(0 0 8px #F59E0B); }
+}
+
+.result-heading {
+  font-family: var(--font-comic);
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--pjok-ink);
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+.result-sub {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+/* Kotak Skor */
+.score-summary-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  background: #FFFFFF;
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  padding: 18px 28px;
+  max-width: 480px;
+  margin: 0 auto 28px;
+  box-shadow: var(--shadow-comic);
+}
+
+.score-main-pill {
+  text-align: center;
+}
+
+.score-number-display {
+  font-family: var(--font-comic);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--pjok-primary-hover);
+}
+
+.score-caption {
+  font-family: var(--font-comic);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #64748B;
+  text-transform: uppercase;
+}
+
+.score-divider {
+  width: 2px;
+  height: 56px;
+  background: #CBD5E1;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-val {
+  font-family: var(--font-comic);
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.stat-val.correct-val { color: #059669; }
+.stat-val.wrong-val { color: #DC2626; }
+
+.stat-lbl {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748B;
+}
+
+/* Tombol Aksi Layar Hasil */
+.result-actions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.btn-result-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  min-height: 48px;
+  border: var(--border-thick);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-comic);
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-comic-sm);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-result-action:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-comic);
+}
+
+.btn-result-action:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-comic-pressed);
+}
+
+.btn-retry {
+  background: var(--pjok-primary);
+  color: #FFFFFF;
+}
+
+.btn-change-grade {
+  background: #FFFFFF;
+  color: var(--pjok-ink);
+}
+
+.btn-reconfetti {
+  background: #FEF08A;
+  color: var(--pjok-ink);
+}
+
+/* =========================================================================
+   REVIEW & KOREKSI JAWABAN LENGKAP (SYARAT 4)
+   ========================================================================= */
+.review-section {
+  background: var(--pjok-surface);
+  border: var(--border-thick);
+  border-radius: var(--radius-comic);
+  box-shadow: var(--shadow-comic-lg);
+  padding: 28px 24px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed #CBD5E1;
+}
+
+.review-title-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-title-box h3 {
+  font-family: var(--font-comic);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--pjok-ink);
+}
+
+/* Filter Tab Review */
+.review-filter-tabs {
+  display: flex;
+  gap: 8px;
+  background: #F1F5F9;
+  border: 2px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+}
+
+.filter-tab-btn {
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-family: var(--font-comic);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-tab-btn.active {
+  background: #FFFFFF;
+  color: var(--pjok-ink);
+  box-shadow: var(--shadow-comic-sm);
+  border: 1.5px solid var(--pjok-ink);
+}
+
+/* Kartu Review Item */
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.review-item-card {
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  background: #FFFFFF;
+  box-shadow: var(--shadow-comic);
+  transition: transform 0.1s ease;
+}
+
+.review-item-card.is-correct-card {
+  border-left: 8px solid #10B981;
+}
+
+.review-item-card.is-wrong-card {
+  border-left: 8px solid #EF4444;
+}
+
+.review-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-q-num {
+  font-family: var(--font-comic);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--pjok-secondary);
+}
+
+.review-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1.8px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-comic);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.status-badge-correct {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.status-badge-wrong {
+  background: #FFE4E6;
+  color: #9F1239;
+}
+
+.review-q-text {
+  font-family: var(--font-comic);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--pjok-ink);
+  margin-bottom: 14px;
+  line-height: 1.35;
+}
+
+.review-answer-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.answer-line {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.answer-line-label {
+  font-weight: 800;
+  color: #64748B;
+  min-width: 140px;
+}
+
+.answer-line-val {
+  font-weight: 700;
+}
+
+.val-user-correct { color: #059669; }
+.val-user-wrong { color: #DC2626; text-decoration: line-through; }
+.val-key-correct { color: #059669; font-weight: 800; }
+
+/* KOTAK KOREKSI JAWABAN KHUSUS (SYARAT 4) */
+.correction-explanation-box {
+  background: #FFFBEB;
+  border: 2px solid #F59E0B;
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-top: 10px;
+}
+
+.correction-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-comic);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #B45309;
+  margin-bottom: 6px;
+}
+
+.correction-text {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.5;
+}
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.site-footer {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.footer-badge {
+  display: inline-block;
+  background: #FFFFFF;
+  border: 2px solid var(--pjok-ink);
+  border-radius: var(--radius-pill);
+  padding: 4px 16px;
+  margin-top: 6px;
+  box-shadow: var(--shadow-comic-sm);
+}
+
+/* =========================================================================
+   RESPONSIVITAS MOBILE (SYARAT 5 & R-03)
+   ========================================================================= */
+@media (max-width: 860px) {
+  .dashboard-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .mascot-avatar-wrap {
+    width: 130px;
+    height: 130px;
+  }
+
+  .mascot-svg {
+    width: 105px;
+    height: 105px;
+  }
+
+  .hero-speech-bubble::before,
+  .hero-speech-bubble::after {
+    display: none;
+  }
+
+  .grades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 14px 12px 40px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .sound-label-text {
+    display: none;
+  }
+
+  .sound-toggle-btn {
+    padding: 8px;
+  }
+
+  .grades-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-card {
+    padding: 18px 16px;
+  }
+
+  .question-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .question-text-box h2 {
+    font-size: 1.25rem;
+  }
+
+  .quiz-feedback-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-next-question {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .score-summary-board {
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .score-divider {
+    width: 80%;
+    height: 2px;
+  }
+
+  .review-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .review-filter-tabs {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .answer-line {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .answer-line-label {
+    min-width: unset;
+  }
+}
+
+/* Mengurangi Gerakan Animasi jika pengguna mengaktifkannya di sistem */
+@media (prefers-reduced-motion: reduce) {
+  .sport-item,
+  .trophy-sunburst,
+  .giant-trophy-svg,
+  .star-pop,
+  .track-runner-sprite,
+  .btn-speech-read.is-speaking {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis IPS SD - Petualangan Nusantara Bersama Kapten Nusa</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+
+  <!-- Google Font: Fredoka (Rounded Comic) & Nunito (Mudah Dibaca Anak SD) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lembar Gaya Komik Petualangan Nusantara -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Gimmick Latar Belakang: Ikon Geografi & Sejarah Melayang Lembut (Syarat 9) -->
+  <div class="floating-geo-container" aria-hidden="true">
+    <div class="floating-item item-1">
+      <!-- Kompas Petualang -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2.2"><circle cx="12" cy="12" r="10" fill="#FEF08A"/><polygon points="16 8 13.5 13.5 8 16 10.5 10.5 16 8" fill="#F59E0B" stroke="#1E293B" stroke-width="1.8"/></svg>
+    </div>
+    <div class="floating-item item-2">
+      <!-- Bola Dunia / Globe -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2.2"><circle cx="12" cy="12" r="10" fill="#BAE6FD"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+    </div>
+    <div class="floating-item item-3">
+      <!-- Kapal Layar Nusantara -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M3 18c3 0 4.5-1 7.5-1s4.5 1 7.5 1 4.5-1 6-1"/><path d="M4 17l2-5h12l2 5z" fill="#FED7AA"/><line x1="12" y1="12" x2="12" y2="3"/><polygon points="12 3 19 7 12 10 12 3" fill="#F87171"/></svg>
+    </div>
+    <div class="floating-item item-4">
+      <!-- Peta Gulung Rahasia -->
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#1E293B" stroke-width="2.2"><polygon points="2 6 2 22 9 18 16 22 22 18 22 2 16 6 9 2 2 6" fill="#DDD6FE"/><line x1="9" y1="2" x2="9" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+    </div>
+    <div class="floating-item item-5">
+      <!-- Candi Stupa Sejarah -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M12 2v4"/><path d="M6 22h12v-5l-2-3V8h-8v6l-2 3v5z" fill="#BBF7D0"/><circle cx="12" cy="6" r="1.5" fill="#F59E0B"/></svg>
+    </div>
+    <div class="floating-item item-6">
+      <!-- Bendera Merah Putih -->
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#1E293B" stroke-width="2.2"><line x1="4" y1="22" x2="4" y2="2"/><rect x="4" y="3" width="16" height="6" fill="#EF4444"/><rect x="4" y="9" width="16" height="6" fill="#FFFFFF"/><rect x="4" y="3" width="16" height="12" stroke="#1E293B" stroke-width="2"/></svg>
+    </div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- HEADER SITUS -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <!-- Maskot Mini Kapten Nusa SVG -->
+          <svg class="brand-mascot-mini" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="50" cy="50" r="44" fill="#FEF08A" stroke="#1E293B" stroke-width="4"/>
+            <!-- Topi Petualang Safari Cokelat Muda -->
+            <ellipse cx="50" cy="30" rx="34" ry="10" fill="#D97706" stroke="#1E293B" stroke-width="3"/>
+            <path d="M26 30 C26 14 36 12 50 12 C64 12 74 14 74 30 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="3"/>
+            <rect x="32" y="24" width="36" height="6" fill="#1E293B"/>
+            <!-- Kepala Beruang Petualang Ceria -->
+            <circle cx="50" cy="56" r="26" fill="#FBBF24" stroke="#1E293B" stroke-width="3.5"/>
+            <!-- Telinga Lucu -->
+            <circle cx="28" cy="38" r="9" fill="#F59E0B" stroke="#1E293B" stroke-width="3"/>
+            <circle cx="28" cy="38" r="4.5" fill="#FECDD3"/>
+            <circle cx="72" cy="38" r="9" fill="#F59E0B" stroke="#1E293B" stroke-width="3"/>
+            <circle cx="72" cy="38" r="4.5" fill="#FECDD3"/>
+            <!-- Pipi Merah -->
+            <circle cx="36" cy="62" r="4" fill="#FCA5A5" opacity="0.8"/>
+            <circle cx="64" cy="62" r="4" fill="#FCA5A5" opacity="0.8"/>
+            <!-- Mata Ceria -->
+            <circle cx="41" cy="52" r="4" fill="#1E293B"/>
+            <circle cx="42.5" cy="50.5" r="1.5" fill="#FFFFFF"/>
+            <circle cx="59" cy="52" r="4" fill="#1E293B"/>
+            <circle cx="60.5" cy="50.5" r="1.5" fill="#FFFFFF"/>
+            <!-- Moncong & Hidung -->
+            <ellipse cx="50" cy="62" rx="10" ry="7" fill="#FEF3C7" stroke="#1E293B" stroke-width="2"/>
+            <ellipse cx="50" cy="59" rx="3.5" ry="2.5" fill="#78350F"/>
+            <path d="M47 64 Q50 67 53 64" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text-block">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h1 class="brand-title">Kuis IPS Sekolah Dasar</h1>
+          <p class="brand-tagline">Petualangan Cerdas Menjelajah Nusantara Bersama Kapten Nusa</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-toggle-sound" class="btn-icon-comic" type="button" aria-pressed="false" aria-label="Nyalakan atau matikan efek suara">
+          <span id="sound-icon-box" class="btn-inline-icon"></span>
+          <span id="sound-label-text">Suara: Nyala</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- KONTEN UTAMA APLIKASI -->
+    <main id="main-content">
+
+      <!-- =================================================================
+           LAYAR 1: DASHBOARD PILIHAN KELAS 1 SAMPAI 6
+           ================================================================= -->
+      <section id="grades-screen">
+        <!-- Hero Sambutan Maskot Komik Kapten Nusa (Gimmick Animasi Syarat 9) -->
+        <div class="welcome-hero">
+          <div id="mascot-interactive-box" class="mascot-interactive-box" title="Klik aku untuk mendengar fakta seru nusantara!">
+            <!-- Maskot Beruang Petualang Kapten Nusa SVG -->
+            <svg class="hero-mascot-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Bayangan Kaki -->
+              <ellipse cx="60" cy="112" rx="36" ry="7" fill="#CBD5E1"/>
+
+              <!-- Telinga Lucu -->
+              <circle cx="30" cy="30" r="12" fill="#D97706" stroke="#1E293B" stroke-width="3"/>
+              <circle cx="30" cy="30" r="6" fill="#FECDD3"/>
+              <circle cx="90" cy="30" r="12" fill="#D97706" stroke="#1E293B" stroke-width="3"/>
+              <circle cx="90" cy="30" r="6" fill="#FECDD3"/>
+
+              <!-- Kaki Kapten Nusa -->
+              <ellipse cx="44" cy="108" rx="9" ry="5" fill="#B45309" stroke="#1E293B" stroke-width="3"/>
+              <ellipse cx="76" cy="108" rx="9" ry="5" fill="#B45309" stroke="#1E293B" stroke-width="3"/>
+
+              <!-- Badan & Baju Safari Penjelajah -->
+              <ellipse cx="60" cy="80" rx="30" ry="26" fill="#F59E0B" stroke="#1E293B" stroke-width="3.5"/>
+              <!-- Rompi Safari Cokelat -->
+              <path d="M36 70 C36 90 42 100 60 100 C78 100 84 90 84 70 C74 68 68 66 60 72 C52 66 46 68 36 70 Z" fill="#D97706" stroke="#1E293B" stroke-width="3"/>
+              <line x1="60" y1="72" x2="60" y2="100" stroke="#1E293B" stroke-width="2.5"/>
+              <!-- Kancing Rompi Safari -->
+              <circle cx="56" cy="80" r="2.2" fill="#FEF08A" stroke="#1E293B" stroke-width="1.2"/>
+              <circle cx="56" cy="90" r="2.2" fill="#FEF08A" stroke="#1E293B" stroke-width="1.2"/>
+
+              <!-- Tangan Kiri Memegang Kompas Emas -->
+              <path d="M34 76 C28 78 24 86 30 92 C36 96 40 88 40 80 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="3"/>
+              <!-- Kompas Emas di Tangan -->
+              <circle cx="26" cy="86" r="9" fill="#FEF08A" stroke="#1E293B" stroke-width="2.5"/>
+              <polygon points="28 81 26 86 24 91 26 86" fill="#EF4444" stroke="#1E293B" stroke-width="1.2"/>
+              <circle cx="26" cy="86" r="1.5" fill="#1E293B"/>
+
+              <!-- Kepala Kapten Nusa -->
+              <circle cx="60" cy="48" r="30" fill="#F59E0B" stroke="#1E293B" stroke-width="3.5"/>
+
+              <!-- Topi Safari Petualang -->
+              <ellipse cx="60" cy="24" rx="38" ry="9" fill="#B45309" stroke="#1E293B" stroke-width="3"/>
+              <path d="M32 24 C32 6 42 4 60 4 C78 4 88 6 88 24 Z" fill="#D97706" stroke="#1E293B" stroke-width="3"/>
+              <rect x="38" y="18" width="44" height="6" fill="#1E293B"/>
+              <!-- Lencana Bendera Mini di Topi -->
+              <rect x="55" y="10" width="10" height="4" fill="#EF4444"/>
+              <rect x="55" y="14" width="10" height="4" fill="#FFFFFF"/>
+              <rect x="55" y="10" width="10" height="8" stroke="#1E293B" stroke-width="1.2"/>
+
+              <!-- Pipi Merona Ceria -->
+              <ellipse cx="40" cy="56" rx="4.5" ry="3" fill="#FCA5A5" opacity="0.8"/>
+              <ellipse cx="80" cy="56" rx="4.5" ry="3" fill="#FCA5A5" opacity="0.8"/>
+
+              <!-- Moncong & Hidung Beruang Ramah -->
+              <ellipse cx="60" cy="57" rx="12" ry="9" fill="#FEF3C7" stroke="#1E293B" stroke-width="2"/>
+              <polygon points="60,52 56,48 64,48" fill="#78350F"/>
+              <path d="M60 52 v3 M60 55 Q56 59 52 56 M60 55 Q64 59 68 56" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round"/>
+
+              <!-- Kaca Pembesar / Teropong Gantung di Leher -->
+              <circle cx="60" cy="69" r="6" fill="#E0F2FE" stroke="#1E293B" stroke-width="2"/>
+              <line x1="56" y1="73" x2="52" y2="78" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+
+              <!-- Mata Berkedip Animasi SVG -->
+              <g class="mascot-eye-blink">
+                <circle cx="45" cy="46" r="4.5" fill="#1E293B"/>
+                <circle cx="47" cy="44.5" r="1.8" fill="#FFFFFF"/>
+                <circle cx="75" cy="46" r="4.5" fill="#1E293B"/>
+                <circle cx="77" cy="44.5" r="1.8" fill="#FFFFFF"/>
+              </g>
+
+              <!-- Tangan Kanan Melambai Ceria -->
+              <g class="mascot-arm-wave">
+                <path d="M78 72 C88 68 96 58 90 52 C84 46 80 58 76 66 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="3"/>
+                <!-- Bendera Mini Nusantara di Tangan -->
+                <line x1="90" y1="52" x2="90" y2="30" stroke="#1E293B" stroke-width="2"/>
+                <rect x="90" y="30" width="14" height="6" fill="#EF4444"/>
+                <rect x="90" y="36" width="14" height="6" fill="#FFFFFF"/>
+                <rect x="90" y="30" width="14" height="12" stroke="#1E293B" stroke-width="1.2"/>
+              </g>
+            </svg>
+            <div class="mascot-click-hint">Sentuh Aku!</div>
+          </div>
+
+          <div class="hero-text-box">
+            <div id="mascot-speech-bubble" class="hero-speech-bubble">
+              <span id="mascot-speech-text">Halo Penjelajah Cilik! Ayo bertualang mengenal kekayaan budaya, sejarah, dan geografi nusantara bersama Kapten Nusa!</span>
+            </div>
+            <h2 class="hero-title">Kuis Seru Ilmu Pengetahuan Sosial SD</h2>
+            <p class="hero-desc">Pilih tingkatan kelasmu di bawah ini untuk memulai kuis yang interaktif, penuh warna, dan mengasah pengetahuan seputar keluarga, lingkungan, budaya, hingga dunia!</p>
+          </div>
+        </div>
+
+        <div class="section-headline-box">
+          <span class="headline-badge">Pilihan Tingkatan</span>
+          <h3 class="section-title">Pilih Kelas Kamu (Kelas 1 sampai 6)</h3>
+        </div>
+
+        <div id="grades-container" class="grades-grid">
+          <!-- Kartu kelas 1 sampai 6 dirender secara dinamis oleh app.js -->
+        </div>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 2: KUIS INTERAKTIF BERJALAN
+           ================================================================= -->
+      <section id="quiz-screen" class="d-none">
+        
+        <div class="quiz-header-bar">
+          <button id="btn-back-home" type="button" class="btn-back-comic" aria-label="Kembali ke Beranda Pilihan Kelas">
+            <span id="btn-back-icon" class="btn-inline-icon"></span>
+            <span>Ganti Kelas</span>
+          </button>
+          <div id="quiz-grade-badge" class="quiz-grade-badge">Kelas 1 SD</div>
+        </div>
+
+        <div class="quiz-progress-card">
+          <div class="progress-info-row">
+            <span id="progress-text" class="progress-text">Soal 1 dari 10</span>
+            <span id="progress-percent" class="progress-percent">10%</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <article class="question-card">
+          <div class="question-top-bar">
+            <span id="question-topic" class="question-topic-pill">Topik Materi</span>
+            
+            <!-- Fitur Suara: Tombol Membaca Soal (Text-to-Speech) (Syarat 3) -->
+            <button id="btn-speak-question" type="button" class="btn-speak-question" aria-label="Dengarkan soal dibacakan">
+              <span id="speaker-icon-box" class="btn-inline-icon"></span>
+              <span id="speech-btn-label">Dengarkan Soal</span>
+            </button>
+          </div>
+
+          <h2 id="question-text" class="question-text">Teks pertanyaan kuis akan tampil di sini...</h2>
+
+          <div id="options-container" class="options-grid" role="radiogroup" aria-label="Pilihan Jawaban">
+            <!-- Pilihan A, B, C, D dirender dinamis tanpa membocorkan jawaban di soal -->
+          </div>
+
+          <!-- Umpan Balik Instan Setelah Menjawab -->
+          <div id="feedback-banner" class="feedback-banner d-none" aria-live="polite">
+            <div id="feedback-icon" class="feedback-icon-box" aria-hidden="true"></div>
+            <div class="feedback-text-content">
+              <h3 id="feedback-heading" class="feedback-heading">Luar Biasa!</h3>
+              <p id="feedback-sub" class="feedback-sub">Penjelasan singkat mengenai materi pertanyaan ini.</p>
+            </div>
+          </div>
+
+          <div class="quiz-actions-row">
+            <button id="btn-next-question" type="button" class="btn-next-comic" disabled aria-disabled="true">
+              <span class="btn-next-text">Soal Selanjutnya</span>
+              <span id="next-btn-icon" class="btn-inline-icon"></span>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 3: HASIL KUIS, SELEBRASI & LEMBAR REVIEW KOREKSI (SYARAT 4 & 9)
+           ================================================================= -->
+      <section id="results-screen" class="d-none">
+        
+        <!-- Kanvas Animasi Konfeti Letupan Pesta (Syarat 9) -->
+        <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+        <div class="results-hero-card">
+          
+          <!-- Gimmick Animasi: Piala Emas Berputar dengan Sinar Matahari (Syarat 9) -->
+          <div class="trophy-stage">
+            <div class="sunburst-beam" aria-hidden="true"></div>
+            <div id="celebration-trophy-box" class="golden-trophy-svg">
+              <svg viewBox="0 0 24 24" width="90" height="90" fill="none" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v3h10v-3c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/>
+                <path d="M6 4h12v6c0 3.31-2.69 6-6 6s-6-2.69-6-6V4Z" fill="#FDE047"/>
+                <circle cx="12" cy="9" r="2.5" fill="#D97706"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Bintang Bersinar Animatif Berurutan (Syarat 9) -->
+          <div id="score-stars-container" class="score-stars-container"></div>
+
+          <h2 id="score-title" class="score-title">Selamat! Kamu Hebat Sekali!</h2>
+          <p id="score-message" class="score-message">Pesan motivasi belajar ramah anak SD akan tampil di sini.</p>
+
+          <div class="score-metrics-box">
+            <div class="metric-score-group">
+              <span id="score-final-number" class="score-number">100</span>
+              <span class="score-max">/ 100</span>
+            </div>
+            <div class="metrics-divider" aria-hidden="true"></div>
+            <span id="stat-correct" class="stat-pill pill-correct">10 Benar</span>
+            <span id="stat-wrong" class="stat-pill pill-wrong">0 Perlu Belajar</span>
+          </div>
+
+          <div class="results-actions-row">
+            <button id="btn-retry-quiz" type="button" class="btn-results-action btn-retry">
+              <span id="retry-btn-icon" class="btn-inline-icon"></span>
+              <span>Ulangi Kuis Kelas Ini</span>
+            </button>
+            <button id="btn-change-grade" type="button" class="btn-results-action btn-change">
+              <span id="change-grade-icon" class="btn-inline-icon"></span>
+              <span>Pilih Kelas Lain</span>
+            </button>
+            <button id="btn-reconfetti" type="button" class="btn-results-action btn-reconfetti" aria-label="Letupkan pesta konfeti lagi">
+              <span>Letupkan Konfeti!</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- LEMBAR REVIEW & KOREKSI JAWABAN LENGKAP (SYARAT 4) -->
+        <section class="review-section">
+          <div class="review-section-header">
+            <div class="review-title-box">
+              <div id="review-book-icon" class="review-book-icon"></div>
+              <h3 class="review-title">Lembar Review & Koreksi Jawaban</h3>
+            </div>
+            
+            <div class="review-filter-tabs" role="tablist" aria-label="Filter Hasil Review">
+              <button id="filter-all-btn" type="button" class="filter-pill-btn active-filter" role="tab" aria-selected="true">Semua Soal (10)</button>
+              <button id="filter-wrong-btn" type="button" class="filter-pill-btn" role="tab" aria-selected="false">Perlu Belajar Lagi</button>
+              <button id="filter-correct-btn" type="button" class="filter-pill-btn" role="tab" aria-selected="false">Jawaban Benar</button>
+            </div>
+          </div>
+
+          <div id="review-list" class="review-list">
+            <!-- Seluruh 10 soal ditampilkan dengan jawaban siswa, status benar/salah, dan koreksi jawaban di bawahnya -->
+          </div>
+        </section>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer">
+      <p>SDS HARAPAN BANGSA KARAWANG &bull; Kuis IPS SD • Petualangan Cerdas Menjelajah Ilmu Pengetahuan Sosial Nusantara Bersama Sahabat Cilik</p>
+    </footer>
+
+  </div>
+
+  <!-- Script Aplikasi -->
+  <script src="js/icons.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

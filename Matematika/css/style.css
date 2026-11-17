@@ -1,0 +1,1320 @@
+/* ==========================================================================
+   KUIS MATEMATIKA SD CERIA - STYLE SHEET KOMIK & KARTUN INTERAKTIF
+   Tema: Lucu, Ceria, Ramah Anak, Neo-Brutalist Comic
+   ========================================================================== */
+
+:root {
+  --ink: #1E293B;
+  --ink-muted: #475569;
+  --bg-page: #FFFDF0;
+  --surface: #FFFFFF;
+  --surface-tint: #FEF9C3;
+  --comic-border: 3.5px solid var(--ink);
+  --comic-border-thin: 2.5px solid var(--ink);
+  --comic-shadow: 0 6px 0 var(--ink);
+  --comic-shadow-sm: 0 3px 0 var(--ink);
+  --comic-shadow-lg: 0 9px 0 var(--ink);
+  --comic-shadow-pressed: 0 1px 0 var(--ink);
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --radius-pill: 9999px;
+
+  /* Palet Ceria */
+  --color-yellow: #FACC15;
+  --color-yellow-light: #FEF08A;
+  --color-orange: #FB923C;
+  --color-orange-light: #FFEDD5;
+  --color-blue: #38BDF8;
+  --color-blue-light: #E0F2FE;
+  --color-green: #4ADE80;
+  --color-green-light: #DCFCE7;
+  --color-purple: #C084FC;
+  --color-purple-light: #F3E8FF;
+  --color-red: #F87171;
+  --color-red-light: #FEE2E2;
+}
+
+/* Reset Dasar */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Fredoka', 'Nunito', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--ink);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(circle at 14px 14px, rgba(30, 41, 59, 0.05) 2.5px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Gimmick Simbol Matematika Melayang di Latar Belakang */
+.floating-symbols-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.math-symbol-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 2.5px solid var(--ink);
+  box-shadow: 0 4px 0 var(--ink);
+  font-weight: 800;
+  font-size: 1.4rem;
+  opacity: 0.65;
+  animation: floatBob 6s ease-in-out infinite alternate;
+}
+
+.sym-1 { top: 8%; left: 4%; background: var(--color-yellow-light); transform: rotate(-8deg); animation-duration: 5s; }
+.sym-2 { top: 18%; right: 5%; background: var(--color-blue-light); transform: rotate(12deg); animation-duration: 6.5s; }
+.sym-3 { top: 48%; left: 3%; background: var(--color-green-light); transform: rotate(10deg); animation-duration: 5.5s; }
+.sym-4 { top: 62%; right: 4%; background: var(--color-purple-light); transform: rotate(-14deg); animation-duration: 7s; }
+.sym-5 { bottom: 12%; left: 8%; background: var(--color-orange-light); transform: rotate(6deg); animation-duration: 4.8s; }
+.sym-6 { bottom: 10%; right: 7%; background: var(--color-yellow-light); transform: rotate(-10deg); animation-duration: 6.2s; }
+
+@keyframes floatBob {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(6deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Aksesibilitas umum */
+button, a {
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid #2563EB;
+  outline-offset: 3px;
+}
+
+/* Container Aplikasi */
+.app-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER SITUS */
+.site-header {
+  background: var(--surface);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-emblems {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.school-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 2.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  object-fit: contain;
+  background-color: #FFFFFF;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.school-logo-img:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.school-badge-name {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #0369A1;
+  background: #E0F2FE;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 1px 8px;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  width: fit-content;
+  line-height: 1.3;
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.brand-mascot-mini {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: var(--comic-border-thin);
+  background: #FEF08A;
+  box-shadow: var(--comic-shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.brand:hover .brand-mascot-mini {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.brand-tagline {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-header-link,
+.btn-icon-comic {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: var(--comic-border-thin);
+  background: #FFFFFF;
+  box-shadow: var(--comic-shadow-sm);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-header-link:hover,
+.btn-icon-comic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 var(--ink);
+  background: var(--surface-tint);
+}
+
+.btn-header-link:active,
+.btn-icon-comic:active {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+/* ==========================================================================
+   LAYAR 1: PILIHAN KELAS (BERANDA DASHBOARD)
+   ========================================================================== */
+
+.welcome-hero {
+  background: var(--surface);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 30px 28px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-hero::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-mascot-box {
+  flex-shrink: 0;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-mascot-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 0 rgba(30, 41, 59, 0.4));
+  animation: mascotWiggle 4s ease-in-out infinite alternate;
+}
+
+@keyframes mascotWiggle {
+  0% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(-1deg); }
+}
+
+.mascot-ear-left {
+  transform-origin: 32px 35px;
+  animation: earTwitchLeft 3.5s ease-in-out infinite;
+}
+
+.mascot-ear-right {
+  transform-origin: 68px 35px;
+  animation: earTwitchRight 3.8s ease-in-out infinite;
+}
+
+@keyframes earTwitchLeft {
+  0%, 90%, 100% { transform: rotate(0deg); }
+  94% { transform: rotate(-10deg); }
+  98% { transform: rotate(4deg); }
+}
+
+@keyframes earTwitchRight {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  92% { transform: rotate(10deg); }
+  96% { transform: rotate(-5deg); }
+}
+
+.mascot-eye-blink {
+  animation: eyeBlink 4s infinite;
+}
+
+@keyframes eyeBlink {
+  0%, 94%, 98%, 100% { transform: scaleY(1); }
+  96% { transform: scaleY(0.1); }
+}
+
+.hero-speech-bubble {
+  position: relative;
+  background: #FFFBEB;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  flex: 1;
+}
+
+/* Ekor Balon Percakapan Komik */
+.hero-speech-bubble::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -14px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 14px solid var(--ink);
+}
+
+.hero-speech-bubble::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -9px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 11px solid #FFFBEB;
+}
+
+.hero-speech-bubble h1 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.hero-speech-bubble p {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.section-label-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: var(--comic-border-thin);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+/* Grid Kartu Kelas 1 - 6 */
+.grades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grade-card {
+  background: var(--surface);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.grade-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--comic-shadow-lg);
+}
+
+.grade-card:active {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+.grade-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.grade-icon-badge {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  border: var(--comic-border-thin);
+  box-shadow: var(--comic-shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grade-level-pill {
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--ink);
+  background: #FFFFFF;
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.grade-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.grade-card-desc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  line-height: 1.45;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.btn-start-grade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: var(--comic-border-thin);
+  background: var(--color-yellow);
+  box-shadow: var(--comic-shadow-sm);
+  font-size: 0.95rem;
+  font-weight: 800;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+}
+
+.grade-card:hover .btn-start-grade {
+  background: #FDE047;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--ink);
+}
+
+.grade-card:active .btn-start-grade {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+/* ==========================================================================
+   LAYAR 2: KUIS INTERAKTIF
+   ========================================================================== */
+
+.quiz-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border: var(--comic-border-thin);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-back-home:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 var(--ink);
+  background: var(--color-orange-light);
+}
+
+.btn-back-home:active {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+.progress-track-wrapper {
+  flex: 1;
+  background: var(--surface);
+  border: var(--comic-border-thin);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 14px;
+  background: #E2E8F0;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--ink);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FACC15, #4ADE80);
+  border-radius: var(--radius-pill);
+  transition: width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Panel Soal */
+.question-panel {
+  background: var(--surface);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 32px 30px;
+  position: relative;
+}
+
+.question-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.question-topic-pill {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--ink);
+  background: var(--color-blue-light);
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.btn-speech-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: var(--comic-border-thin);
+  background: #FFFBEB;
+  box-shadow: var(--comic-shadow-sm);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #B45309;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-speech-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--ink);
+  background: var(--color-yellow-light);
+}
+
+.btn-speech-trigger:active {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+.btn-speech-trigger.speaking {
+  background: #FEE2E2;
+  color: #DC2626;
+  animation: pulseSpeech 1s infinite alternate;
+}
+
+@keyframes pulseSpeech {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+
+.question-main-box {
+  background: #FFFDF5;
+  border: var(--comic-border-thin);
+  border-radius: var(--radius-md);
+  padding: 24px 22px;
+  margin-bottom: 24px;
+  box-shadow: inset 0 2px 4px rgba(30, 41, 59, 0.04);
+}
+
+.question-main-text {
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+/* Grid Pilihan Jawaban */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.option-btn {
+  background: #FFFFFF;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  min-height: 68px;
+}
+
+.option-btn:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow: var(--comic-shadow-lg);
+  background: var(--surface-tint);
+}
+
+.option-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+.option-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 2.5px solid var(--ink);
+  background: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.option-text {
+  flex: 1;
+}
+
+/* Status Jawaban Terpilih */
+.option-btn.selected-correct {
+  background: #DCFCE7 !important;
+  border-color: var(--ink) !important;
+}
+
+.option-btn.selected-correct .option-badge {
+  background: #4ADE80;
+  color: #064E3B;
+}
+
+.option-btn.selected-wrong {
+  background: #FEE2E2 !important;
+  border-color: var(--ink) !important;
+}
+
+.option-btn.selected-wrong .option-badge {
+  background: #F87171;
+  color: #7F1D1D;
+}
+
+.option-btn.reveal-correct {
+  background: #DCFCE7 !important;
+  border-color: #16A34A !important;
+}
+
+.option-btn:disabled {
+  cursor: default;
+  opacity: 0.95;
+}
+
+/* Banner Feedback Setelah Menjawab */
+.answer-feedback-banner {
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+  animation: bannerSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bannerSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.answer-feedback-banner.correct {
+  background: #ECFDF5;
+  border-color: #059669;
+}
+
+.answer-feedback-banner.wrong {
+  background: #FFF1F2;
+  border-color: #E11D48;
+}
+
+.feedback-text-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.feedback-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.correct .feedback-icon-box {
+  background: #4ADE80;
+  color: #064E3B;
+}
+
+.wrong .feedback-icon-box {
+  background: #FDA4AF;
+  color: #9F1239;
+}
+
+.feedback-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.feedback-sub {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.btn-next-question {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-md);
+  border: var(--comic-border-thin);
+  background: var(--color-yellow);
+  box-shadow: var(--comic-shadow-sm);
+  font-size: 1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-next-question:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 0 var(--ink);
+  background: #FDE047;
+}
+
+.btn-next-question:active {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+/* ==========================================================================
+   LAYAR 3: HASIL KUIS & LEMBAR REVIEW / KOREKSI
+   ========================================================================== */
+
+.confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.score-board-card {
+  background: var(--surface);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-lg);
+  border-radius: var(--radius-lg);
+  padding: 38px 28px 32px;
+  text-align: center;
+  margin-bottom: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animasi Sunburst & Piala Emas Megah */
+.celebration-trophy-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trophy-sunburst {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(250, 204, 21, 0.4) 0deg 20deg,
+    transparent 20deg 40deg,
+    rgba(250, 204, 21, 0.4) 40deg 60deg,
+    transparent 60deg 80deg,
+    rgba(250, 204, 21, 0.4) 80deg 100deg,
+    transparent 100deg 120deg,
+    rgba(250, 204, 21, 0.4) 120deg 140deg,
+    transparent 140deg 160deg,
+    rgba(250, 204, 21, 0.4) 160deg 180deg,
+    transparent 180deg 200deg,
+    rgba(250, 204, 21, 0.4) 200deg 220deg,
+    transparent 220deg 240deg,
+    rgba(250, 204, 21, 0.4) 240deg 260deg,
+    transparent 260deg 280deg,
+    rgba(250, 204, 21, 0.4) 280deg 300deg,
+    transparent 300deg 320deg,
+    rgba(250, 204, 21, 0.4) 320deg 340deg,
+    transparent 340deg 360deg
+  );
+  animation: sunburstRotate 18s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sunburstRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.celebration-trophy-icon {
+  position: relative;
+  z-index: 2;
+  animation: trophyBounce 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes trophyBounce {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.06); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Animasi Bintang Melompat */
+.score-star-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.star-pop-item {
+  display: inline-flex;
+  animation: starPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes starPopIn {
+  0% { opacity: 0; transform: scale(0) rotate(-45deg); }
+  80% { transform: scale(1.25) rotate(10deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.score-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.score-message {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  max-width: 580px;
+  margin: 0 auto 20px;
+}
+
+.score-metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFBEB;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-pill);
+  padding: 10px 24px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #B45309;
+  margin-bottom: 26px;
+}
+
+.results-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-comic-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  border: var(--comic-border-thin);
+  background: var(--color-yellow);
+  box-shadow: var(--comic-shadow-sm);
+  font-size: 1rem;
+  font-weight: 800;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-comic-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 var(--ink);
+  background: #FDE047;
+}
+
+.btn-comic-primary:active {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+.btn-comic-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  border: var(--comic-border-thin);
+  background: #FFFFFF;
+  box-shadow: var(--comic-shadow-sm);
+  font-size: 1rem;
+  font-weight: 800;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-comic-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 var(--ink);
+  background: var(--surface-tint);
+}
+
+.btn-comic-secondary:active {
+  transform: translateY(2px);
+  box-shadow: var(--comic-shadow-pressed);
+}
+
+/* ==========================================================================
+   LEMBAR REVIEW & KOREKSI LENGKAP
+   ========================================================================== */
+
+.review-section {
+  background: var(--surface);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: var(--radius-lg);
+  padding: 30px 28px;
+}
+
+.review-section-header {
+  border-bottom: 2.5px dashed #CBD5E1;
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+}
+
+.review-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.review-filter-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-item-card {
+  border: var(--comic-border-thin);
+  box-shadow: var(--comic-shadow-sm);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  background: #FFFFFF;
+  transition: transform 0.15s ease;
+}
+
+.review-item-card.is-correct {
+  border-left: 10px solid #22C55E;
+}
+
+.review-item-card.is-wrong {
+  border-left: 10px solid #EF4444;
+}
+
+.review-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-q-num {
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--ink);
+  background: #F1F5F9;
+}
+
+.review-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--ink);
+}
+
+.badge-correct {
+  background: #DCFCE7;
+  color: #15803D;
+}
+
+.badge-wrong {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.review-question-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.review-answer-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.user-answer-box,
+.correct-answer-box {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--ink);
+  font-size: 0.92rem;
+}
+
+.answer-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.user-answer-box.user-correct {
+  background: #F0FDF4;
+  border-color: #16A34A;
+}
+
+.user-answer-box.user-wrong {
+  background: #FEF2F2;
+  border-color: #DC2626;
+}
+
+.correct-answer-box {
+  background: #F0FDF4;
+  border-color: #16A34A;
+}
+
+/* Kotak Koreksi Ramah Anak Jika Salah */
+.correction-box {
+  background: #FFFBEB;
+  border: 2px dashed #D97706;
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-top: 10px;
+}
+
+.correction-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #B45309;
+  margin-bottom: 6px;
+}
+
+.correction-text {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #451A03;
+  line-height: 1.5;
+}
+
+/* FOOTER SITUS */
+.site-footer {
+  text-align: center;
+  margin-top: 36px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+/* Utilitas Kelas Sembunyi */
+.d-none {
+  display: none !important;
+}
+
+/* ==========================================================================
+   RESPONSIVITAS MOBILE (320px - 768px)
+   ========================================================================== */
+
+@media (max-width: 840px) {
+  .grades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: 16px 12px 36px;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .brand {
+    justify-content: flex-start;
+  }
+
+  .header-controls {
+    justify-content: space-between;
+  }
+
+  .welcome-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px 18px;
+    gap: 16px;
+  }
+
+  .hero-speech-bubble::before,
+  .hero-speech-bubble::after {
+    display: none; /* Sembunyikan ekor panah horizontal di mobile */
+  }
+
+  .grades-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .question-panel {
+    padding: 20px 16px;
+  }
+
+  .question-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .btn-speech-trigger {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .option-btn {
+    padding: 14px 16px;
+    min-height: 58px;
+    font-size: 1rem;
+  }
+
+  .answer-feedback-banner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .feedback-text-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .btn-next-question {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .review-answer-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .results-action-row {
+    flex-direction: column;
+  }
+
+  .btn-comic-primary,
+  .btn-comic-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Reduced Motion untuk Aksesibilitas */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

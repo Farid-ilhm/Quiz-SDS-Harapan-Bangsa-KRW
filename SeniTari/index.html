@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Seni Tari SD - Petualangan Tari Nusantara</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+
+  <!-- Google Fonts: Fredoka (Rounded Comic) & Nunito (Mudah Dibaca Anak SD) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lembar Gaya Komik Seni Tari -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Kanvas Konfeti Kemenangan (Syarat 9) -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Gimmick Elemen Melayang Latar Belakang: Properti Tari Nusantara (Syarat 9) -->
+  <div class="floating-props-bg" aria-hidden="true">
+    <div class="float-prop prop-p1" title="Selendang Merah Tari">
+      <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M3 16C5 10 9 6 14 7C19 8 21 13 18 17C15 21 9 20 6 18C4 17 3 16 3 16Z" fill="#FEE2E2" stroke="#DC2626"/><path d="M6 14C9 10 13 9 17 11" stroke="#EF4444" stroke-width="2" stroke-dasharray="2 2"/></svg>
+    </div>
+    <div class="float-prop prop-p2" title="Mahkota Emas Tari">
+      <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M2 18l3-11 4.5 5 2.5-7 2.5 7 4.5-5 3 11H2z" fill="#FEF08A"/><circle cx="5" cy="7" r="1.2" fill="#EF4444"/><circle cx="12" cy="5" r="1.5" fill="#3B82F6"/><circle cx="19" cy="7" r="1.2" fill="#10B981"/></svg>
+    </div>
+    <div class="float-prop prop-p3" title="Kipas Tari Nusantara">
+      <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#1E293B" stroke-width="2"><path d="M12 20C5 20 2 15 2 12C2 7 6 3 12 3C18 3 22 7 22 12C22 15 19 20 12 20Z" fill="#FEF08A" stroke="#1E293B"/><line x1="12" y1="20" x2="6" y2="7" stroke="#F59E0B" stroke-width="1.8"/><line x1="12" y1="20" x2="12" y2="5" stroke="#F59E0B" stroke-width="1.8"/><line x1="12" y1="20" x2="18" y2="7" stroke="#F59E0B" stroke-width="1.8"/><circle cx="12" cy="20" r="2.5" fill="#DC2626" stroke="#1E293B" stroke-width="1.8"/></svg>
+    </div>
+    <div class="float-prop prop-p4" title="Piring Tari Minang">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#1E293B" stroke-width="2.2"><ellipse cx="12" cy="12" rx="9" ry="6" fill="#CCFBF1" stroke="#1E293B"/><ellipse cx="12" cy="12" rx="5" ry="3" fill="#5EEAD4" stroke="#0D9488" stroke-width="1.8"/></svg>
+    </div>
+    <div class="float-prop prop-p5" title="Bintang Panggung Gemerlap">
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1E293B" stroke-width="2"><polygon points="12 2 15 8 22 9 17 14 18 21 12 17 6 21 7 14 2 9 9 8 12 2" fill="#FBBF24"/></svg>
+    </div>
+    <div class="float-prop prop-p6" title="Bunga Melati Panggung">
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2"><circle cx="12" cy="12" r="3" fill="#FDE047"/><circle cx="12" cy="6" r="2.5" fill="#FFFFFF"/><circle cx="18" cy="12" r="2.5" fill="#FFFFFF"/><circle cx="12" cy="18" r="2.5" fill="#FFFFFF"/><circle cx="6" cy="12" r="2.5" fill="#FFFFFF"/></svg>
+    </div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- HEADER SITUS KOMIK SENI TARI -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <div class="brand-icon-box" data-dance-icon="danceBrand">
+            <!-- Icon Brand SVG -->
+          </div>
+        </div>
+        <div class="brand-text">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h1>
+            Kuis Seni Tari SD
+            <span class="brand-badge">Kelas 1 - 6</span>
+          </h1>
+          <p>Petualangan Tari Nusantara Ceria & Edukatif</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-toggle-sound" class="btn-comic-sound" type="button" aria-label="Nyalakan atau matikan suara">
+          <span id="sound-icon-box" data-dance-icon="volumeOn"></span>
+          <span id="sound-label-text">Suara: Aktif</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ====================================================================
+         LAYAR 1: PILIHAN TINGKATAN KELAS & GIMMICK DASHBOARD (Syarat 1 & 9)
+         ==================================================================== -->
+    <main id="grades-screen">
+      
+      <!-- Gimmick Hero: Panggung & Maskot Penari Cilik Interaktif -->
+      <section class="hero-stage-card">
+        <div class="stage-top-border"></div>
+        <div class="hero-flex-layout">
+          
+          <!-- Maskot Penari Cilik Interaktif yang bisa ganti pose saat diklik -->
+          <div class="mascot-interactive-area">
+            <div id="mascot-avatar-container" class="mascot-avatar-container" title="Klik aku untuk berganti pose tari!">
+              <div id="mascot-svg-box">
+                <!-- SVG Maskot Dinamis dari JS -->
+              </div>
+            </div>
+            <span class="mascot-click-hint"><span data-dance-icon="sparkles"></span> Klik Aku untuk Menari!</span>
+          </div>
+
+          <!-- Balon Bicara Komik Maskot -->
+          <div class="mascot-speech-bubble">
+            <span id="mascot-pose-badge" class="speech-bubble-tag">
+              Pose 1: Sembahan Penghormatan
+            </span>
+            <p id="mascot-quote-text" class="mascot-quote-text">
+              "Halo teman-teman! Sebelum menari, kita lakukan 'Gerak Sembahan' sebagai tanda santun dan hormat kepada guru dan penonton!"
+            </p>
+            <div class="mascot-controls-row">
+              <button id="btn-next-pose" class="btn-gimmick-action btn-pose" type="button">
+                <span data-dance-icon="refreshCw"></span>
+                <span>Ganti Gerak Tari</span>
+              </button>
+              <button id="btn-next-tip" class="btn-gimmick-action btn-tip" type="button">
+                <span data-dance-icon="infoCircle"></span>
+                <span>Fakta & Tips Menari</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Gimmick: Pojok Bunyi Alat Musik Tari (Web Audio API Synthesizer) -->
+      <section class="gamelan-corner-box">
+        <div class="gamelan-corner-info">
+          <span data-dance-icon="kendangTari"></span>
+          <div>
+            <h3>Pojok Irama Pengiring Tari</h3>
+            <p>Sentuh tombol instrumen untuk mendengar bunyinya secara langsung!</p>
+          </div>
+        </div>
+        <div class="gamelan-instrument-btns">
+          <button id="btn-play-kendang" class="btn-sound-instrument" type="button">
+            <span data-dance-icon="kendangTari"></span>
+            <span>Kendang (Tuk-Dung!)</span>
+          </button>
+          <button id="btn-play-gong" class="btn-sound-instrument" type="button">
+            <span data-dance-icon="gongTari"></span>
+            <span>Gong (Ngaaang!)</span>
+          </button>
+          <button id="btn-play-kelintingan" class="btn-sound-instrument" type="button">
+            <span data-dance-icon="gelangKaki"></span>
+            <span>Gelang Kaki (Klining!)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Judul Bagian Pilihan Kelas -->
+      <div class="section-header-comic">
+        <div class="comic-title-banner">
+          <h2>Pilih Kelasmu & Mulai Menari!</h2>
+        </div>
+        <p class="section-subtitle-comic">Materi disesuaikan dengan kurikulum Seni Tari anak SD dari kelas 1 sampai 6</p>
+      </div>
+
+      <!-- Wadah Kartu Tingkatan Kelas 1-6 (Di-render dari JS) -->
+      <div id="grades-container" class="grades-grid">
+        <!-- Render 6 Kartu Kelas -->
+      </div>
+    </main>
+
+    <!-- ====================================================================
+         LAYAR 2: KUIS INTERAKTIF DENGAN SUARA PEMBACA SOAL (Syarat 2, 3, 5, 6, 7)
+         ==================================================================== -->
+    <section id="quiz-screen" class="quiz-screen-wrapper" style="display: none;">
+      
+      <!-- Navigasi Atas Kuis -->
+      <div class="quiz-top-bar">
+        <button id="btn-back-home" class="btn-comic-back" type="button">
+          <span data-dance-icon="arrowLeft"></span>
+          <span>Pilih Kelas Lain</span>
+        </button>
+        <span id="quiz-grade-badge" class="quiz-grade-tag">
+          Kelas 1 SD - Seni Tari
+        </span>
+      </div>
+
+      <!-- Bilah Kemajuan Soal (Progress Bar) -->
+      <div class="quiz-progress-section">
+        <div class="progress-labels">
+          <span id="progress-text">Soal 1 dari 10</span>
+          <span id="progress-percent">10%</span>
+        </div>
+        <div class="progress-track-comic">
+          <div id="progress-fill" class="progress-fill-comic"></div>
+        </div>
+      </div>
+
+      <!-- Kotak Pertanyaan & Tombol Suara TTS (Syarat 3) -->
+      <div class="question-card-comic">
+        <span id="question-topic" class="question-topic-pill">
+          <!-- Topik Soal -->
+        </span>
+        <div class="question-header-row">
+          <h3 id="question-text" class="question-text-comic">
+            <!-- Teks Soal -->
+          </h3>
+          <button id="btn-speak-question" class="btn-speak-tts" type="button" aria-label="Bacakan soal dengan suara">
+            <span id="speaker-icon-box" data-dance-icon="speakerSpeak"></span>
+            <span id="speech-btn-label">Bacakan Soal</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Opsi Pilihan Ganda Komik (A, B, C, D) -->
+      <div id="options-container" class="options-grid">
+        <!-- Tombol Pilihan Opsi Di-render dari JS -->
+      </div>
+
+      <!-- Banner Feedback Jawaban Setelah Dipilih -->
+      <div id="feedback-banner" class="feedback-banner-comic" style="display: none;">
+        <div id="feedback-icon" class="feedback-icon-box"></div>
+        <div class="feedback-content">
+          <h4 id="feedback-heading">Bagus Sekali!</h4>
+          <p id="feedback-sub">Jawabanmu tepat sekali.</p>
+        </div>
+      </div>
+
+      <!-- Tombol Lanjut Soal Berikutnya -->
+      <div class="quiz-actions-row">
+        <button id="btn-next-question" class="btn-comic-next" type="button" style="display: none;">
+          <span class="btn-next-text">Soal Berikutnya</span>
+          <span data-dance-icon="arrowRight"></span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         LAYAR 3: HASIL KUIS, SELEBRASI PIALA BERSINAR & TINJAUAN KOREKSI (Syarat 4 & 9)
+         ==================================================================== -->
+    <section id="results-screen" class="results-screen-wrapper" style="display: none;">
+      
+      <div class="celebration-hero">
+        
+        <!-- Animasi Piala Emas Bersinar (Syarat 9) -->
+        <div class="trophy-sparkle-container">
+          <div id="trophy-icon-box">
+            <!-- Icon Piala Emas SVG -->
+          </div>
+        </div>
+
+        <!-- Bintang-Bintang Nilai Ceria -->
+        <div id="score-stars-container" class="score-stars-row">
+          <!-- Bintang Di-render dari JS -->
+        </div>
+
+        <h2 id="score-title">Selamat! Kamu Penari Hebat!</h2>
+        <p id="score-message">Kamu telah menyelesaikan seluruh kuis Seni Tari dengan penuh semangat!</p>
+
+        <!-- Kartu Ringkasan Nilai -->
+        <div class="score-card-summary">
+          <div class="score-main-box">
+            <span id="score-final-number" class="score-big-number">100</span>
+            <div class="score-total-label">NILAI AKHIR KAMU</div>
+          </div>
+          <div class="score-stats-col">
+            <div class="stat-item correct">
+              <span data-dance-icon="checkCircle"></span>
+              <span id="stat-correct">10 Benar</span>
+            </div>
+            <div class="stat-item wrong">
+              <span data-dance-icon="xCircle"></span>
+              <span id="stat-wrong">0 Salah</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi Hasil -->
+        <div class="results-nav-buttons">
+          <button id="btn-retry-quiz" class="btn-comic-primary" type="button">
+            <span data-dance-icon="refreshCw"></span>
+            <span>Ulangi Kuis Kelas Ini</span>
+          </button>
+          <button id="btn-change-grade" class="btn-comic-secondary" type="button">
+            <span data-dance-icon="home"></span>
+            <span>Pilih Kelas Lain</span>
+          </button>
+          <button id="btn-reconfetti" class="btn-comic-secondary" type="button">
+            <span data-dance-icon="sparkles"></span>
+            <span>Taburkan Konfeti Lagi!</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- ==================================================================
+           TINJAUAN JAWABAN & KOREKSI LENGKAP SETELAH SELESAI (Syarat 4)
+           ================================================================== -->
+      <div class="review-section-comic">
+        
+        <div class="review-header-bar">
+          <h3>Lembar Tinjauan & Koreksi Jawaban</h3>
+          <div class="filter-tabs-group">
+            <button id="filter-all-btn" class="btn-filter-tab active" type="button">Semua Soal (10)</button>
+            <button id="filter-wrong-btn" class="btn-filter-tab" type="button">Salah Saja</button>
+            <button id="filter-correct-btn" class="btn-filter-tab" type="button">Benar Saja</button>
+          </div>
+        </div>
+
+        <!-- Daftar Tinjauan Seluruh Soal dengan Koreksi Edukatif (Syarat 4) -->
+        <div id="review-list" class="review-cards-list">
+          <!-- Item Soal & Pembahasan Di-render dari JS -->
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER SITUS KOMIK -->
+    <footer class="site-footer">
+      <p>SDS HARAPAN BANGSA KARAWANG • Kuis Seni Tari SD • Belajar Gerak & Irama Nusantara dengan Gembira!</p>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPT APLIKASI -->
+  <script src="js/icons.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

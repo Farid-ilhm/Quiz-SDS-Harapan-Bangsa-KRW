@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Bahasa Indonesia SD - Belajar Cerdas Bersama Si Kancil</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+  
+  <!-- Font Google: Fredoka (Rounded Comic Lembut Ramah Anak) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Web Icons Bebas Emoji: Font Awesome 6 Free CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Lembar Gaya Komik & Kartun Ceria -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- =================================================================
+         HEADER SITUS (IDENTITAS & KONTROL SUARA)
+         ================================================================= -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <div class="brand-icon-wrap" aria-hidden="true">
+            <!-- Ikon Pensil Komik Font Awesome -->
+            <i class="fa-solid fa-feather-pointed" style="font-size: 1.6rem; color: #D97706;"></i>
+          </div>
+        </div>
+        <div class="brand-text-block">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h1 class="brand-title">Kuis Bahasa Indonesia SD</h1>
+          <p class="brand-tagline">Petualangan Belajar Cerdas Bersama Si Kancil</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-toggle-sound" class="btn-icon-comic" type="button" aria-pressed="false" aria-label="Nyalakan atau matikan efek suara">
+          <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          <span id="sound-label-text">Suara: Nyala</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- =================================================================
+         KONTEN UTAMA APLIKASI
+         ================================================================= -->
+    <main id="main-content">
+
+      <!-- ===============================================================
+           LAYAR 1: DASHBOARD / PILIHAN KELAS 1 SAMPAI 6
+           =============================================================== -->
+      <section id="grades-screen">
+        
+        <!-- Hero Sambutan Maskot Komik dengan Gimmick Animasi -->
+        <div class="hero-dashboard">
+          
+          <!-- Elemen Doodles Mengambang Latar Belakang -->
+          <div class="hero-doodles" aria-hidden="true">
+            <i class="fa-solid fa-pencil doodle doodle-pencil"></i>
+            <i class="fa-solid fa-book-open doodle doodle-book"></i>
+            <i class="fa-solid fa-star doodle doodle-star-1"></i>
+            <i class="fa-solid fa-sparkles doodle doodle-star-2"></i>
+            <i class="fa-solid fa-cloud doodle doodle-cloud"></i>
+          </div>
+
+          <!-- Teks Sambutan Hero -->
+          <div class="hero-content">
+            <span class="hero-badge">
+              <i class="fa-solid fa-sparkles" style="color: #D97706;"></i>
+              Materi Standar Kurikulum SD
+            </span>
+            <h2 class="hero-title">Ayo Uji Kepintaran <span>Bahasa Indonesia</span> Kamu!</h2>
+            <p class="hero-desc">
+              Pilih tingkatan kelasmu dari kelas 1 sampai 6. Setiap kelas memiliki 10 soal seru yang disesuaikan dengan kemampuanmu, lengkap dengan fitur suara pembaca soal dan pembahasan edukatif!
+            </p>
+          </div>
+
+          <!-- Maskot Si Kancil Interaktif & Balon Ucapan -->
+          <div class="hero-mascot-container">
+            <div class="speech-bubble-comic">
+              Halo Sobat Cerdas! Pilih kelasmu ya!
+            </div>
+            <!-- SVG Maskot Si Kancil Pintar -->
+            <svg class="kancil-mascot-svg" width="130" height="130" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="60" cy="112" rx="38" ry="6" fill="#1E293B" opacity="0.25"/>
+              <g class="mascot-ear mascot-ear-left">
+                <path d="M42 38 C32 18, 30 6, 40 4 C48 2, 52 20, 50 36 Z" fill="#D97706" stroke="#1E293B" stroke-width="3.5" stroke-linejoin="round"/>
+                <path d="M40 32 C35 20, 34 10, 40 8 C44 7, 46 19, 45 30 Z" fill="#FDE68A"/>
+              </g>
+              <g class="mascot-ear mascot-ear-right">
+                <path d="M78 38 C88 18, 90 6, 80 4 C72 2, 68 20, 70 36 Z" fill="#D97706" stroke="#1E293B" stroke-width="3.5" stroke-linejoin="round"/>
+                <path d="M80 32 C85 20, 86 10, 80 8 C76 7, 74 19, 75 30 Z" fill="#FDE68A"/>
+              </g>
+              <path d="M49 26 Q46 16 52 14 Q53 22 51 28" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M71 26 Q74 16 68 14 Q67 22 69 28" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round"/>
+              <ellipse cx="60" cy="58" rx="36" ry="32" fill="#F59E0B" stroke="#1E293B" stroke-width="3.5"/>
+              <path d="M44 60 C44 50, 76 50, 76 60 C76 76, 44 76, 44 60 Z" fill="#FEF3C7" stroke="#1E293B" stroke-width="3"/>
+              <ellipse cx="60" cy="62" rx="6" ry="4" fill="#1E293B"/>
+              <path d="M54 68 Q60 74 66 68" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <path d="M60 66 L60 69" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+              <g class="mascot-eye mascot-eye-left">
+                <ellipse cx="44" cy="46" rx="7" ry="9" fill="#1E293B"/>
+                <circle cx="42" cy="44" r="3" fill="#FFFFFF"/>
+                <circle cx="46" cy="48" r="1.5" fill="#FFFFFF"/>
+              </g>
+              <g class="mascot-eye mascot-eye-right">
+                <ellipse cx="76" cy="46" rx="7" ry="9" fill="#1E293B"/>
+                <circle cx="74" cy="44" r="3" fill="#FFFFFF"/>
+                <circle cx="78" cy="48" r="1.5" fill="#FFFFFF"/>
+              </g>
+              <ellipse cx="32" cy="56" rx="6" ry="4" fill="#F87171" opacity="0.8"/>
+              <ellipse cx="88" cy="56" rx="6" ry="4" fill="#F87171" opacity="0.8"/>
+              <path d="M54 84 L46 88 L52 94 Z" fill="#EF4444" stroke="#1E293B" stroke-width="2.5"/>
+              <path d="M66 84 L74 88 L68 94 Z" fill="#EF4444" stroke="#1E293B" stroke-width="2.5"/>
+              <circle cx="60" cy="88" r="4.5" fill="#DC2626" stroke="#1E293B" stroke-width="2.5"/>
+              <g class="mascot-book">
+                <rect x="42" y="93" width="36" height="20" rx="3" fill="#38BDF8" stroke="#1E293B" stroke-width="3"/>
+                <path d="M60 93 L60 113" stroke="#1E293B" stroke-width="2"/>
+                <line x1="46" y1="99" x2="56" y2="99" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                <line x1="46" y1="104" x2="54" y2="104" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                <line x1="64" y1="99" x2="74" y2="99" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                <line x1="64" y1="104" x2="72" y2="104" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Judul Bagian Pilihan Kelas -->
+        <div class="section-header">
+          <h3 class="section-title">
+            <i class="fa-solid fa-shapes" style="color: #D97706;"></i>
+            Pilihan Tingkatan Kelas
+          </h3>
+        </div>
+
+        <!-- Grid Kartu Kelas 1 Sampai 6 -->
+        <div class="grades-grid">
+          
+          <!-- KELAS 1 -->
+          <div class="grade-card grade-card-1">
+            <span class="grade-badge-top">Fase A</span>
+            <div class="grade-icon-circle">
+              <i class="fa-solid fa-shapes"></i>
+            </div>
+            <h4 class="grade-card-title">Kelas 1 SD</h4>
+            <div class="grade-card-subtitle">Langkah Awal Membaca</div>
+            <p class="grade-card-desc">Pengenalan huruf vokal, suku kata, benda di sekitar, anggota tubuh, sapaan santun, dan menyusun kata sederhana.</p>
+            <div class="grade-card-footer">
+              <span class="question-count-badge">
+                <i class="fa-solid fa-circle-question"></i> 10 Soal Seru
+              </span>
+              <button class="btn-play-grade" type="button" data-grade="1">
+                <span>Mulai Kuis</span>
+                <i class="fa-solid fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- KELAS 2 -->
+          <div class="grade-card grade-card-2">
+            <span class="grade-badge-top">Fase A</span>
+            <div class="grade-icon-circle">
+              <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+            <h4 class="grade-card-title">Kelas 2 SD</h4>
+            <div class="grade-card-subtitle">Petualang Kata Cilik</div>
+            <p class="grade-card-desc">Tanda titik & tanya, antonim & sinonim sederhana, kalimat ajakan santun, serta pemahaman puisi anak bergambar.</p>
+            <div class="grade-card-footer">
+              <span class="question-count-badge">
+                <i class="fa-solid fa-circle-question"></i> 10 Soal Seru
+              </span>
+              <button class="btn-play-grade" type="button" data-grade="2">
+                <span>Mulai Kuis</span>
+                <i class="fa-solid fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- KELAS 3 -->
+          <div class="grade-card grade-card-3">
+            <span class="grade-badge-top">Fase B</span>
+            <div class="grade-icon-circle">
+              <i class="fa-solid fa-feather-pointed"></i>
+            </div>
+            <h4 class="grade-card-title">Kelas 3 SD</h4>
+            <div class="grade-card-subtitle">Jago Dongeng & Cerita</div>
+            <p class="grade-card-desc">Ciri cerita fabel hewan, awalan ber- dan me-, arah mata angin pada denah, kalimat saran sopan, dan kalimat efektif.</p>
+            <div class="grade-card-footer">
+              <span class="question-count-badge">
+                <i class="fa-solid fa-circle-question"></i> 10 Soal Seru
+              </span>
+              <button class="btn-play-grade" type="button" data-grade="3">
+                <span>Mulai Kuis</span>
+                <i class="fa-solid fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- KELAS 4 -->
+          <div class="grade-card grade-card-4">
+            <span class="grade-badge-top">Fase B</span>
+            <div class="grade-icon-circle">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h4 class="grade-card-title">Kelas 4 SD</h4>
+            <div class="grade-card-subtitle">Penjelajah Paragraf</div>
+            <p class="grade-card-desc">Ide pokok paragraf, paragraf deduktif, istilah wawancara narasumber, teks petunjuk kerja, dan kosa kata baku KBBI.</p>
+            <div class="grade-card-footer">
+              <span class="question-count-badge">
+                <i class="fa-solid fa-circle-question"></i> 10 Soal Seru
+              </span>
+              <button class="btn-play-grade" type="button" data-grade="4">
+                <span>Mulai Kuis</span>
+                <i class="fa-solid fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- KELAS 5 -->
+          <div class="grade-card grade-card-5">
+            <span class="grade-badge-top">Fase C</span>
+            <div class="grade-icon-circle">
+              <i class="fa-solid fa-scroll"></i>
+            </div>
+            <h4 class="grade-card-title">Kelas 5 SD</h4>
+            <div class="grade-card-subtitle">Pujangga Pantun Cilik</div>
+            <p class="grade-card-desc">Sampiran dan isi pantun bersajak a-b-a-b, makna imbuhan ter- dan pe-, ciri surat resmi instansi, serta peribahasa bijak.</p>
+            <div class="grade-card-footer">
+              <span class="question-count-badge">
+                <i class="fa-solid fa-circle-question"></i> 10 Soal Seru
+              </span>
+              <button class="btn-play-grade" type="button" data-grade="5">
+                <span>Mulai Kuis</span>
+                <i class="fa-solid fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- KELAS 6 -->
+          <div class="grade-card grade-card-6">
+            <span class="grade-badge-top">Fase C</span>
+            <div class="grade-icon-circle">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h4 class="grade-card-title">Kelas 6 SD</h4>
+            <div class="grade-card-subtitle">Master Bahasa Indonesia</div>
+            <p class="grade-card-desc">Struktur naskah pidato, laporan pengamatan faktual, pengisian formulir resmi, majas personifikasi, dan kesimpulan teks.</p>
+            <div class="grade-card-footer">
+              <span class="question-count-badge">
+                <i class="fa-solid fa-circle-question"></i> 10 Soal Seru
+              </span>
+              <button class="btn-play-grade" type="button" data-grade="6">
+                <span>Mulai Kuis</span>
+                <i class="fa-solid fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===============================================================
+           LAYAR 2: LAYAR KUIS INTERAKTIF (PLAYING SCREEN)
+           =============================================================== -->
+      <section id="quiz-screen" class="d-none">
+        
+        <!-- Header Bar Kuis: Tombol Kembali & Indikator Kelas/Nomor -->
+        <div class="quiz-header-bar">
+          <button id="btn-back-home" class="btn-back-comic" type="button" aria-label="Kembali ke menu pilihan kelas">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Pilih Kelas Lain</span>
+          </button>
+
+          <div class="quiz-info-pills">
+            <span id="badge-grade" class="pill-badge pill-grade">
+              <i class="fa-solid fa-graduation-cap"></i> Kelas 1 SD
+            </span>
+            <span id="badge-counter" class="pill-badge pill-counter">
+              <i class="fa-solid fa-list-ol"></i> Soal 1 dari 10
+            </span>
+          </div>
+        </div>
+
+        <!-- Progress Bar Komik -->
+        <div class="progress-container">
+          <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="10" aria-valuenow="1">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Kartu Soal -->
+        <div class="question-card">
+          <div class="question-meta">
+            <div id="question-topic-pill" class="question-topic-pill">
+              <i class="fa-solid fa-font"></i>
+              <span>Huruf Vokal</span>
+            </div>
+
+            <!-- Tombol Fitur Suara Pembaca Soal (Text-to-Speech) -->
+            <button id="btn-speech-question" class="btn-speech-comic" type="button" aria-label="Dengarkan soal ini dibacakan suara">
+              <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+              <span>Dengarkan Soal (Suara)</span>
+            </button>
+          </div>
+
+          <div class="question-text-box">
+            <h3 id="question-text" class="question-text">
+              Di antara pilihan huruf di bawah ini, kelompok manakah yang semuanya merupakan huruf vokal?
+            </h3>
+          </div>
+
+          <!-- Wadah Opsi Pilihan Ganda A, B, C, D -->
+          <div id="options-container" class="options-grid">
+            <!-- Diisi secara dinamis oleh app.js -->
+          </div>
+
+          <!-- Navigasi Bawah Kuis: Lompat Soal & Tombol Lanjut -->
+          <div class="quiz-nav-bar">
+            <button id="btn-prev-question" class="btn-nav-comic btn-nav-prev" type="button">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>Sebelumnya</span>
+            </button>
+
+            <!-- Titik Lompat Nomor Soal 1-10 -->
+            <div id="jump-dots-bar" class="jump-dots-bar" aria-label="Daftar nomor soal">
+              <!-- Diisi secara dinamis oleh app.js -->
+            </div>
+
+            <button id="btn-next-question" class="btn-nav-comic btn-nav-next" type="button">
+              <span>Soal Berikutnya</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ===============================================================
+           LAYAR 3: HASIL AKHIR & LEMBAR KOREKSI SELURUH JAWABAN
+           =============================================================== -->
+      <section id="results-screen" class="d-none">
+        
+        <!-- Kartu Hero Perayaan Hasil Kuis -->
+        <div class="results-hero-card">
+          <!-- Kanvas Partikel Konfeti Meriah -->
+          <canvas id="confetti-canvas"></canvas>
+
+          <div class="results-content">
+            <!-- Piala Emas Komik Animasi -->
+            <div class="trophy-wrapper">
+              <svg class="comic-trophy-svg" width="135" height="135" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <g class="trophy-sparkles">
+                  <polygon class="sparkle sparkle-1" points="24,20 27,27 34,30 27,33 24,40 21,33 14,30 21,27" fill="#FACC15" stroke="#1E293B" stroke-width="1.5"/>
+                  <polygon class="sparkle sparkle-2" points="98,16 100,22 106,24 100,26 98,32 96,26 90,24 96,22" fill="#FACC15" stroke="#1E293B" stroke-width="1.5"/>
+                  <polygon class="sparkle sparkle-3" points="60,6 62,11 67,13 62,15 60,20 58,15 53,13 58,11" fill="#FEF08A" stroke="#1E293B" stroke-width="1.5"/>
+                </g>
+                <path d="M38 38 C18 38, 14 62, 36 68" fill="none" stroke="#1E293B" stroke-width="6" stroke-linecap="round"/>
+                <path d="M38 38 C18 38, 14 62, 36 68" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+                <path d="M82 38 C102 38, 106 62, 84 68" fill="none" stroke="#1E293B" stroke-width="6" stroke-linecap="round"/>
+                <path d="M82 38 C102 38, 106 62, 84 68" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+                <path d="M32 26 H88 V54 C88 70 76 80 60 80 C44 80 32 70 32 54 Z" fill="#FACC15" stroke="#1E293B" stroke-width="4.5" stroke-linejoin="round"/>
+                <path d="M38 32 C38 48 44 68 52 72 C44 66 40 48 40 32 Z" fill="#FEF08A" opacity="0.8"/>
+                <polygon points="60,42 63,49 71,50 65,56 67,64 60,60 53,64 55,56 49,50 57,49" fill="#F59E0B" stroke="#1E293B" stroke-width="2"/>
+                <path d="M54 80 H66 V92 H54 Z" fill="#F59E0B" stroke="#1E293B" stroke-width="4"/>
+                <path d="M42 92 H78 L82 102 H38 Z" fill="#D97706" stroke="#1E293B" stroke-width="4"/>
+                <rect x="30" y="102" width="60" height="12" rx="3" fill="#1E293B"/>
+                <rect x="34" y="104" width="52" height="4" rx="1.5" fill="#38BDF8"/>
+              </svg>
+            </div>
+
+            <!-- Deretan 3 Bintang Komik Animasi -->
+            <div id="stars-row" class="stars-row">
+              <!-- Diisi secara dinamis oleh app.js -->
+            </div>
+
+            <h3 id="results-title" class="results-title">Luar Biasa! Jawabanmu Sempurna!</h3>
+            <p id="results-motivation" class="results-motivation">
+              Hebat sekali! Kamu berhasil menjawab semua soal dengan tepat seperti Si Kancil yang cerdik!
+            </p>
+
+            <!-- Rincian Nilai Komik -->
+            <div class="score-badge-box">
+              <div id="score-main-text" class="score-main">100/100</div>
+              <div class="score-divider"></div>
+              <div class="score-details">
+                <div id="score-correct-count" class="text-correct">10 Benar</div>
+                <div id="score-wrong-count" class="text-wrong">0 Perlu Diingat</div>
+              </div>
+            </div>
+
+            <!-- Tombol Aksi Hasil -->
+            <div class="results-actions">
+              <button id="btn-retry-quiz" class="btn-action-comic btn-action-retry" type="button">
+                <i class="fa-solid fa-rotate-right"></i>
+                <span>Ulangi Kuis Kelas Ini</span>
+              </button>
+              <button id="btn-choose-other-grade" class="btn-action-comic btn-action-home" type="button">
+                <i class="fa-solid fa-house"></i>
+                <span>Pilih Kelas Lain</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             LEMBAR KOREKSI SELURUH JAWABAN (REQUIREMENT #4)
+             =============================================================== -->
+        <div class="review-section">
+          <div class="review-section-header">
+            <h4 class="review-header-title">
+              <i class="fa-solid fa-clipboard-list" style="color: #D97706;"></i>
+              Lembar Koreksi & Pembahasan Seluruh Soal
+            </h4>
+            <div class="review-legend">
+              <span class="status-pill status-correct">
+                <i class="fa-solid fa-circle-check"></i> Jawaban Tepat
+              </span>
+              <span class="status-pill status-incorrect">
+                <i class="fa-solid fa-circle-xmark"></i> Perlu Diingat
+              </span>
+            </div>
+          </div>
+
+          <!-- Daftar 10 Soal yang Telah Dijawab Beserta Koreksi & Pembahasan -->
+          <div id="review-list-container">
+            <!-- Diisi secara dinamis oleh app.js -->
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer">
+      <p>SDS HARAPAN BANGSA KARAWANG &bull; Kuis Bahasa Indonesia SD - Media Pembelajaran Ceria, Ramah Anak &amp; Interaktif.</p>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPT LOGIKA KUIS -->
+  <script src="js/icons.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+

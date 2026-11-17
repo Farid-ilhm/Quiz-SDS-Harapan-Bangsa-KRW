@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis TIK SD - Petualangan Komputer & Robotika Bersama Robot Chippy</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+
+  <!-- Google Font: Fredoka (Rounded Comic) & Nunito (Mudah Dibaca Anak SD) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lembar Gaya Komik Teknologi TIK -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Gimmick Latar Belakang: Ikon Teknologi Melayang Ceria (Syarat 9) -->
+  <div class="floating-tech-container" aria-hidden="true">
+    <div class="floating-item item-1">
+      <!-- Chip Mikroprosesor Ceria -->
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1E293B" stroke-width="2.2"><rect x="5" y="5" width="14" height="14" rx="2" fill="#FEF08A"/><rect x="8" y="8" width="8" height="8" fill="#F59E0B"/><line x1="8" y1="2" x2="8" y2="5"/><line x1="16" y1="2" x2="16" y2="5"/><line x1="8" y1="19" x2="8" y2="22"/><line x1="16" y1="19" x2="16" y2="22"/><line x1="2" y1="8" x2="5" y2="8"/><line x1="2" y1="16" x2="5" y2="16"/><line x1="19" y1="8" x2="22" y2="8"/><line x1="19" y1="16" x2="22" y2="16"/></svg>
+    </div>
+    <div class="floating-item item-2">
+      <!-- Kursor Panah Mouse Komik -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2.2"><polygon points="3 3 10 20 13 13 20 10 3 3" fill="#BAE6FD"/></svg>
+    </div>
+    <div class="floating-item item-3">
+      <!-- Layar Monitor Mini Ceria -->
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1E293B" stroke-width="2.2"><rect x="3" y="4" width="18" height="12" rx="2" fill="#BBF7D0"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/><circle cx="9" cy="9" r="1.5" fill="#1E293B"/><circle cx="15" cy="9" r="1.5" fill="#1E293B"/><path d="M10 12 Q12 14 14 12" stroke="#1E293B" stroke-width="1.5"/></svg>
+    </div>
+    <div class="floating-item item-4">
+      <!-- Disket Retro Imut -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" fill="#DDD6FE"/><polyline points="17 21 17 13 7 13 7 21"/><rect x="7" y="3" width="9" height="5" fill="#FFFFFF"/></svg>
+    </div>
+    <div class="floating-item item-5">
+      <!-- Flashdisk USB Portabel -->
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#1E293B" stroke-width="2.2"><rect x="8" y="2" width="8" height="6" fill="#E2E8F0"/><rect x="6" y="8" width="12" height="14" rx="2" fill="#FED7AA"/><line x1="10" y1="4" x2="10" y2="5"/><line x1="14" y1="4" x2="14" y2="5"/></svg>
+    </div>
+    <div class="floating-item item-6">
+      <!-- Sinyal Wi-Fi Pintar -->
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M5 12.55a11 11 0 0 1 14.08 0" stroke="#0284C7"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0" stroke="#0284C7"/><line x1="12" y1="20" x2="12.01" y2="20" stroke="#EF4444" stroke-width="3"/></svg>
+    </div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- HEADER SITUS -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <!-- Maskot Mini Robot Chippy SVG -->
+          <svg class="brand-mascot-mini" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Lingkaran Latar Kuning Komik -->
+            <circle cx="50" cy="50" r="44" fill="#FEF08A" stroke="#1E293B" stroke-width="4"/>
+            <!-- Antena Mini -->
+            <line x1="50" y1="22" x2="50" y2="10" stroke="#1E293B" stroke-width="3.5"/>
+            <circle cx="50" cy="9" r="5" fill="#EF4444" stroke="#1E293B" stroke-width="2"/>
+            <!-- Kepala Robot -->
+            <rect x="25" y="22" width="50" height="42" rx="10" fill="#38BDF8" stroke="#1E293B" stroke-width="3.5"/>
+            <!-- Layar Wajah -->
+            <rect x="32" y="28" width="36" height="24" rx="6" fill="#0F172A"/>
+            <!-- Mata LED Biru Cerah -->
+            <circle cx="42" cy="38" r="4" fill="#38BDF8"/>
+            <circle cx="43" cy="37" r="1.5" fill="#FFFFFF"/>
+            <circle cx="58" cy="38" r="4" fill="#38BDF8"/>
+            <circle cx="59" cy="37" r="1.5" fill="#FFFFFF"/>
+            <!-- Senyum Robotik -->
+            <path d="M44 46 Q50 50 56 46" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Telinga Baut Robot -->
+            <rect x="19" y="36" width="6" height="12" rx="2" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+            <rect x="75" y="36" width="6" height="12" rx="2" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+            <!-- Leher & Bodi Mini -->
+            <rect x="42" y="64" width="16" height="6" fill="#1E293B"/>
+            <rect x="30" y="70" width="40" height="22" rx="6" fill="#0284C7" stroke="#1E293B" stroke-width="3"/>
+            <circle cx="42" cy="79" r="3" fill="#10B981"/>
+            <circle cx="58" cy="79" r="3" fill="#F59E0B"/>
+          </svg>
+        </div>
+        <div class="brand-text-block">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h1 class="brand-title">Kuis TIK Sekolah Dasar</h1>
+          <p class="brand-tagline">Petualangan Komputer & Robotika Cerdas Bersama Robot Chippy</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-toggle-sound" class="btn-icon-comic" type="button" aria-pressed="false" aria-label="Nyalakan atau matikan efek suara">
+          <span id="sound-icon-box" class="btn-inline-icon"></span>
+          <span id="sound-label-text">Suara: Nyala</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- KONTEN UTAMA APLIKASI -->
+    <main id="main-content">
+
+      <!-- =================================================================
+           LAYAR 1: DASHBOARD PILIHAN KELAS 1 SAMPAI 6
+           ================================================================= -->
+      <section id="grades-screen">
+        <!-- Hero Sambutan Maskot Komik Robot Chippy (Gimmick Animasi Syarat 9) -->
+        <div class="welcome-hero">
+          <div id="mascot-interactive-box" class="mascot-interactive-box" title="Klik aku untuk mendengar suara & tips seru komputer!">
+            <!-- Maskot Robot Chippy SVG Ceria -->
+            <svg class="hero-mascot-svg" viewBox="0 0 120 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Bayangan Bawah -->
+              <ellipse cx="60" cy="124" rx="34" ry="6" fill="#CBD5E1"/>
+
+              <!-- Kaki Robot Kokoh -->
+              <rect x="40" y="104" width="14" height="16" rx="4" fill="#0369A1" stroke="#1E293B" stroke-width="3"/>
+              <rect x="66" y="104" width="14" height="16" rx="4" fill="#0369A1" stroke="#1E293B" stroke-width="3"/>
+              <ellipse cx="47" cy="120" rx="9" ry="4" fill="#1E293B"/>
+              <ellipse cx="73" cy="120" rx="9" ry="4" fill="#1E293B"/>
+
+              <!-- Tangan Kiri Robotik -->
+              <g class="mascot-arm-left">
+                <rect x="18" y="70" width="12" height="24" rx="5" fill="#38BDF8" stroke="#1E293B" stroke-width="3"/>
+                <circle cx="24" cy="94" r="5" fill="#F59E0B" stroke="#1E293B" stroke-width="2"/>
+              </g>
+
+              <!-- Badan Robot Canggih -->
+              <rect x="30" y="60" width="60" height="46" rx="10" fill="#0284C7" stroke="#1E293B" stroke-width="3.5"/>
+              
+              <!-- Layar Panel Dada -->
+              <rect x="38" y="68" width="44" height="26" rx="6" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"/>
+              <!-- Tombol & Indikator LED -->
+              <circle cx="48" cy="77" r="3.5" fill="#10B981" stroke="#1E293B" stroke-width="1.2"/>
+              <circle cx="60" cy="77" r="3.5" fill="#F59E0B" stroke="#1E293B" stroke-width="1.2"/>
+              <circle cx="72" cy="77" r="3.5" fill="#EF4444" stroke="#1E293B" stroke-width="1.2"/>
+              <rect x="46" y="85" width="28" height="4" rx="2" fill="#38BDF8"/>
+
+              <!-- Tangan Kanan Robot Melambai (Animasi CSS) -->
+              <g class="mascot-arm-wave">
+                <rect x="90" y="60" width="12" height="26" rx="5" fill="#38BDF8" stroke="#1E293B" stroke-width="3"/>
+                <!-- Tangan Capit Emas Melambai -->
+                <circle cx="96" cy="54" r="7" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+                <path d="M93 50 C93 45 99 45 99 50" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+
+              <!-- Leher Penghubung -->
+              <rect x="52" y="52" width="16" height="8" rx="2" fill="#1E293B"/>
+
+              <!-- Kepala Robot Chippy -->
+              <rect x="25" y="16" width="70" height="40" rx="12" fill="#38BDF8" stroke="#1E293B" stroke-width="3.5"/>
+              
+              <!-- Telinga Baut Robot -->
+              <rect x="18" y="28" width="7" height="16" rx="2" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+              <rect x="95" y="28" width="7" height="16" rx="2" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+
+              <!-- Antena Berdenyut Cahaya (Animasi CSS) -->
+              <line x1="60" y1="16" x2="60" y2="4" stroke="#1E293B" stroke-width="3.5"/>
+              <circle cx="60" cy="4" r="5.5" class="antenna-light" stroke="#1E293B" stroke-width="2"/>
+
+              <!-- Layar Wajah Monitor Hitam -->
+              <rect x="33" y="22" width="54" height="28" rx="8" fill="#0F172A" stroke="#1E293B" stroke-width="2"/>
+
+              <!-- Mata LED Berkedip (Animasi CSS) -->
+              <g class="mascot-eye-blink">
+                <circle cx="48" cy="33" r="5" fill="#38BDF8"/>
+                <circle cx="49.5" cy="31.5" r="2" fill="#FFFFFF"/>
+                <circle cx="72" cy="33" r="5" fill="#38BDF8"/>
+                <circle cx="73.5" cy="31.5" r="2" fill="#FFFFFF"/>
+              </g>
+
+              <!-- Senyum Ramah Digital -->
+              <path d="M52 42 Q60 47 68 42" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+              
+              <!-- Pipi Merah Digital Ceria -->
+              <circle cx="40" cy="40" r="2.5" fill="#F43F5E"/>
+              <circle cx="80" cy="40" r="2.5" fill="#F43F5E"/>
+            </svg>
+            <div class="mascot-click-hint">Sentuh Chippy!</div>
+          </div>
+
+          <div class="hero-text-box">
+            <div id="mascot-speech-bubble" class="hero-speech-bubble">
+              <span id="mascot-speech-text">Bleep-bloop! Halo Sobat Cilik! Ayo belajar komputer, internet sehat, dan coding seru bersama Robot Chippy!</span>
+            </div>
+            <h2 class="hero-title">Kuis Seru Teknologi Informasi & Komunikasi SD</h2>
+            <p class="hero-desc">Pilih tingkatan kelasmu di bawah ini untuk memulai kuis yang interaktif, penuh warna, dan mengasah pemahaman seputar perangkat komputer, aplikasi pengolah kata, presentasi, hingga logika pemrograman dasar!</p>
+          </div>
+        </div>
+
+        <div class="section-headline-box">
+          <span class="headline-badge">Pilihan Tingkatan</span>
+          <h3 class="section-title">Pilih Kelas Kamu (Kelas 1 sampai 6)</h3>
+        </div>
+
+        <div id="grades-container" class="grades-grid">
+          <!-- Kartu kelas 1 sampai 6 dirender secara dinamis oleh app.js -->
+        </div>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 2: KUIS INTERAKTIF BERJALAN
+           ================================================================= -->
+      <section id="quiz-screen" class="d-none">
+        
+        <div class="quiz-header-bar">
+          <button id="btn-back-home" type="button" class="btn-back-comic" aria-label="Kembali ke Beranda Pilihan Kelas">
+            <span id="btn-back-icon" class="btn-inline-icon"></span>
+            <span>Ganti Kelas</span>
+          </button>
+          <div id="quiz-grade-badge" class="quiz-grade-badge">Kelas 1 SD</div>
+        </div>
+
+        <div class="quiz-progress-card">
+          <div class="progress-info-row">
+            <span id="progress-text" class="progress-text">Soal 1 dari 10</span>
+            <span id="progress-percent" class="progress-percent">10%</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <article class="question-card">
+          <div class="question-top-bar">
+            <span id="question-topic" class="question-topic-pill">Topik Materi</span>
+            
+            <!-- Fitur Suara: Tombol Membaca Soal (Text-to-Speech) (Syarat 3) -->
+            <button id="btn-speak-question" type="button" class="btn-speak-question" aria-label="Dengarkan soal dibacakan oleh suara peramban">
+              <span id="speaker-icon-box" class="btn-inline-icon"></span>
+              <span id="speech-btn-label">Dengarkan Soal</span>
+            </button>
+          </div>
+
+          <h2 id="question-text" class="question-text">Teks pertanyaan kuis akan tampil di sini...</h2>
+
+          <div id="options-container" class="options-grid" role="radiogroup" aria-label="Pilihan Jawaban">
+            <!-- Pilihan A, B, C, D dirender dinamis tanpa membocorkan jawaban di soal -->
+          </div>
+
+          <!-- Umpan Balik Instan Setelah Siswa Memilih Jawaban -->
+          <div id="feedback-banner" class="feedback-banner d-none" aria-live="polite">
+            <div id="feedback-icon" class="feedback-icon-box" aria-hidden="true"></div>
+            <div class="feedback-text-content">
+              <h3 id="feedback-heading" class="feedback-heading">Luar Biasa!</h3>
+              <p id="feedback-sub" class="feedback-sub">Penjelasan singkat mengenai materi pertanyaan ini.</p>
+            </div>
+          </div>
+
+          <div class="quiz-actions-row">
+            <button id="btn-next-question" type="button" class="btn-next-comic" disabled aria-disabled="true">
+              <span class="btn-next-text">Soal Selanjutnya</span>
+              <span id="next-btn-icon" class="btn-inline-icon"></span>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- =================================================================
+           LAYAR 3: HASIL KUIS, SELEBRASI & LEMBAR REVIEW KOREKSI (SYARAT 4 & 9)
+           ================================================================= -->
+      <section id="results-screen" class="d-none">
+        
+        <!-- Kanvas Animasi Konfeti Letupan Pesta (Syarat 9) -->
+        <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+        <div class="results-hero-card">
+          
+          <!-- Gimmick Animasi: Piala Emas Berputar dengan Sinar Matahari (Syarat 9) -->
+          <div class="trophy-stage">
+            <div class="sunburst-beam" aria-hidden="true"></div>
+            <div id="celebration-trophy-box" class="golden-trophy-svg">
+              <svg viewBox="0 0 24 24" width="90" height="90" fill="none" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v3h10v-3c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/>
+                <path d="M6 4h12v6c0 3.31-2.69 6-6 6s-6-2.69-6-6V4Z" fill="#FDE047"/>
+                <circle cx="12" cy="9" r="2.5" fill="#D97706"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Bintang Bersinar Animatif Berurutan (Syarat 9) -->
+          <div id="score-stars-container" class="score-stars-container"></div>
+
+          <h2 id="score-title" class="score-title">Selamat! Kamu Hebat Sekali!</h2>
+          <p id="score-message" class="score-message">Pesan motivasi belajar ramah anak SD akan tampil di sini.</p>
+
+          <div class="score-metrics-box">
+            <div class="metric-score-group">
+              <span id="score-final-number" class="score-number">100</span>
+              <span class="score-max">/ 100</span>
+            </div>
+            <div class="metrics-divider" aria-hidden="true"></div>
+            <span id="stat-correct" class="stat-pill pill-correct">10 Benar</span>
+            <span id="stat-wrong" class="stat-pill pill-wrong">0 Perlu Belajar</span>
+          </div>
+
+          <div class="results-actions-row">
+            <button id="btn-retry-quiz" type="button" class="btn-results-action btn-retry">
+              <span id="retry-btn-icon" class="btn-inline-icon"></span>
+              <span>Ulangi Kuis Kelas Ini</span>
+            </button>
+            <button id="btn-change-grade" type="button" class="btn-results-action btn-change">
+              <span id="change-grade-icon" class="btn-inline-icon"></span>
+              <span>Pilih Kelas Lain</span>
+            </button>
+            <button id="btn-reconfetti" type="button" class="btn-results-action btn-reconfetti" aria-label="Letupkan pesta konfeti lagi">
+              <span>Letupkan Konfeti!</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- LEMBAR REVIEW & KOREKSI JAWABAN LENGKAP (SYARAT 4) -->
+        <section class="review-section">
+          <div class="review-section-header">
+            <div class="review-title-box">
+              <div id="review-book-icon" class="review-book-icon"></div>
+              <h3 class="review-title">Lembar Review & Koreksi Jawaban</h3>
+            </div>
+            
+            <div class="review-filter-tabs" role="tablist" aria-label="Filter Hasil Review">
+              <button id="filter-all-btn" type="button" class="filter-pill-btn active-filter" role="tab" aria-selected="true">Semua Soal (10)</button>
+              <button id="filter-wrong-btn" type="button" class="filter-pill-btn" role="tab" aria-selected="false">Perlu Koreksi</button>
+              <button id="filter-correct-btn" type="button" class="filter-pill-btn" role="tab" aria-selected="false">Jawaban Benar</button>
+            </div>
+          </div>
+
+          <div id="review-list" class="review-list">
+            <!-- Seluruh 10 soal ditampilkan dengan jawaban siswa, status benar/salah, dan koreksi jawaban di bawahnya -->
+          </div>
+        </section>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer">
+      <p>SDS HARAPAN BANGSA KARAWANG • Kuis TIK SD • Petualangan Komputer & Robotika Cerdas Bersama Robot Chippy</p>
+    </footer>
+
+  </div>
+
+  <!-- Script Aplikasi -->
+  <script src="js/icons.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

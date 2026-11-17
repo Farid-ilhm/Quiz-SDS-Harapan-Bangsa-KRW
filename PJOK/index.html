@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arena Kuis PJOK SD - Kebugaran, Olahraga &amp; Kesehatan Ceria</title>
+  <link rel="icon" type="image/jpeg" href="LOGO SD HB.jpeg">
+
+  <!-- Google Fonts: Fredoka (Rounded Comic) & Nunito (Nyaman Dibaca Anak SD) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lembar Gaya Komik Olahraga PJOK -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- GIMMICK 1: IKON ALAT OLAHRAGA MELAYANG DI LATAR BELAKANG (SYARAT 9) -->
+  <div class="floating-sports-container" aria-hidden="true">
+    <div class="sport-item item-soccer">
+      <!-- Bola Sepak Komik -->
+      <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#1E293B" stroke-width="2.2"><circle cx="12" cy="12" r="10" fill="#FFFFFF"/><polygon points="12 7 15 9.5 14 13.5 10 13.5 9 9.5" fill="#1E293B"/><line x1="12" y1="7" x2="12" y2="2"/><line x1="15" y1="9.5" x2="19.5" y2="8"/><line x1="14" y1="13.5" x2="17" y2="18"/><line x1="10" y1="13.5" x2="7" y2="18"/><line x1="9" y1="9.5" x2="4.5" y2="8"/></svg>
+    </div>
+    <div class="sport-item item-shuttlecock">
+      <!-- Kok Bulu Tangkis -->
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M8 5l-4 7h16l-4-7z" fill="#E0F2FE"/><line x1="8" y1="5" x2="8" y2="12"/><line x1="12" y1="5" x2="12" y2="12"/><line x1="16" y1="5" x2="16" y2="12"/><path d="M9 14h6v2a3 3 0 0 1-6 0v-2z" fill="#EF4444"/></svg>
+    </div>
+    <div class="sport-item item-whistle">
+      <!-- Peluit Wasit Sporty -->
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M11 6h7a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1l-3 4H9a5 5 0 1 1 2-10z" fill="#FEF08A"/><circle cx="9" cy="14" r="2.5" fill="#F59E0B"/><path d="M14 6V3"/></svg>
+    </div>
+    <div class="sport-item item-basketball">
+      <!-- Bola Basket -->
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#1E293B" stroke-width="2.2"><circle cx="12" cy="12" r="10" fill="#FED7AA"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M4.93 4.93a10 10 0 0 1 0 14.14"/><path d="M19.07 4.93a10 10 0 0 0 0 14.14"/></svg>
+    </div>
+    <div class="sport-item item-dumbbell">
+      <!-- Barbel Kebugaran -->
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#1E293B" stroke-width="2.2"><rect x="2" y="7" width="3" height="10" rx="1.5" fill="#CBD5E1"/><rect x="5" y="9" width="2" height="6" rx="1" fill="#94A3B8"/><line x1="7" y1="12" x2="17" y2="12"/><rect x="17" y="9" width="2" height="6" rx="1" fill="#94A3B8"/><rect x="19" y="7" width="3" height="10" rx="1.5" fill="#CBD5E1"/></svg>
+    </div>
+    <div class="sport-item item-medal">
+      <!-- Medali Emas Juara -->
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#1E293B" stroke-width="2.2"><path d="M7 2l5 6-3 1-5-6h3z" fill="#EF4444"/><path d="M17 2l-5 6 3 1 5-6h-3z" fill="#3B82F6"/><circle cx="12" cy="15" r="5" fill="#FDE047"/><circle cx="12" cy="15" r="3" fill="#F59E0B"/></svg>
+    </div>
+  </div>
+
+  <!-- KANVAS HUJAN KONFETI KEMENANGAN (SYARAT 9) -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- HEADER SITUS -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-emblems">
+          <img src="LOGO SD HB.jpeg" alt="Logo SDS Harapan Bangsa Karawang" class="school-logo-img">
+          <div class="brand-icon-wrap" id="brand-icon-box" aria-hidden="true"></div>
+        </div>
+        <div class="brand-text">
+          <div class="school-badge-name">SDS HARAPAN BANGSA KARAWANG</div>
+          <h1>Arena Kuis PJOK</h1>
+          <span class="brand-badge">Pendidikan Jasmani, Olahraga &amp; Kesehatan</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Tombol Toggle Suara -->
+        <button type="button" class="sound-toggle-btn" id="btn-toggle-sound" aria-label="Nyalakan atau matikan suara">
+          <span id="sound-icon-box" aria-hidden="true"></span>
+          <span class="sound-label-text" id="sound-label-text">Suara Aktif</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+
+      <!-- ===================================================================
+           1. LAYAR PILIHAN KELAS (DASHBOARD)
+           =================================================================== -->
+      <section id="grades-screen" class="screen-view">
+        
+        <!-- DASHBOARD HERO & MASKOT "KAPTEN BUGAR" INTERAKTIF (SYARAT 2 & 9) -->
+        <div class="dashboard-hero">
+          <div class="mascot-zone" id="mascot-interactive-box" title="Klik Kapten Bugar untuk mendengar tips olahraga!">
+            <div class="mascot-avatar-wrap">
+              <!-- Maskot Kartun Komik Singa Sporty "Kapten Bugar" -->
+              <svg class="mascot-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Rambut Surai Singa Ceria -->
+                <circle cx="60" cy="55" r="46" fill="#F59E0B" stroke="#1E293B" stroke-width="3.5"/>
+                <!-- Wajah Bulat Kuning Ceria -->
+                <circle cx="60" cy="56" r="34" fill="#FDE047" stroke="#1E293B" stroke-width="3"/>
+                <!-- Telinga Lucu Kiri dan Kanan -->
+                <circle cx="36" cy="30" r="11" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+                <circle cx="36" cy="30" r="6" fill="#FEF08A"/>
+                <circle cx="84" cy="30" r="11" fill="#F59E0B" stroke="#1E293B" stroke-width="2.5"/>
+                <circle cx="84" cy="30" r="6" fill="#FEF08A"/>
+                <!-- Headband Olahraga Merah Putih Juara -->
+                <path d="M28 42 C45 36 75 36 92 42 L90 49 C74 44 46 44 30 49 Z" fill="#EF4444" stroke="#1E293B" stroke-width="2"/>
+                <line x1="42" y1="41" x2="78" y2="41" stroke="#FFFFFF" stroke-width="3"/>
+                <!-- Mata Kartun Berbinar -->
+                <circle cx="49" cy="54" r="5" fill="#1E293B"/>
+                <circle cx="51" cy="52" r="1.8" fill="#FFFFFF"/>
+                <circle cx="71" cy="54" r="5" fill="#1E293B"/>
+                <circle cx="73" cy="52" r="1.8" fill="#FFFFFF"/>
+                <!-- Hidung dan Senyum Komik Lebar -->
+                <polygon points="60 60 56 65 64 65" fill="#D97706"/>
+                <path d="M52 68 Q60 76 68 68" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <!-- Pipi Merah Merona -->
+                <ellipse cx="42" cy="62" rx="4" ry="2.5" fill="#FCA5A5"/>
+                <ellipse cx="78" cy="62" rx="4" ry="2.5" fill="#FCA5A5"/>
+                <!-- Baju Kaos Tim Olahraga Hijau No 1 -->
+                <path d="M38 88 L82 88 L86 114 L34 114 Z" fill="#10B981" stroke="#1E293B" stroke-width="3"/>
+                <!-- Kerah Putih -->
+                <polygon points="52 88 60 96 68 88" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+                <!-- Nomor 1 Juara di Dada -->
+                <text x="60" y="108" font-family="'Fredoka', cursive" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+                <!-- Tali Peluit Menggantung di Leher -->
+                <path d="M46 88 Q60 102 74 88" stroke="#FBBF24" stroke-width="2.5" fill="none"/>
+                <circle cx="60" cy="100" r="3.5" fill="#EF4444" stroke="#1E293B" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="mascot-touch-hint">Sentuh Aku!</span>
+          </div>
+
+          <!-- Balon Dialog Komik -->
+          <div class="hero-speech-bubble">
+            <span class="speech-tag">Tips Sehat Kapten Bugar</span>
+            <h2 class="hero-title">Halo Sahabat Juara! Siap Berolahraga?</h2>
+            <p class="hero-speech-text" id="mascot-speech-text">
+              Minum air putih minimal 8 gelas setiap hari agar tubuh tidak dehidrasi dan tetap bugar!
+            </p>
+            <div class="hero-quick-tips">
+              <span class="tip-pill">10 Soal Seru Tiap Kelas</span>
+              <span class="tip-pill">Fitur Suara Pembaca Soal</span>
+              <span class="tip-pill">Review &amp; Koreksi Jawaban Lengkap</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bagian Judul Pilihan Kelas -->
+        <div class="section-header">
+          <span class="section-tag">Tingkatan Sekolah Dasar</span>
+          <h2 class="section-title">Pilih Kelasmu Sekarang!</h2>
+          <p class="section-sub">Materi disesuaikan dengan tingkatan kelas dan perkembangan fisik anak SD</p>
+        </div>
+
+        <!-- Grid 6 Kelas (1 sampai 6) -->
+        <div class="grades-grid" id="grades-container">
+          <!-- Diisi otomatis oleh JavaScript -->
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================================
+           2. LAYAR ARENA KUIS (SYARAT 3, 5, 6, 7)
+           =================================================================== -->
+      <section id="quiz-screen" class="screen-view d-none">
+
+        <!-- Bar Navigasi Kuis -->
+        <div class="quiz-screen-header">
+          <button type="button" class="btn-ghost-back" id="btn-back-home">
+            <span id="back-icon-box" aria-hidden="true"></span>
+            <span>Kembali ke Menu</span>
+          </button>
+          <div class="quiz-active-grade" id="quiz-grade-badge">Kelas 1 SD</div>
+        </div>
+
+        <!-- Gimmick Lintasan Lari Atletik (Progress Bar) -->
+        <div class="running-track-progress">
+          <div class="track-meta">
+            <span class="track-label">Lintasan Menuju Garis Finish</span>
+            <span id="progress-text">Soal 1 dari 10</span>
+            <span id="progress-percent">10%</span>
+          </div>
+          <div class="track-rail">
+            <div class="track-fill" id="track-fill">
+              <!-- Maskot Pelari yang Bergerak di Atas Lintasan -->
+              <div class="track-runner-sprite" id="runner-sprite" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#1E293B" stroke-width="2.5"><circle cx="15" cy="5" r="3" fill="#FBBF24"/><path d="M8 12l3-3 4 2 3-2"/><path d="M11 9v6l-4 5"/><path d="M14 15l2 4 4-1"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu Soal Kuis Utama -->
+        <div class="question-card">
+          <div class="question-card-top">
+            <span class="topic-badge" id="question-topic">Topik Materi</span>
+            <!-- Tombol Suara TTS (Syarat 3) -->
+            <button type="button" class="btn-speech-read" id="btn-speak-question" aria-label="Dengarkan soal kuis dibacakan dengan suara">
+              <span id="speech-btn-icon" aria-hidden="true"></span>
+              <span id="speech-btn-label">Dengarkan Soal</span>
+            </button>
+          </div>
+
+          <div class="question-text-box">
+            <h2 id="question-text">Memuat pertanyaan kuis...</h2>
+          </div>
+
+          <!-- Opsi Jawaban (A, B, C, D) -->
+          <div class="options-grid" id="options-container">
+            <!-- Diisi secara dinamis oleh JavaScript -->
+          </div>
+
+          <!-- Banner Tanggapan Ceria Setelah Menjawab -->
+          <div class="quiz-feedback-banner d-none" id="feedback-banner">
+            <div class="feedback-left">
+              <div class="feedback-icon-box" id="feedback-icon" aria-hidden="true"></div>
+              <div class="feedback-text">
+                <h3 id="feedback-heading">HEBAT SEKALI!</h3>
+                <p id="feedback-sub">Gerakan dan pemahaman olahragamu sangat bagus!</p>
+              </div>
+            </div>
+            <button type="button" class="btn-next-question" id="btn-next-question">
+              <span class="next-btn-text">Soal Berikutnya</span>
+              <span id="next-btn-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================================
+           3. LAYAR HASIL AKHIR & REVIEW KOREKSI (SYARAT 4 & 9)
+           =================================================================== -->
+      <section id="results-screen" class="screen-view results-screen-wrap d-none">
+
+        <!-- Kartu Selebrasi Kemenangan dengan Piala Bersinar (Syarat 9) -->
+        <div class="celebration-card">
+          
+          <div class="trophy-stage">
+            <!-- Sinar Pancaran Berputar -->
+            <div class="trophy-sunburst" aria-hidden="true"></div>
+            <!-- Piala Emas Bergengsi Komik -->
+            <div class="giant-trophy-svg" id="giant-trophy-box" aria-hidden="true"></div>
+          </div>
+
+          <!-- Bintang-Bintang Gemerlap -->
+          <div class="sparkle-stars-cluster" id="stars-cluster" aria-hidden="true">
+            <!-- Diisi secara dinamis -->
+          </div>
+
+          <h2 class="result-heading" id="result-title">JUARA SEJATI PJOK!</h2>
+          <p class="result-sub" id="result-sub">Kamu telah menyelesaikan seluruh tantangan kebugaran jasmani!</p>
+
+          <!-- Ringkasan Nilai dan Statistik -->
+          <div class="score-summary-board">
+            <div class="score-main-pill">
+              <div class="score-number-display" id="score-number-display">0</div>
+              <div class="score-caption">Skor Akhir</div>
+            </div>
+            <div class="score-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-val correct-val" id="stat-correct">0 Soal</span>
+              <span class="stat-lbl">Jawaban Benar</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val wrong-val" id="stat-wrong">0 Soal</span>
+              <span class="stat-lbl">Perlu Latihan</span>
+            </div>
+          </div>
+
+          <!-- Tombol Aksi Hasil -->
+          <div class="result-actions-grid">
+            <button type="button" class="btn-result-action btn-retry" id="btn-retry">
+              <span id="retry-icon-box" aria-hidden="true"></span>
+              <span>Ulangi Kuis Kelas Ini</span>
+            </button>
+            <button type="button" class="btn-result-action btn-change-grade" id="btn-change-grade">
+              <span id="change-grade-icon-box" aria-hidden="true"></span>
+              <span>Pilih Kelas Lain</span>
+            </button>
+            <button type="button" class="btn-result-action btn-reconfetti" id="btn-reconfetti">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F59E0B"/></svg>
+              <span>Rayakan Lagi!</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- LEMBAR REVIEW & KOREKSI JAWABAN LENGKAP (SYARAT 4) -->
+        <div class="review-section">
+          <div class="review-header">
+            <div class="review-title-box">
+              <span id="review-header-icon" aria-hidden="true"></span>
+              <h3>Lembar Koreksi &amp; Evaluasi Jawaban</h3>
+            </div>
+            <!-- Filter Tab Review -->
+            <div class="review-filter-tabs" role="tablist">
+              <button type="button" class="filter-tab-btn active" id="filter-all-btn">Semua (10)</button>
+              <button type="button" class="filter-tab-btn" id="filter-wrong-btn">Perlu Koreksi (0)</button>
+              <button type="button" class="filter-tab-btn" id="filter-correct-btn">Benar (0)</button>
+            </div>
+          </div>
+
+          <!-- Daftar 10 Soal yang Telah Dijawab -->
+          <div class="review-list" id="review-list">
+            <!-- Diisi secara dinamis oleh JavaScript -->
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer">
+      <p>SDS HARAPAN BANGSA KARAWANG &bull; Arena Kuis Pendidikan Jasmani, Olahraga &amp; Kesehatan (PJOK) Sekolah Dasar</p>
+      <span class="footer-badge">Kurikulum PJOK SD Kelas 1 - 6 &bull; Badan Sehat, Pikiran Cerdas</span>
+    </footer>
+
+  </div>
+
+  <!-- Skrip Aplikasi -->
+  <script src="js/icons.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
